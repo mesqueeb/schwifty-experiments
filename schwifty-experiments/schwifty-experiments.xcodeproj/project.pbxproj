@@ -7,19 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F7C7485F2A58EACD0075DE40 /* schwifty_experimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7485E2A58EACD0075DE40 /* schwifty_experimentsApp.swift */; };
-		F7C748612A58EACD0075DE40 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748602A58EACD0075DE40 /* ContentView.swift */; };
+		F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */; };
+		F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748602A58EACD0075DE40 /* PageWeather.swift */; };
 		F7C748632A58EACF0075DE40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748622A58EACF0075DE40 /* Assets.xcassets */; };
 		F7C748672A58EACF0075DE40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */; };
+		F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */; };
+		F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748712A58F6130075DE40 /* WeatherDayTile.swift */; };
+		F7C748742A58F6D30075DE40 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748732A58F6D30075DE40 /* NavigationTabs.swift */; };
+		F7C748762A58F76E0075DE40 /* PageAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* PageAccount.swift */; };
+		F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748772A58F7C30075DE40 /* AppLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F7C7485B2A58EACD0075DE40 /* schwifty-experiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schwifty-experiments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7C7485E2A58EACD0075DE40 /* schwifty_experimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schwifty_experimentsApp.swift; sourceTree = "<group>"; };
-		F7C748602A58EACD0075DE40 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchwiftyExperimentsApp.swift; sourceTree = "<group>"; };
+		F7C748602A58EACD0075DE40 /* PageWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageWeather.swift; sourceTree = "<group>"; };
 		F7C748622A58EACF0075DE40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7C748642A58EACF0075DE40 /* schwifty_experiments.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = schwifty_experiments.entitlements; sourceTree = "<group>"; };
 		F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowToast.swift; sourceTree = "<group>"; };
+		F7C748712A58F6130075DE40 /* WeatherDayTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayTile.swift; sourceTree = "<group>"; };
+		F7C748732A58F6D30075DE40 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
+		F7C748752A58F76E0075DE40 /* PageAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAccount.swift; sourceTree = "<group>"; };
+		F7C748772A58F7C30075DE40 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +62,9 @@
 		F7C7485D2A58EACD0075DE40 /* schwifty-experiments */ = {
 			isa = PBXGroup;
 			children = (
-				F7C7485E2A58EACD0075DE40 /* schwifty_experimentsApp.swift */,
-				F7C748602A58EACD0075DE40 /* ContentView.swift */,
+				F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */,
+				F7C7486E2A58F5E10075DE40 /* components */,
+				F7C7486D2A58ED750075DE40 /* pages */,
 				F7C748622A58EACF0075DE40 /* Assets.xcassets */,
 				F7C748642A58EACF0075DE40 /* schwifty_experiments.entitlements */,
 				F7C748652A58EACF0075DE40 /* Preview Content */,
@@ -67,6 +78,26 @@
 				F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F7C7486D2A58ED750075DE40 /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				F7C748602A58EACD0075DE40 /* PageWeather.swift */,
+				F7C748752A58F76E0075DE40 /* PageAccount.swift */,
+				F7C748772A58F7C30075DE40 /* AppLayout.swift */,
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
+		F7C7486E2A58F5E10075DE40 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
+				F7C748732A58F6D30075DE40 /* NavigationTabs.swift */,
+				F7C748712A58F6130075DE40 /* WeatherDayTile.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +170,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7C748612A58EACD0075DE40 /* ContentView.swift in Sources */,
-				F7C7485F2A58EACD0075DE40 /* schwifty_experimentsApp.swift in Sources */,
+				F7C748742A58F6D30075DE40 /* NavigationTabs.swift in Sources */,
+				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
+				F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */,
+				F7C748762A58F76E0075DE40 /* PageAccount.swift in Sources */,
+				F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */,
+				F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */,
+				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
