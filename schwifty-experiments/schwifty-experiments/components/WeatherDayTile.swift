@@ -28,6 +28,6 @@ struct WeatherDayTile: View {
 
 struct WeatherDayTilePreviews: PreviewProvider {
   static var previews: some View {
-    WeatherDayTile(day: "Tue", weather: .cloudy, temperature: 20).background(.red)
+    WeatherDayTile(day: "Tue", weather: .cloudy, temperature: 20).padding(16).background(.blue)
   }
 }

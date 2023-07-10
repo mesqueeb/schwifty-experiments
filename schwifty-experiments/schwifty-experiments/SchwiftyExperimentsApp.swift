@@ -12,6 +12,9 @@ struct SchwiftyExperimentsApp: App {
   var body: some Scene {
     WindowGroup {
       AppLayout()
+      // #if os(macOS)
+      //   .frame(minWidth: 600, minHeight: 450)
+      // #endif
     }
   }
 }

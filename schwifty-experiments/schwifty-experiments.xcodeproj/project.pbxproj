@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADA2A5A8C750000297C /* AccountMenu.swift */; };
+		F7A76ADE2A5A95850000297C /* InterpolateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */; };
+		F7A76AE02A5A9FA10000297C /* PagePortfolios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */; };
+		F7A76AE32A5AA2560000297C /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76AE22A5AA2560000297C /* Portfolio.swift */; };
+		F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */; };
 		F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */; };
 		F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748602A58EACD0075DE40 /* PageWeather.swift */; };
 		F7C748632A58EACF0075DE40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748622A58EACF0075DE40 /* Assets.xcassets */; };
 		F7C748672A58EACF0075DE40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */; };
 		F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */; };
 		F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748712A58F6130075DE40 /* WeatherDayTile.swift */; };
-		F7C748742A58F6D30075DE40 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748732A58F6D30075DE40 /* NavigationTabs.swift */; };
 		F7C748762A58F76E0075DE40 /* PageAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* PageAccount.swift */; };
 		F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748772A58F7C30075DE40 /* AppLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7A76ADA2A5A8C750000297C /* AccountMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenu.swift; sourceTree = "<group>"; };
+		F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolateEnum.swift; sourceTree = "<group>"; };
+		F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagePortfolios.swift; sourceTree = "<group>"; };
+		F7A76AE22A5AA2560000297C /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
+		F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTypes.swift; sourceTree = "<group>"; };
 		F7C7485B2A58EACD0075DE40 /* schwifty-experiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schwifty-experiments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchwiftyExperimentsApp.swift; sourceTree = "<group>"; };
 		F7C748602A58EACD0075DE40 /* PageWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageWeather.swift; sourceTree = "<group>"; };
@@ -27,7 +36,6 @@
 		F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowToast.swift; sourceTree = "<group>"; };
 		F7C748712A58F6130075DE40 /* WeatherDayTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayTile.swift; sourceTree = "<group>"; };
-		F7C748732A58F6D30075DE40 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 		F7C748752A58F76E0075DE40 /* PageAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAccount.swift; sourceTree = "<group>"; };
 		F7C748772A58F7C30075DE40 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +51,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7A76ADC2A5A956B0000297C /* dev-components */ = {
+			isa = PBXGroup;
+			children = (
+				F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */,
+			);
+			path = "dev-components";
+			sourceTree = "<group>";
+		};
+		F7A76AE12A5AA2390000297C /* db */ = {
+			isa = PBXGroup;
+			children = (
+				F7A76AE22A5AA2560000297C /* Portfolio.swift */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
+		F7B7DF002A5A3ED00068FDE5 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
 		F7C748522A58EACD0075DE40 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +94,9 @@
 		F7C7485D2A58EACD0075DE40 /* schwifty-experiments */ = {
 			isa = PBXGroup;
 			children = (
+				F7A76AE12A5AA2390000297C /* db */,
+				F7A76ADC2A5A956B0000297C /* dev-components */,
+				F7B7DF002A5A3ED00068FDE5 /* types */,
 				F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */,
 				F7C7486E2A58F5E10075DE40 /* components */,
 				F7C7486D2A58ED750075DE40 /* pages */,
@@ -85,6 +120,7 @@
 			children = (
 				F7C748602A58EACD0075DE40 /* PageWeather.swift */,
 				F7C748752A58F76E0075DE40 /* PageAccount.swift */,
+				F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */,
 				F7C748772A58F7C30075DE40 /* AppLayout.swift */,
 			);
 			path = pages;
@@ -94,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
-				F7C748732A58F6D30075DE40 /* NavigationTabs.swift */,
+				F7A76ADA2A5A8C750000297C /* AccountMenu.swift */,
 				F7C748712A58F6130075DE40 /* WeatherDayTile.swift */,
 			);
 			path = components;
@@ -170,13 +206,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7C748742A58F6D30075DE40 /* NavigationTabs.swift in Sources */,
 				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
 				F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */,
 				F7C748762A58F76E0075DE40 /* PageAccount.swift in Sources */,
 				F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */,
 				F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */,
+				F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */,
+				F7A76AE32A5AA2560000297C /* Portfolio.swift in Sources */,
+				F7A76ADE2A5A95850000297C /* InterpolateEnum.swift in Sources */,
+				F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */,
 				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
+				F7A76AE02A5A9FA10000297C /* PagePortfolios.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,10 +355,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cycraft.schwifty-experiments";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,10 +393,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cycraft.schwifty-experiments";
 				PRODUCT_NAME = "$(TARGET_NAME)";

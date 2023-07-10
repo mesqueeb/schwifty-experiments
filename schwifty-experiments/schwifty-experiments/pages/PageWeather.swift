@@ -60,10 +60,6 @@ struct Bg: View {
   }
 }
 
-struct PageWeatherPreviews: PreviewProvider {
-  static var previews: some View {
-    PageWeather()
-    PageWeather()
-      .previewDevice("iPhone 14 Pro")
-  }
+#Preview {
+  PageWeather()
 }

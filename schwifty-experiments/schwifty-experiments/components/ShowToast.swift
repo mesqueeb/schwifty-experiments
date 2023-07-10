@@ -28,3 +28,14 @@ struct ToastView: View {
     }
   }
 }
+
+#Preview {
+  let showToast = ShowToast()
+  return ZStack {
+    ToastView(showToast: showToast).zIndex(2)
+
+    Button(action: { showToast.show("this is a toast") }) {
+      Text("show toast")
+    }
+  }
+}

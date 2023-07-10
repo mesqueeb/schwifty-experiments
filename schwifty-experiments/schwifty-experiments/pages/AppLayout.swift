@@ -1,25 +1,31 @@
 import SwiftUI
 
 struct AppLayout: View {
-  var body: some View {
-    TabView {
-      PageWeather()
-        .tabItem {
-          Image(systemName: "house")
-          Text("Weather")
-        }
+  @State private var selectedTab: StackPath = .account
 
-      PageAccount()
-        .tabItem {
-          Image(systemName: "person")
-          Text("Account")
-        }
+  var body: some View {
+    TabView(selection: $selectedTab) {
+      NavigationView {
+        PageWeather()
+      }
+      .tabItem {
+        Image(systemName: "house")
+        Text("Weather")
+      }
+      .tag("/weather")
+
+      NavigationView {
+//        PageAccount()
+      }
+      .tabItem {
+        Image(systemName: "person")
+        Text("Account")
+      }
+      .tag("/account")
     }
   }
 }
 
-struct AppLayout_Previews: PreviewProvider {
-  static var previews: some View {
-    AppLayout()
-  }
+#Preview {
+  AppLayout()
 }
