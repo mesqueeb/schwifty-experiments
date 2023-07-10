@@ -25,15 +25,9 @@ struct PageWeather: View {
         }.padding(.bottom, 40)
         DaysRow()
         Spacer()
-
-        Button(action: { isNight.toggle() }) {
-          Text(isNight ? "Set Day" : "Set Night")
-            .frame(width: 280, height: 50)
-            .background(Color.white)
-            .font(.system(size: 20, weight: .bold, design: .default))
-            .cornerRadius(10)
-        }
-
+        SchwiftyButton(action: { isNight.toggle() },
+                       label: isNight ? "Set Day" : "Set Night",
+                       kind: .onColor)
         Spacer()
       }
     }

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F73B394B2A5BE28C00997186 /* PageFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394A2A5BE28C00997186 /* PageFrameworks.swift */; };
+		F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */; };
+		F73B394F2A5BE3BC00997186 /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394E2A5BE3BC00997186 /* Framework.swift */; };
+		F73B39512A5BE47F00997186 /* FrameworkGridTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */; };
+		F73B39532A5BE83900997186 /* FrameworkDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39522A5BE83900997186 /* FrameworkDetails.swift */; };
+		F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */; };
 		F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADA2A5A8C750000297C /* AccountMenu.swift */; };
 		F7A76ADE2A5A95850000297C /* InterpolateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */; };
 		F7A76AE02A5A9FA10000297C /* PagePortfolios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */; };
@@ -23,6 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F73B394A2A5BE28C00997186 /* PageFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFrameworks.swift; sourceTree = "<group>"; };
+		F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGrid.swift; sourceTree = "<group>"; };
+		F73B394E2A5BE3BC00997186 /* Framework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
+		F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkGridTile.swift; sourceTree = "<group>"; };
+		F73B39522A5BE83900997186 /* FrameworkDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkDetails.swift; sourceTree = "<group>"; };
+		F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchwiftyButton.swift; sourceTree = "<group>"; };
 		F7A76ADA2A5A8C750000297C /* AccountMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenu.swift; sourceTree = "<group>"; };
 		F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolateEnum.swift; sourceTree = "<group>"; };
 		F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagePortfolios.swift; sourceTree = "<group>"; };
@@ -62,6 +74,7 @@
 		F7A76AE12A5AA2390000297C /* db */ = {
 			isa = PBXGroup;
 			children = (
+				F73B394E2A5BE3BC00997186 /* Framework.swift */,
 				F7A76AE22A5AA2560000297C /* Portfolio.swift */,
 			);
 			path = db;
@@ -120,6 +133,7 @@
 			children = (
 				F7C748602A58EACD0075DE40 /* PageWeather.swift */,
 				F7C748752A58F76E0075DE40 /* PageAccount.swift */,
+				F73B394A2A5BE28C00997186 /* PageFrameworks.swift */,
 				F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */,
 				F7C748772A58F7C30075DE40 /* AppLayout.swift */,
 			);
@@ -130,8 +144,12 @@
 			isa = PBXGroup;
 			children = (
 				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
+				F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */,
 				F7A76ADA2A5A8C750000297C /* AccountMenu.swift */,
 				F7C748712A58F6130075DE40 /* WeatherDayTile.swift */,
+				F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */,
+				F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */,
+				F73B39522A5BE83900997186 /* FrameworkDetails.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -211,10 +229,16 @@
 				F7C748762A58F76E0075DE40 /* PageAccount.swift in Sources */,
 				F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */,
 				F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */,
+				F73B39532A5BE83900997186 /* FrameworkDetails.swift in Sources */,
+				F73B394F2A5BE3BC00997186 /* Framework.swift in Sources */,
 				F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */,
+				F73B39512A5BE47F00997186 /* FrameworkGridTile.swift in Sources */,
 				F7A76AE32A5AA2560000297C /* Portfolio.swift in Sources */,
+				F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */,
 				F7A76ADE2A5A95850000297C /* InterpolateEnum.swift in Sources */,
 				F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */,
+				F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */,
+				F73B394B2A5BE28C00997186 /* PageFrameworks.swift in Sources */,
 				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
 				F7A76AE02A5A9FA10000297C /* PagePortfolios.swift in Sources */,
 			);

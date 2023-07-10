@@ -12,7 +12,25 @@ struct AppLayout: View {
         Image(systemName: "house")
         Text("Weather")
       }
-      .tag("/weather")
+      .tag(StackPath.weather)
+
+      NavigationView {
+        PagePorfolios()
+      }
+      .tabItem {
+        Image(systemName: "house")
+        Text("Portfolios")
+      }
+      .tag(StackPath.portfolios)
+
+      NavigationView {
+        PageFrameworks()
+      }
+      .tabItem {
+        Image(systemName: "gear")
+        Text("Frameworks")
+      }
+      .tag(StackPath.frameworks)
 
       NavigationView {
 //        PageAccount()
@@ -21,7 +39,7 @@ struct AppLayout: View {
         Image(systemName: "person")
         Text("Account")
       }
-      .tag("/account")
+      .tag(StackPath.account)
     }
   }
 }

@@ -1,18 +1,27 @@
-//
-//  PageFrameworks.swift
-//  schwifty-experiments
-//
-//  Created by Luca Ban on 2023/07/10.
-//
-
 import SwiftUI
 
 struct PageFrameworks: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  @State private var shownFramework: Framework? = nil
+  @State private var isShown: Bool = false
+
+  var body: some View {
+    NavigationStack {
+      ScrollView {
+        FrameworkGrid(show: { payload in
+          shownFramework = payload
+          isShown = true
+        })
+      }
+      .navigationTitle("🍏 Frameworks")
+      .sheet(isPresented: $isShown, content: {
+        if let shownFramework {
+          FrameworkDetails(framework: shownFramework)
+        }
+      })
     }
+  }
 }
 
 #Preview {
-    PageFrameworks()
+  PageFrameworks()
 }

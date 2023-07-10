@@ -25,4 +25,6 @@ enum StackPathPortolios: Hashable {
 enum StackPath: String, CaseIterable {
   case weather = "/weather"
   case account = "/account"
+  case portfolios = "/portfolios"
+  case frameworks = "/frameworks"
 }

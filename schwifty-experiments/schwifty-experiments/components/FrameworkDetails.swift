@@ -1,18 +1,21 @@
 import SwiftUI
 
-struct FrameworkGridTile: View {
+struct FrameworkDetails: View {
   let framework: Framework
 
   var body: some View {
-    VStack {
-      Image(framework.imageName)
-        .resizable().frame(width: 90, height: 90)
-      Text(framework.name)
-        .font(.title2).fontWeight(.semibold).scaledToFit().minimumScaleFactor(0.5)
+    VStack(spacing: 16) {
+      FrameworkGridTile(framework: framework)
+
+      Text(framework.description)
+        .font(.body)
+        .padding()
+
+      SchwiftyButton(action: { print(123) }, label: "Learn More")
     }
   }
 }
 
 #Preview {
-  FrameworkGridTile(framework: dbFramework.values[0])
+  FrameworkDetails(framework: dbFramework.values[0])
 }
