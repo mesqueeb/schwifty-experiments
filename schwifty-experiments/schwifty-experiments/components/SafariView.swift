@@ -1,18 +1,29 @@
-//
-//  SafariView.swift
-//  schwifty-experiments
-//
-//  Created by Luca Ban on 2023/07/11.
-//
-
+import SafariServices
 import SwiftUI
 
-struct SafariView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct SafariView: UIViewControllerRepresentable {
+  let url: URL
+
+  func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
+    return SFSafariViewController(url: url)
+  }
+
+  func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {}
 }
 
-#Preview {
-    SafariView()
+struct SafariUrl: Identifiable {
+  let id: String
+  let url: URL
+  init(_ url: String) {
+    self.id = url
+    self.url = URL(string: url)!
+  }
+}
+
+class SafariVM: ObservableObject {
+  @Published var shown: SafariUrl? = nil
+
+  public func openUrl(_ url: String) {
+    shown = SafariUrl(url)
+  }
 }

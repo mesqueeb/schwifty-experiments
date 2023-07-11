@@ -11,7 +11,7 @@ struct FrameworkDetails: View {
         .font(.body)
         .padding()
 
-      SchwiftyButton(action: { print(123) }, label: "Learn More")
+      SchwiftyButton(url: framework.url, label: "Learn More")
     }
   }
 }

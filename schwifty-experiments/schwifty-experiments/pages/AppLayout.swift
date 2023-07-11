@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AppLayout: View {
   @State private var selectedTab: StackPath = .account
+  @StateObject private var safariVM = SafariVM()
 
   var body: some View {
     TabView(selection: $selectedTab) {
@@ -33,7 +34,7 @@ struct AppLayout: View {
       .tag(StackPath.frameworks)
 
       NavigationView {
-//        PageAccount()
+        //        PageAccount()
       }
       .tabItem {
         Image(systemName: "person")
@@ -41,6 +42,7 @@ struct AppLayout: View {
       }
       .tag(StackPath.account)
     }
+    .environmentObject(safariVM)
   }
 }
 

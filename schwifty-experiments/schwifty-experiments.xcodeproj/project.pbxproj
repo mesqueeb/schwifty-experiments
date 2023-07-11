@@ -13,6 +13,7 @@
 		F73B39512A5BE47F00997186 /* FrameworkGridTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */; };
 		F73B39532A5BE83900997186 /* FrameworkDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39522A5BE83900997186 /* FrameworkDetails.swift */; };
 		F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */; };
+		F73B39572A5D339800997186 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39562A5D339800997186 /* SafariView.swift */; };
 		F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADA2A5A8C750000297C /* AccountMenu.swift */; };
 		F7A76ADE2A5A95850000297C /* InterpolateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */; };
 		F7A76AE02A5A9FA10000297C /* PagePortfolios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */; };
@@ -35,6 +36,7 @@
 		F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkGridTile.swift; sourceTree = "<group>"; };
 		F73B39522A5BE83900997186 /* FrameworkDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkDetails.swift; sourceTree = "<group>"; };
 		F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchwiftyButton.swift; sourceTree = "<group>"; };
+		F73B39562A5D339800997186 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		F7A76ADA2A5A8C750000297C /* AccountMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenu.swift; sourceTree = "<group>"; };
 		F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolateEnum.swift; sourceTree = "<group>"; };
 		F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagePortfolios.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */,
 				F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */,
 				F73B39522A5BE83900997186 /* FrameworkDetails.swift */,
+				F73B39562A5D339800997186 /* SafariView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -182,7 +185,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					F7C7485A2A58EACD0075DE40 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -234,6 +237,7 @@
 				F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */,
 				F73B39512A5BE47F00997186 /* FrameworkGridTile.swift in Sources */,
 				F7A76AE32A5AA2560000297C /* Portfolio.swift in Sources */,
+				F73B39572A5D339800997186 /* SafariView.swift in Sources */,
 				F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */,
 				F7A76ADE2A5A95850000297C /* InterpolateEnum.swift in Sources */,
 				F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */,
@@ -251,6 +255,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -280,9 +285,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -309,6 +316,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -338,9 +346,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -364,6 +374,7 @@
 				CODE_SIGN_ENTITLEMENTS = "schwifty-experiments/schwifty_experiments.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"schwifty-experiments/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ULH57827C;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -379,7 +390,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
@@ -402,6 +413,7 @@
 				CODE_SIGN_ENTITLEMENTS = "schwifty-experiments/schwifty_experiments.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"schwifty-experiments/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ULH57827C;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -417,7 +429,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
