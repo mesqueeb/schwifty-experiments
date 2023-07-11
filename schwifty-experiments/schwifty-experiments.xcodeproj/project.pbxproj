@@ -19,6 +19,7 @@
 		F7A76AE02A5A9FA10000297C /* PagePortfolios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */; };
 		F7A76AE32A5AA2560000297C /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76AE22A5AA2560000297C /* Portfolio.swift */; };
 		F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */; };
+		F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFC1982A5D4F1800969430 /* CSheet.swift */; };
 		F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */; };
 		F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748602A58EACD0075DE40 /* PageWeather.swift */; };
 		F7C748632A58EACF0075DE40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748622A58EACF0075DE40 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagePortfolios.swift; sourceTree = "<group>"; };
 		F7A76AE22A5AA2560000297C /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTypes.swift; sourceTree = "<group>"; };
+		F7BFC1982A5D4F1800969430 /* CSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSheet.swift; sourceTree = "<group>"; };
 		F7C7485B2A58EACD0075DE40 /* schwifty-experiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schwifty-experiments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchwiftyExperimentsApp.swift; sourceTree = "<group>"; };
 		F7C748602A58EACD0075DE40 /* PageWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageWeather.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */,
 				F73B39522A5BE83900997186 /* FrameworkDetails.swift */,
 				F73B39562A5D339800997186 /* SafariView.swift */,
+				F7BFC1982A5D4F1800969430 /* CSheet.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				F73B394B2A5BE28C00997186 /* PageFrameworks.swift in Sources */,
 				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
 				F7A76AE02A5A9FA10000297C /* PagePortfolios.swift in Sources */,
+				F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
