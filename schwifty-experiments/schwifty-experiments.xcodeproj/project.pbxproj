@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F71512EA2A5FEAD900D1B5A5 /* PortfolioFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512E92A5FEAD900D1B5A5 /* PortfolioFeed.swift */; };
+		F71512EC2A5FEB1200D1B5A5 /* PublicPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512EB2A5FEB1200D1B5A5 /* PublicPortfolio.swift */; };
+		F71512EE2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512ED2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift */; };
 		F73B394B2A5BE28C00997186 /* PageFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394A2A5BE28C00997186 /* PageFrameworks.swift */; };
 		F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */; };
-		F73B394F2A5BE3BC00997186 /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394E2A5BE3BC00997186 /* Framework.swift */; };
+		F73B394F2A5BE3BC00997186 /* dbFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394E2A5BE3BC00997186 /* dbFramework.swift */; };
 		F73B39512A5BE47F00997186 /* FrameworkGridTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */; };
 		F73B39532A5BE83900997186 /* FrameworkDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39522A5BE83900997186 /* FrameworkDetails.swift */; };
 		F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */; };
-		F73B39572A5D339800997186 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39562A5D339800997186 /* SafariView.swift */; };
+		F73B39572A5D339800997186 /* CSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39562A5D339800997186 /* CSafariView.swift */; };
+		F7751D782A61FE4400FAA861 /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7751D772A61FE4400FAA861 /* Framework.swift */; };
+		F78D26D02A61642500B7B76E /* StackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D26CF2A61642500B7B76E /* StackVC.swift */; };
 		F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADA2A5A8C750000297C /* AccountMenu.swift */; };
-		F7A76ADE2A5A95850000297C /* InterpolateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */; };
-		F7A76AE02A5A9FA10000297C /* PagePortfolios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */; };
-		F7A76AE32A5AA2560000297C /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76AE22A5AA2560000297C /* Portfolio.swift */; };
+		F7A76AE02A5A9FA10000297C /* AppStacksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADF2A5A9FA10000297C /* AppStacksView.swift */; };
+		F7A76AE32A5AA2560000297C /* dbPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76AE22A5AA2560000297C /* dbPortfolio.swift */; };
 		F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */; };
 		F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFC1982A5D4F1800969430 /* CSheet.swift */; };
+		F7C152582A60DCCB0094FAFB /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C152572A60DCCB0094FAFB /* AppTabView.swift */; };
+		F7C1525A2A60E8B60094FAFB /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C152592A60E8B60094FAFB /* Portfolio.swift */; };
 		F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */; };
 		F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748602A58EACD0075DE40 /* PageWeather.swift */; };
 		F7C748632A58EACF0075DE40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748622A58EACF0075DE40 /* Assets.xcassets */; };
@@ -31,19 +37,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F71512E92A5FEAD900D1B5A5 /* PortfolioFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioFeed.swift; sourceTree = "<group>"; };
+		F71512EB2A5FEB1200D1B5A5 /* PublicPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicPortfolio.swift; sourceTree = "<group>"; };
+		F71512ED2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPortfolioCv.swift; sourceTree = "<group>"; };
 		F73B394A2A5BE28C00997186 /* PageFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFrameworks.swift; sourceTree = "<group>"; };
 		F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGrid.swift; sourceTree = "<group>"; };
-		F73B394E2A5BE3BC00997186 /* Framework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
+		F73B394E2A5BE3BC00997186 /* dbFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dbFramework.swift; sourceTree = "<group>"; };
 		F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkGridTile.swift; sourceTree = "<group>"; };
 		F73B39522A5BE83900997186 /* FrameworkDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkDetails.swift; sourceTree = "<group>"; };
 		F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchwiftyButton.swift; sourceTree = "<group>"; };
-		F73B39562A5D339800997186 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		F73B39562A5D339800997186 /* CSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSafariView.swift; sourceTree = "<group>"; };
+		F7751D772A61FE4400FAA861 /* Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
+		F78D26CF2A61642500B7B76E /* StackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackVC.swift; sourceTree = "<group>"; };
 		F7A76ADA2A5A8C750000297C /* AccountMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenu.swift; sourceTree = "<group>"; };
-		F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolateEnum.swift; sourceTree = "<group>"; };
-		F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagePortfolios.swift; sourceTree = "<group>"; };
-		F7A76AE22A5AA2560000297C /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
+		F7A76ADF2A5A9FA10000297C /* AppStacksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStacksView.swift; sourceTree = "<group>"; };
+		F7A76AE22A5AA2560000297C /* dbPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbPortfolio.swift; sourceTree = "<group>"; };
 		F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTypes.swift; sourceTree = "<group>"; };
 		F7BFC1982A5D4F1800969430 /* CSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSheet.swift; sourceTree = "<group>"; };
+		F7C152572A60DCCB0094FAFB /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		F7C152592A60E8B60094FAFB /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		F7C7485B2A58EACD0075DE40 /* schwifty-experiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schwifty-experiments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchwiftyExperimentsApp.swift; sourceTree = "<group>"; };
 		F7C748602A58EACD0075DE40 /* PageWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageWeather.swift; sourceTree = "<group>"; };
@@ -67,19 +79,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F7A76ADC2A5A956B0000297C /* dev-components */ = {
-			isa = PBXGroup;
-			children = (
-				F7A76ADD2A5A95850000297C /* InterpolateEnum.swift */,
-			);
-			path = "dev-components";
-			sourceTree = "<group>";
-		};
 		F7A76AE12A5AA2390000297C /* db */ = {
 			isa = PBXGroup;
 			children = (
-				F73B394E2A5BE3BC00997186 /* Framework.swift */,
-				F7A76AE22A5AA2560000297C /* Portfolio.swift */,
+				F73B394E2A5BE3BC00997186 /* dbFramework.swift */,
+				F7A76AE22A5AA2560000297C /* dbPortfolio.swift */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -87,7 +91,10 @@
 		F7B7DF002A5A3ED00068FDE5 /* types */ = {
 			isa = PBXGroup;
 			children = (
+				F7751D772A61FE4400FAA861 /* Framework.swift */,
+				F78D26CF2A61642500B7B76E /* StackVC.swift */,
 				F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */,
+				F7C152592A60E8B60094FAFB /* Portfolio.swift */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -95,8 +102,8 @@
 		F7C748522A58EACD0075DE40 = {
 			isa = PBXGroup;
 			children = (
-				F7C7485D2A58EACD0075DE40 /* schwifty-experiments */,
 				F7C7485C2A58EACD0075DE40 /* Products */,
+				F7C7485D2A58EACD0075DE40 /* schwifty-experiments */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,10 +118,9 @@
 		F7C7485D2A58EACD0075DE40 /* schwifty-experiments */ = {
 			isa = PBXGroup;
 			children = (
-				F7A76AE12A5AA2390000297C /* db */,
-				F7A76ADC2A5A956B0000297C /* dev-components */,
-				F7B7DF002A5A3ED00068FDE5 /* types */,
 				F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */,
+				F7A76AE12A5AA2390000297C /* db */,
+				F7B7DF002A5A3ED00068FDE5 /* types */,
 				F7C7486E2A58F5E10075DE40 /* components */,
 				F7C7486D2A58ED750075DE40 /* pages */,
 				F7C748622A58EACF0075DE40 /* Assets.xcassets */,
@@ -135,11 +141,12 @@
 		F7C7486D2A58ED750075DE40 /* pages */ = {
 			isa = PBXGroup;
 			children = (
-				F7C748602A58EACD0075DE40 /* PageWeather.swift */,
+				F7C748772A58F7C30075DE40 /* AppLayout.swift */,
+				F7C152572A60DCCB0094FAFB /* AppTabView.swift */,
+				F7A76ADF2A5A9FA10000297C /* AppStacksView.swift */,
 				F7C748752A58F76E0075DE40 /* PageAccount.swift */,
 				F73B394A2A5BE28C00997186 /* PageFrameworks.swift */,
-				F7A76ADF2A5A9FA10000297C /* PagePortfolios.swift */,
-				F7C748772A58F7C30075DE40 /* AppLayout.swift */,
+				F7C748602A58EACD0075DE40 /* PageWeather.swift */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -147,15 +154,18 @@
 		F7C7486E2A58F5E10075DE40 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
-				F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */,
 				F7A76ADA2A5A8C750000297C /* AccountMenu.swift */,
-				F7C748712A58F6130075DE40 /* WeatherDayTile.swift */,
+				F73B39562A5D339800997186 /* CSafariView.swift */,
+				F7BFC1982A5D4F1800969430 /* CSheet.swift */,
+				F73B39522A5BE83900997186 /* FrameworkDetails.swift */,
 				F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */,
 				F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */,
-				F73B39522A5BE83900997186 /* FrameworkDetails.swift */,
-				F73B39562A5D339800997186 /* SafariView.swift */,
-				F7BFC1982A5D4F1800969430 /* CSheet.swift */,
+				F71512E92A5FEAD900D1B5A5 /* PortfolioFeed.swift */,
+				F71512EB2A5FEB1200D1B5A5 /* PublicPortfolio.swift */,
+				F71512ED2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift */,
+				F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */,
+				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
+				F7C748712A58F6130075DE40 /* WeatherDayTile.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -230,24 +240,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7C1525A2A60E8B60094FAFB /* Portfolio.swift in Sources */,
 				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
 				F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */,
 				F7C748762A58F76E0075DE40 /* PageAccount.swift in Sources */,
+				F7751D782A61FE4400FAA861 /* Framework.swift in Sources */,
 				F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */,
 				F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */,
 				F73B39532A5BE83900997186 /* FrameworkDetails.swift in Sources */,
-				F73B394F2A5BE3BC00997186 /* Framework.swift in Sources */,
+				F71512EE2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift in Sources */,
+				F73B394F2A5BE3BC00997186 /* dbFramework.swift in Sources */,
+				F7C152582A60DCCB0094FAFB /* AppTabView.swift in Sources */,
 				F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */,
 				F73B39512A5BE47F00997186 /* FrameworkGridTile.swift in Sources */,
-				F7A76AE32A5AA2560000297C /* Portfolio.swift in Sources */,
-				F73B39572A5D339800997186 /* SafariView.swift in Sources */,
+				F7A76AE32A5AA2560000297C /* dbPortfolio.swift in Sources */,
+				F73B39572A5D339800997186 /* CSafariView.swift in Sources */,
 				F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */,
-				F7A76ADE2A5A95850000297C /* InterpolateEnum.swift in Sources */,
 				F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */,
+				F78D26D02A61642500B7B76E /* StackVC.swift in Sources */,
 				F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */,
 				F73B394B2A5BE28C00997186 /* PageFrameworks.swift in Sources */,
+				F71512EC2A5FEB1200D1B5A5 /* PublicPortfolio.swift in Sources */,
 				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
-				F7A76AE02A5A9FA10000297C /* PagePortfolios.swift in Sources */,
+				F71512EA2A5FEAD900D1B5A5 /* PortfolioFeed.swift in Sources */,
+				F7A76AE02A5A9FA10000297C /* AppStacksView.swift in Sources */,
 				F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,18 +410,19 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cycraft.schwifty-experiments";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -433,18 +450,19 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "cycraft.schwifty-experiments";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

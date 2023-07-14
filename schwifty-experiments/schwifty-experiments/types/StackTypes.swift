@@ -1,30 +1,81 @@
-enum StackPathAccount: String, CaseIterable {
-  case root = "/account"
-  case settings = "/accout/settings"
-  case settings_notifications = "/accout/settings/notifications"
-  case about = "/account/about"
-}
+import SwiftUI
 
-enum StackPathPortolios: Hashable {
-  case root
-  case portfolio(String?)
-  case portfolio_cv(String?)
+enum StackPath: Hashable, Identifiable {
+  case pageWeather
+  case pagePortfolios
+  case pageFrameworks
+  case pageAccount
+  case publicPortfolio(String?)
+  case publicPortfolioCv(String?)
+  case _404
 
-  var path: String {
+  var id: String {
     switch self {
-    case .root:
-      return "/portfolios"
-    case .portfolio(let username):
-      return "/portfolios/\(username ?? "")"
-    case .portfolio_cv(let username):
-      return "/portfolios/\(username ?? "")/cv"
+    case ._404:
+      return "404"
+    case .pageWeather:
+      return "pageWeather"
+    case .pagePortfolios:
+      return "pagePortfolios"
+    case .pageFrameworks:
+      return "pageFrameworks"
+    case .pageAccount:
+      return "pageAccount"
+    case .publicPortfolio(let username):
+      return "publicPortfolio(\(username ?? ""))"
+    case .publicPortfolioCv(let username):
+      return "publicPortfolioCv(\(username ?? ""))"
+    }
+  }
+
+  var view: AnyView {
+    switch self {
+    case ._404:
+      return AnyView(Text("404"))
+    case .pagePortfolios:
+      return AnyView(PortfolioFeed())
+    case .publicPortfolio(let username):
+      return AnyView(PublicPortfolio(username: username))
+    case .publicPortfolioCv(let username):
+      return AnyView(PublicPortfolioCv(username: username))
+    case .pageWeather:
+      return AnyView(PageWeather())
+    case .pageFrameworks:
+      return AnyView(PageFrameworks())
+    case .pageAccount:
+      return AnyView(PageAccount())
     }
   }
 }
 
-enum StackPath: String, CaseIterable {
-  case weather = "/weather"
-  case account = "/account"
-  case portfolios = "/portfolios"
-  case frameworks = "/frameworks"
+struct StackRootMeta {
+  let title: String
+  let icon: String
+}
+
+enum StackRoot: Hashable, Identifiable {
+  case rootWeather
+  case rootPortfolios
+  case rootFrameworks
+  case rootAccount
+  case _404
+
+  var meta: StackRootMeta {
+    switch self {
+    case ._404:
+      return StackRootMeta(title: "404", icon: "")
+    case .rootWeather:
+      return StackRootMeta(title: "Weather", icon: "house")
+    case .rootPortfolios:
+      return StackRootMeta(title: "Portfolios", icon: "house")
+    case .rootFrameworks:
+      return StackRootMeta(title: "Frameworks", icon: "gear")
+    case .rootAccount:
+      return StackRootMeta(title: "Account", icon: "person")
+    }
+  }
+
+  var id: String {
+    self.meta.title
+  }
 }

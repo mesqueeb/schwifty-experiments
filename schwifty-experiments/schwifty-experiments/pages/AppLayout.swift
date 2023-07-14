@@ -1,48 +1,22 @@
 import SwiftUI
 
 struct AppLayout: View {
-  @State private var selectedTab: StackPath = .account
-  @StateObject private var safariVM = SafariVM()
+  @StateObject private var safari = Safari()
+
+  @StateObject private var stackVC = StackVC(initialRoot: .rootAccount, initialRootCacheDic: [
+    ._404: StackCache(fullPath: [._404]),
+    .rootWeather: StackCache(fullPath: [.pageWeather]),
+    .rootPortfolios: StackCache(fullPath: [.pagePortfolios]),
+    .rootFrameworks: StackCache(fullPath: [.pageFrameworks]),
+    .rootAccount: StackCache(fullPath: [.pageAccount]),
+  ])
+
+  let tabs: [StackRoot] = [.rootWeather, .rootPortfolios, .rootFrameworks, .rootAccount]
 
   var body: some View {
-    TabView(selection: $selectedTab) {
-      NavigationView {
-        PageWeather()
-      }
-      .tabItem {
-        Image(systemName: "house")
-        Text("Weather")
-      }
-      .tag(StackPath.weather)
-
-      NavigationView {
-        PagePorfolios()
-      }
-      .tabItem {
-        Image(systemName: "house")
-        Text("Portfolios")
-      }
-      .tag(StackPath.portfolios)
-
-      NavigationView {
-        PageFrameworks()
-      }
-      .tabItem {
-        Image(systemName: "gear")
-        Text("Frameworks")
-      }
-      .tag(StackPath.frameworks)
-
-      NavigationView {
-        //        PageAccount()
-      }
-      .tabItem {
-        Image(systemName: "person")
-        Text("Account")
-      }
-      .tag(StackPath.account)
-    }
-    .environmentObject(safariVM)
+    AppTabView(tabs: tabs)
+      .environmentObject(safari)
+      .environmentObject(stackVC)
   }
 }
 

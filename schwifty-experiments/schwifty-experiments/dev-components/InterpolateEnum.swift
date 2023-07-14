@@ -21,6 +21,6 @@ struct InterpolateEnumArray<T: RawRepresentable>: View where T.RawValue == Strin
 }
 
 #Preview {
-  let path = [StackPathAccount.about, StackPathAccount.settings]
+  let path = [StackPath.pageAccount, StackPath.pageWeather]
   return InterpolateEnumArray(targetEnumArray: path)
 }

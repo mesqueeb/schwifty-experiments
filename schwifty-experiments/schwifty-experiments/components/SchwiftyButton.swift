@@ -6,7 +6,7 @@ enum SchwiftyButtonKind {
 }
 
 struct SchwiftyButton: View {
-  @EnvironmentObject private var safariVM: SafariVM
+  @EnvironmentObject private var safari: Safari
 
   let action: (() -> Void)?
   let url: String?
@@ -32,7 +32,7 @@ struct SchwiftyButton: View {
       if let action = action {
         action()
       } else if let url = url {
-        safariVM.openUrl(url)
+        safari.openUrl(url)
       }
     }) {
       Text(label)
@@ -43,9 +43,11 @@ struct SchwiftyButton: View {
         .foregroundColor(kind == .onColor ? .accentColor : Color.white)
         .cornerRadius(8)
     }
-    .sheet(item: $safariVM.shown) { shown in
-      SafariView(url: shown.url)
+    #if !os(macOS)
+    .sheet(item: $safari.shown) { shown in
+      CSafariView(url: shown.url)
     }
+    #endif
   }
 }
 
