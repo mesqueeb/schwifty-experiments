@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PortfolioFeed: View {
+struct DbPortfolioFeed: View {
   @EnvironmentObject var stackVC: StackVC
 
   var body: some View {
@@ -8,7 +8,7 @@ struct PortfolioFeed: View {
       List(dbPortfolios.values, id: \.username) { p in
         HStack {
           Button(action: {
-            stackVC.pushTo(parent: .pagePortfolios,
+            stackVC.pushTo(parent: .portfolioFeed,
                            path: StackPath.publicPortfolio(p.username))
           }) { Text(p.username).foregroundColor(.primary) }
         }
@@ -18,5 +18,5 @@ struct PortfolioFeed: View {
 }
 
 #Preview {
-  PortfolioFeed()
+  DbPortfolioFeed()
 }

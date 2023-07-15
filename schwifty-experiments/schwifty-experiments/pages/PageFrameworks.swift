@@ -1,26 +1,21 @@
 import SwiftUI
 
 struct PageFrameworks: View {
-  @State private var shownFramework: Framework? = nil
+  let pathToView: (StackPath) -> AnyView
+
+  @EnvironmentObject var stackVC: StackVC
 
   var body: some View {
-    NavigationStack {
-      ScrollView {
-        FrameworkGrid(clickItem: { payload in shownFramework = payload })
-          .padding()
-      }
-      .sheet(item: $shownFramework) { framework in
-        CSheet(close: { shownFramework = nil }) {
-          Spacer()
-          FrameworkDetails(framework: framework)
-          Spacer()
-        }
-      }
-      .navigationTitle("🍏 Frameworks")
+    CResponsiveStacksView(stacks: $stackVC.stacks, pathToView: pathToView) {
+      CFrameworks()
     }
   }
 }
 
 #Preview {
-  PageFrameworks()
+  func pathToView(_ path: StackPath) -> AnyView {
+    return AnyView(Text("404"))
+  }
+
+  return PageFrameworks(pathToView: pathToView)
 }

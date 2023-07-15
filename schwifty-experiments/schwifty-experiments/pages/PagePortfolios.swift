@@ -1,13 +1,13 @@
 import SwiftUI
 
-struct PageAccount: View {
+struct PagePortfolios: View {
   let pathToView: (StackPath) -> AnyView
 
   @EnvironmentObject var stackVC: StackVC
 
   var body: some View {
     CResponsiveStacksView(stacks: $stackVC.stacks, pathToView: pathToView) {
-      CAccount()
+      DbPortfolioFeed()
     }
   }
 }
@@ -17,5 +17,5 @@ struct PageAccount: View {
     return AnyView(Text("404"))
   }
 
-  return PageAccount(pathToView: pathToView)
+  return PagePortfolios(pathToView: pathToView)
 }

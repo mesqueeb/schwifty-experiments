@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F71512EA2A5FEAD900D1B5A5 /* PortfolioFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512E92A5FEAD900D1B5A5 /* PortfolioFeed.swift */; };
-		F71512EC2A5FEB1200D1B5A5 /* PublicPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512EB2A5FEB1200D1B5A5 /* PublicPortfolio.swift */; };
-		F71512EE2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512ED2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift */; };
+		F71512EA2A5FEAD900D1B5A5 /* DbPortfolioFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512E92A5FEAD900D1B5A5 /* DbPortfolioFeed.swift */; };
+		F71512EC2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512EB2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift */; };
+		F71512EE2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512ED2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift */; };
 		F73B394B2A5BE28C00997186 /* PageFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394A2A5BE28C00997186 /* PageFrameworks.swift */; };
 		F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */; };
 		F73B394F2A5BE3BC00997186 /* dbFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394E2A5BE3BC00997186 /* dbFramework.swift */; };
@@ -20,11 +20,16 @@
 		F7751D782A61FE4400FAA861 /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7751D772A61FE4400FAA861 /* Framework.swift */; };
 		F78D26D02A61642500B7B76E /* StackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D26CF2A61642500B7B76E /* StackVC.swift */; };
 		F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADA2A5A8C750000297C /* AccountMenu.swift */; };
-		F7A76AE02A5A9FA10000297C /* AppStacksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADF2A5A9FA10000297C /* AppStacksView.swift */; };
+		F7A76AE02A5A9FA10000297C /* CResponsiveStacksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADF2A5A9FA10000297C /* CResponsiveStacksView.swift */; };
 		F7A76AE32A5AA2560000297C /* dbPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76AE22A5AA2560000297C /* dbPortfolio.swift */; };
+		F7B6CE042A62463B007364AF /* PagePortfolios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE032A62463B007364AF /* PagePortfolios.swift */; };
+		F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE062A626F93007364AF /* textHelpers.swift */; };
+		F7B6CE732A6272460036DAC8 /* CWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE722A6272460036DAC8 /* CWeather.swift */; };
+		F7B6CE752A62728F0036DAC8 /* CFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE742A62728F0036DAC8 /* CFrameworks.swift */; };
+		F7B6CE772A62738A0036DAC8 /* PageAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE762A62738A0036DAC8 /* PageAccount.swift */; };
 		F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */; };
 		F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFC1982A5D4F1800969430 /* CSheet.swift */; };
-		F7C152582A60DCCB0094FAFB /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C152572A60DCCB0094FAFB /* AppTabView.swift */; };
+		F7C152582A60DCCB0094FAFB /* CResponsiveTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C152572A60DCCB0094FAFB /* CResponsiveTabView.swift */; };
 		F7C1525A2A60E8B60094FAFB /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C152592A60E8B60094FAFB /* Portfolio.swift */; };
 		F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */; };
 		F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748602A58EACD0075DE40 /* PageWeather.swift */; };
@@ -32,14 +37,14 @@
 		F7C748672A58EACF0075DE40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */; };
 		F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */; };
 		F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748712A58F6130075DE40 /* WeatherDayTile.swift */; };
-		F7C748762A58F76E0075DE40 /* PageAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* PageAccount.swift */; };
+		F7C748762A58F76E0075DE40 /* CAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* CAccount.swift */; };
 		F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748772A58F7C30075DE40 /* AppLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F71512E92A5FEAD900D1B5A5 /* PortfolioFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioFeed.swift; sourceTree = "<group>"; };
-		F71512EB2A5FEB1200D1B5A5 /* PublicPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicPortfolio.swift; sourceTree = "<group>"; };
-		F71512ED2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPortfolioCv.swift; sourceTree = "<group>"; };
+		F71512E92A5FEAD900D1B5A5 /* DbPortfolioFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbPortfolioFeed.swift; sourceTree = "<group>"; };
+		F71512EB2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbPublicPortfolio.swift; sourceTree = "<group>"; };
+		F71512ED2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbPublicPortfolioCv.swift; sourceTree = "<group>"; };
 		F73B394A2A5BE28C00997186 /* PageFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFrameworks.swift; sourceTree = "<group>"; };
 		F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGrid.swift; sourceTree = "<group>"; };
 		F73B394E2A5BE3BC00997186 /* dbFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dbFramework.swift; sourceTree = "<group>"; };
@@ -50,11 +55,16 @@
 		F7751D772A61FE4400FAA861 /* Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
 		F78D26CF2A61642500B7B76E /* StackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackVC.swift; sourceTree = "<group>"; };
 		F7A76ADA2A5A8C750000297C /* AccountMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenu.swift; sourceTree = "<group>"; };
-		F7A76ADF2A5A9FA10000297C /* AppStacksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStacksView.swift; sourceTree = "<group>"; };
+		F7A76ADF2A5A9FA10000297C /* CResponsiveStacksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CResponsiveStacksView.swift; sourceTree = "<group>"; };
 		F7A76AE22A5AA2560000297C /* dbPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbPortfolio.swift; sourceTree = "<group>"; };
+		F7B6CE032A62463B007364AF /* PagePortfolios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagePortfolios.swift; sourceTree = "<group>"; };
+		F7B6CE062A626F93007364AF /* textHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textHelpers.swift; sourceTree = "<group>"; };
+		F7B6CE722A6272460036DAC8 /* CWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWeather.swift; sourceTree = "<group>"; };
+		F7B6CE742A62728F0036DAC8 /* CFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFrameworks.swift; sourceTree = "<group>"; };
+		F7B6CE762A62738A0036DAC8 /* PageAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAccount.swift; sourceTree = "<group>"; };
 		F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTypes.swift; sourceTree = "<group>"; };
 		F7BFC1982A5D4F1800969430 /* CSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSheet.swift; sourceTree = "<group>"; };
-		F7C152572A60DCCB0094FAFB /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		F7C152572A60DCCB0094FAFB /* CResponsiveTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CResponsiveTabView.swift; sourceTree = "<group>"; };
 		F7C152592A60E8B60094FAFB /* Portfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		F7C7485B2A58EACD0075DE40 /* schwifty-experiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schwifty-experiments.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchwiftyExperimentsApp.swift; sourceTree = "<group>"; };
@@ -64,7 +74,7 @@
 		F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowToast.swift; sourceTree = "<group>"; };
 		F7C748712A58F6130075DE40 /* WeatherDayTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayTile.swift; sourceTree = "<group>"; };
-		F7C748752A58F76E0075DE40 /* PageAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAccount.swift; sourceTree = "<group>"; };
+		F7C748752A58F76E0075DE40 /* CAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAccount.swift; sourceTree = "<group>"; };
 		F7C748772A58F7C30075DE40 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +96,14 @@
 				F7A76AE22A5AA2560000297C /* dbPortfolio.swift */,
 			);
 			path = db;
+			sourceTree = "<group>";
+		};
+		F7B6CE052A626F87007364AF /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				F7B6CE062A626F93007364AF /* textHelpers.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		F7B7DF002A5A3ED00068FDE5 /* types */ = {
@@ -119,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */,
+				F7B6CE052A626F87007364AF /* utils */,
 				F7A76AE12A5AA2390000297C /* db */,
 				F7B7DF002A5A3ED00068FDE5 /* types */,
 				F7C7486E2A58F5E10075DE40 /* components */,
@@ -142,9 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				F7C748772A58F7C30075DE40 /* AppLayout.swift */,
-				F7C152572A60DCCB0094FAFB /* AppTabView.swift */,
-				F7A76ADF2A5A9FA10000297C /* AppStacksView.swift */,
-				F7C748752A58F76E0075DE40 /* PageAccount.swift */,
+				F7B6CE032A62463B007364AF /* PagePortfolios.swift */,
+				F7B6CE762A62738A0036DAC8 /* PageAccount.swift */,
 				F73B394A2A5BE28C00997186 /* PageFrameworks.swift */,
 				F7C748602A58EACD0075DE40 /* PageWeather.swift */,
 			);
@@ -155,14 +173,19 @@
 			isa = PBXGroup;
 			children = (
 				F7A76ADA2A5A8C750000297C /* AccountMenu.swift */,
+				F7C748752A58F76E0075DE40 /* CAccount.swift */,
+				F7B6CE742A62728F0036DAC8 /* CFrameworks.swift */,
+				F7A76ADF2A5A9FA10000297C /* CResponsiveStacksView.swift */,
+				F7C152572A60DCCB0094FAFB /* CResponsiveTabView.swift */,
 				F73B39562A5D339800997186 /* CSafariView.swift */,
 				F7BFC1982A5D4F1800969430 /* CSheet.swift */,
+				F7B6CE722A6272460036DAC8 /* CWeather.swift */,
+				F71512E92A5FEAD900D1B5A5 /* DbPortfolioFeed.swift */,
+				F71512EB2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift */,
+				F71512ED2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift */,
 				F73B39522A5BE83900997186 /* FrameworkDetails.swift */,
 				F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */,
 				F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */,
-				F71512E92A5FEAD900D1B5A5 /* PortfolioFeed.swift */,
-				F71512EB2A5FEB1200D1B5A5 /* PublicPortfolio.swift */,
-				F71512ED2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift */,
 				F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */,
 				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
 				F7C748712A58F6130075DE40 /* WeatherDayTile.swift */,
@@ -242,28 +265,33 @@
 			files = (
 				F7C1525A2A60E8B60094FAFB /* Portfolio.swift in Sources */,
 				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
+				F7B6CE772A62738A0036DAC8 /* PageAccount.swift in Sources */,
 				F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */,
-				F7C748762A58F76E0075DE40 /* PageAccount.swift in Sources */,
+				F7C748762A58F76E0075DE40 /* CAccount.swift in Sources */,
 				F7751D782A61FE4400FAA861 /* Framework.swift in Sources */,
 				F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */,
 				F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */,
 				F73B39532A5BE83900997186 /* FrameworkDetails.swift in Sources */,
-				F71512EE2A5FEB1900D1B5A5 /* PublicPortfolioCv.swift in Sources */,
+				F71512EE2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift in Sources */,
 				F73B394F2A5BE3BC00997186 /* dbFramework.swift in Sources */,
-				F7C152582A60DCCB0094FAFB /* AppTabView.swift in Sources */,
+				F7C152582A60DCCB0094FAFB /* CResponsiveTabView.swift in Sources */,
 				F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */,
 				F73B39512A5BE47F00997186 /* FrameworkGridTile.swift in Sources */,
+				F7B6CE042A62463B007364AF /* PagePortfolios.swift in Sources */,
 				F7A76AE32A5AA2560000297C /* dbPortfolio.swift in Sources */,
 				F73B39572A5D339800997186 /* CSafariView.swift in Sources */,
 				F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */,
 				F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */,
+				F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */,
+				F7B6CE752A62728F0036DAC8 /* CFrameworks.swift in Sources */,
 				F78D26D02A61642500B7B76E /* StackVC.swift in Sources */,
+				F7B6CE732A6272460036DAC8 /* CWeather.swift in Sources */,
 				F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */,
 				F73B394B2A5BE28C00997186 /* PageFrameworks.swift in Sources */,
-				F71512EC2A5FEB1200D1B5A5 /* PublicPortfolio.swift in Sources */,
+				F71512EC2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift in Sources */,
 				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
-				F71512EA2A5FEAD900D1B5A5 /* PortfolioFeed.swift in Sources */,
-				F7A76AE02A5A9FA10000297C /* AppStacksView.swift in Sources */,
+				F71512EA2A5FEAD900D1B5A5 /* DbPortfolioFeed.swift in Sources */,
+				F7A76AE02A5A9FA10000297C /* CResponsiveStacksView.swift in Sources */,
 				F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,7 +450,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -462,7 +490,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

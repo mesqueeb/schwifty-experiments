@@ -1,8 +1,8 @@
 import SwiftUI
 
-enum StackPath: Hashable, Identifiable {
+enum StackPath: Hashable, Identifiable, Equatable {
   case pageWeather
-  case pagePortfolios
+  case portfolioFeed
   case pageFrameworks
   case pageAccount
   case publicPortfolio(String?)
@@ -11,12 +11,10 @@ enum StackPath: Hashable, Identifiable {
 
   var id: String {
     switch self {
-    case ._404:
-      return "404"
     case .pageWeather:
       return "pageWeather"
-    case .pagePortfolios:
-      return "pagePortfolios"
+    case .portfolioFeed:
+      return "portfolioFeed"
     case .pageFrameworks:
       return "pageFrameworks"
     case .pageAccount:
@@ -25,57 +23,31 @@ enum StackPath: Hashable, Identifiable {
       return "publicPortfolio(\(username ?? ""))"
     case .publicPortfolioCv(let username):
       return "publicPortfolioCv(\(username ?? ""))"
-    }
-  }
-
-  var view: AnyView {
-    switch self {
     case ._404:
-      return AnyView(Text("404"))
-    case .pagePortfolios:
-      return AnyView(PortfolioFeed())
-    case .publicPortfolio(let username):
-      return AnyView(PublicPortfolio(username: username))
-    case .publicPortfolioCv(let username):
-      return AnyView(PublicPortfolioCv(username: username))
-    case .pageWeather:
-      return AnyView(PageWeather())
-    case .pageFrameworks:
-      return AnyView(PageFrameworks())
-    case .pageAccount:
-      return AnyView(PageAccount())
+      return StackRoot._404.id
     }
   }
 }
 
-struct StackRootMeta {
-  let title: String
-  let icon: String
-}
-
-enum StackRoot: Hashable, Identifiable {
+enum StackRoot: Hashable, Identifiable, Equatable {
   case rootWeather
   case rootPortfolios
   case rootFrameworks
   case rootAccount
   case _404
 
-  var meta: StackRootMeta {
-    switch self {
-    case ._404:
-      return StackRootMeta(title: "404", icon: "")
-    case .rootWeather:
-      return StackRootMeta(title: "Weather", icon: "house")
-    case .rootPortfolios:
-      return StackRootMeta(title: "Portfolios", icon: "house")
-    case .rootFrameworks:
-      return StackRootMeta(title: "Frameworks", icon: "gear")
-    case .rootAccount:
-      return StackRootMeta(title: "Account", icon: "person")
-    }
-  }
-
   var id: String {
-    self.meta.title
+    switch self {
+    case .rootWeather:
+      return "rootWeather"
+    case .rootPortfolios:
+      return "rootPortfolios"
+    case .rootFrameworks:
+      return "rootFrameworks"
+    case .rootAccount:
+      return "rootAccount"
+    case ._404:
+      return "404"
+    }
   }
 }

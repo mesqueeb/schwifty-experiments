@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PublicPortfolioCv: View {
+struct DbPublicPortfolioCv: View {
   @EnvironmentObject var stackVC: StackVC
 
   let username: String?
@@ -19,10 +19,10 @@ struct PublicPortfolioCv: View {
         }
       }
     }
-    .navigationTitle("\(portfolio?.username ?? "")'s CV")
+    .navigationTitle(textIf(portfolio?.username) { "\($0)'s CV" })
   }
 }
 
 #Preview {
-  PublicPortfolio(username: nil)
+  DbPublicPortfolioCv(username: "Michael")
 }

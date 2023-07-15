@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct StackCache {
-  let fullPath: [StackPath]
+  let stacks: [StackPath]
 }
 
 class StackVC: ObservableObject {
@@ -10,44 +10,45 @@ class StackVC: ObservableObject {
       print("currentRoot:", currentRoot ?? "nil")
       if let currentRoot, currentRoot != oldValue {
         if let oldValue {
-          rootCacheDic[oldValue] = StackCache(fullPath: fullPath)
+          rootCacheDic[oldValue] = StackCache(stacks: stacks)
         }
-        fullPath = rootCacheDic[currentRoot]?.fullPath ?? []
+        stacks = rootCacheDic[currentRoot]?.stacks ?? []
       }
     }
   }
 
-  @Published public var fullPath: [StackPath] = [] {
+  @Published public var stacks: [StackPath] = [] {
     didSet {
-      print("fullPath:", fullPath)
+      print("stacks:", stacks)
     }
   }
 
-  public var currentPath: StackPath? { fullPath.last }
+//  public var currentPath: StackPath { stacks.last ?? StackPath._404 }
 
   /// cache per root
   private var rootCacheDic: [StackRoot: StackCache]
 
-  public func back() {
-    fullPath.removeLast()
-  }
+  public func back() { stacks.removeLast() }
+
+  public func backToRoot() { stacks.removeAll() }
 
   public func replace(path: StackPath) {
-    fullPath.removeLast()
-    fullPath.append(path)
+    stacks.removeLast()
+    stacks.append(path)
   }
 
   public func pushTo(parent: StackPath, path: StackPath) {
-    while fullPath.last != parent, !fullPath.isEmpty {
-      fullPath.removeLast()
+    while stacks.last != parent, !stacks.isEmpty {
+      stacks.removeLast()
     }
-    fullPath.append(path)
+    stacks.append(path)
   }
 
   init(initialRoot: StackRoot, initialRootCacheDic: [StackRoot: StackCache]) {
+    print("initialRoot:", initialRoot)
     self.currentRoot = initialRoot
     self.rootCacheDic = initialRootCacheDic
     let stackCache = initialRootCacheDic[initialRoot]
-    self.fullPath = stackCache?.fullPath ?? []
+    self.stacks = stackCache?.stacks ?? []
   }
 }
