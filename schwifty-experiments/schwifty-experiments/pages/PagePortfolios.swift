@@ -1,21 +1,20 @@
 import SwiftUI
 
 struct PagePortfolios: View {
-  let pathToView: (StackPath) -> AnyView
-
   @EnvironmentObject var stackVC: StackVC
 
   var body: some View {
-    CResponsiveStacksView(stacks: $stackVC.stacks, pathToView: pathToView) {
+    CResponsiveStacksView(stacks: $stackVC.stacks) {
       DbPortfolioFeed()
     }
   }
 }
 
 #Preview {
-  func pathToView(_ path: StackPath) -> AnyView {
-    return AnyView(Text("404"))
+  @ViewBuilder
+  func pathToView(_ path: StackPath) -> some View {
+    Text("404")
   }
 
-  return PagePortfolios(pathToView: pathToView)
+  return PagePortfolios()
 }

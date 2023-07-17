@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TabItem: Identifiable, Hashable {
+struct TabItem: Identifiable, Hashable, Equatable {
   let title: String
   let icon: String
   var id: String { title + icon }
@@ -10,16 +10,16 @@ struct TabItem: Identifiable, Hashable {
   }
 }
 
-struct CCompactView: View {
-  @Binding var currentTab: StackRoot?
+struct CTabViewCompact: View {
+  @Binding var currentTab: StackRoot
   let tabs: [StackRoot]
   let tabItemDic: [StackRoot: TabItem]
-  let rootToView: (StackRoot) -> AnyView
 
   var body: some View {
     TabView(selection: $currentTab) {
-      ForEach(tabs) { tab in
+      ForEach(tabs, id: \.self) { tab in
         rootToView(tab)
+          .id(tab.id)
           .tabItem {
             if let item = tabItemDic[tab] {
               Image(systemName: item.icon)
@@ -32,16 +32,27 @@ struct CCompactView: View {
   }
 }
 
-/// This component doesn't seem to work in preview, but it works in simulator.
-struct CWideView: View {
-  @Binding var currentTab: StackRoot?
+///// This component doesn't seem to work in preview, but it works in simulator.
+struct CTabViewWide: View {
+  @Binding var currentTab: StackRoot
   let tabs: [StackRoot]
   let tabItemDic: [StackRoot: TabItem]
-  let rootToView: (StackRoot) -> AnyView
+
+  /// Required fix to get the correct overload that requires the selection to be optional
+  var currentTabOptional: Binding<StackRoot?> {
+    Binding<StackRoot?>(
+      get: { self.currentTab },
+      set: { newValue in
+        if let newValue {
+          self.currentTab = newValue
+        }
+      }
+    )
+  }
 
   var body: some View {
     NavigationSplitView {
-      List(tabs, selection: $currentTab) { tab in
+      List(tabs, id: \.id, selection: currentTabOptional) { tab in
         if let item = tabItemDic[tab] {
           NavigationLink(value: tab) {
             HStack {
@@ -54,28 +65,23 @@ struct CWideView: View {
       .navigationTitle("Get Schwifty")
       .listStyle(SidebarListStyle())
     } detail: {
-      if let currentTab {
-        rootToView(currentTab)
-      } else {
-        rootToView(._404)
-      }
+      rootToView(currentTab).id(currentTab.id)
     }
   }
 }
 
 struct CResponsiveTabView: View {
-  @Binding var currentTab: StackRoot?
+  @Binding var currentTab: StackRoot
   let tabs: [StackRoot]
   let tabItemDic: [StackRoot: TabItem]
-  let rootToView: (StackRoot) -> AnyView
 
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var body: some View {
     if horizontalSizeClass == .compact {
-      CCompactView(currentTab: $currentTab, tabs: tabs, tabItemDic: tabItemDic, rootToView: rootToView)
+      CTabViewCompact(currentTab: $currentTab, tabs: tabs, tabItemDic: tabItemDic)
     } else {
-      CWideView(currentTab: $currentTab, tabs: tabs, tabItemDic: tabItemDic, rootToView: rootToView)
+      CTabViewWide(currentTab: $currentTab, tabs: tabs, tabItemDic: tabItemDic)
     }
   }
 }
@@ -93,24 +99,26 @@ struct CResponsiveTabView: View {
     .rootFrameworks: TabItem(title: "Frameworks", icon: "gear"),
     .rootAccount: TabItem(title: "Account", icon: "person"),
   ]
-  func rootToView(_ root: StackRoot) -> AnyView {
+
+  @ViewBuilder
+  func rootToView(_ root: StackRoot) -> some View {
     switch root {
     case .rootWeather:
-      return AnyView(Text("Weather 🍕🧑🏼‍💻"))
+      Text("Weather 🍕🧑🏼‍💻")
     case .rootPortfolios:
-      return AnyView(Text("Portfolios 🍕🧑🏼‍💻"))
+      Text("Portfolios 🍕🧑🏼‍💻")
     case .rootFrameworks:
-      return AnyView(Text("Frameworks 🍕🧑🏼‍💻"))
+      Text("Frameworks 🍕🧑🏼‍💻")
     case .rootAccount:
-      return AnyView(Text("Account 🍕🧑🏼‍💻"))
+      Text("Account 🍕🧑🏼‍💻")
     case ._404:
-      return AnyView(Text("404 🍕🧑🏼‍💻"))
+      Text("404 🍕🧑🏼‍💻")
     }
   }
-  @State var t: StackRoot? = .rootAccount
+  @State var t: StackRoot = .rootAccount
 
-  // - CCompactView works in preview
-  // - CWideView doesn't work in preview
+  // - CTabViewCompact works in preview
+  // - CTabViewWide doesn't work in preview
   // - Both work in simulator
-  return CResponsiveTabView(currentTab: $t, tabs: tabs, tabItemDic: tabItemDic, rootToView: rootToView)
+  return CResponsiveTabView(currentTab: $t, tabs: tabs, tabItemDic: tabItemDic)
 }

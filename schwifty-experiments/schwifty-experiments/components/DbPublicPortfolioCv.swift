@@ -11,7 +11,7 @@ struct DbPublicPortfolioCv: View {
 
   var body: some View {
     VStack {
-      List(portfolio?.cv ?? []) { entry in
+      List(portfolio?.cv ?? [], id: \.id) { entry in
         HStack {
           Text("\(entry.year)/\(entry.month)")
           Spacer()

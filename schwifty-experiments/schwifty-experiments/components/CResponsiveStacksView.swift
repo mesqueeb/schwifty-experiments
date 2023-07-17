@@ -2,12 +2,10 @@ import SwiftUI
 
 struct CResponsiveStacksView<Content: View>: View {
   @Binding var stacks: [StackPath]
-  let pathToView: (StackPath) -> AnyView
   let content: Content
 
-  init(stacks: Binding<[StackPath]>, pathToView: @escaping (StackPath) -> AnyView, @ViewBuilder content: () -> Content) {
+  init(stacks: Binding<[StackPath]>, @ViewBuilder content: () -> Content) {
     self._stacks = stacks
-    self.pathToView = pathToView
     self.content = content()
   }
 
@@ -21,7 +19,8 @@ struct CResponsiveStacksView<Content: View>: View {
             pathToView(path)
           }
       }
-    } else {
+    }
+    else {
       HStack {
         content
         ForEach(stacks, id: \.self) { path in
@@ -37,17 +36,20 @@ struct CResponsiveStacksView<Content: View>: View {
 #Preview {
   @State var stacks: [StackPath] = [.publicPortfolio("Michael"), .publicPortfolioCv("Michael")]
 
-  func pathToView(_ path: StackPath) -> AnyView {
+  @ViewBuilder
+  func pathToView(_ path: StackPath) -> some View {
     if case let .publicPortfolio(username) = path {
-      return AnyView(Text(textIf(username) { "\($0)'s Portfolio'" }))
+      Text(textIf(username) { "\($0)'s Portfolio'" })
     }
-    if case let .publicPortfolioCv(username) = path {
-      return AnyView(Text(textIf(username) { "\($0)'s Cv" }))
+    else if case let .publicPortfolioCv(username) = path {
+      Text(textIf(username) { "\($0)'s Cv" })
     }
-    return AnyView(Text("404"))
+    else {
+      Text("404")
+    }
   }
 
-  return CResponsiveStacksView(stacks: $stacks, pathToView: pathToView) {
+  return CResponsiveStacksView(stacks: $stacks) {
     DbPortfolioFeed()
   }
 }

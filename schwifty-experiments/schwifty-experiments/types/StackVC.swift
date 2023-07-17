@@ -5,13 +5,14 @@ struct StackCache {
 }
 
 class StackVC: ObservableObject {
-  @Published public var currentRoot: StackRoot? {
+  @Published public var currentRoot: StackRoot {
+    willSet {
+      print("willSet currentRoot:", currentRoot)
+    }
     didSet {
-      print("currentRoot:", currentRoot ?? "nil")
-      if let currentRoot, currentRoot != oldValue {
-        if let oldValue {
-          rootCacheDic[oldValue] = StackCache(stacks: stacks)
-        }
+      print("didSet currentRoot:", currentRoot)
+      if currentRoot != oldValue {
+        rootCacheDic[oldValue] = StackCache(stacks: stacks)
         stacks = rootCacheDic[currentRoot]?.stacks ?? []
       }
     }
@@ -23,7 +24,7 @@ class StackVC: ObservableObject {
     }
   }
 
-//  public var currentPath: StackPath { stacks.last ?? StackPath._404 }
+  //  public var currentPath: StackPath { stacks.last ?? StackPath._404 }
 
   /// cache per root
   private var rootCacheDic: [StackRoot: StackCache]
