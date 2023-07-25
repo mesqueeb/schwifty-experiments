@@ -21,7 +21,6 @@
 		F77FBD622A64A3F400CD3178 /* StackViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FBD612A64A3F400CD3178 /* StackViews.swift */; };
 		F78D26D02A61642500B7B76E /* StackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D26CF2A61642500B7B76E /* StackVC.swift */; };
 		F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADA2A5A8C750000297C /* AccountMenu.swift */; };
-		F7A76AE02A5A9FA10000297C /* CResponsiveStacksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADF2A5A9FA10000297C /* CResponsiveStacksView.swift */; };
 		F7A76AE32A5AA2560000297C /* dbPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76AE22A5AA2560000297C /* dbPortfolio.swift */; };
 		F7B6CE042A62463B007364AF /* PagePortfolios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE032A62463B007364AF /* PagePortfolios.swift */; };
 		F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE062A626F93007364AF /* textHelpers.swift */; };
@@ -57,7 +56,6 @@
 		F77FBD612A64A3F400CD3178 /* StackViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViews.swift; sourceTree = "<group>"; };
 		F78D26CF2A61642500B7B76E /* StackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackVC.swift; sourceTree = "<group>"; };
 		F7A76ADA2A5A8C750000297C /* AccountMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenu.swift; sourceTree = "<group>"; };
-		F7A76ADF2A5A9FA10000297C /* CResponsiveStacksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CResponsiveStacksView.swift; sourceTree = "<group>"; };
 		F7A76AE22A5AA2560000297C /* dbPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbPortfolio.swift; sourceTree = "<group>"; };
 		F7B6CE032A62463B007364AF /* PagePortfolios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagePortfolios.swift; sourceTree = "<group>"; };
 		F7B6CE062A626F93007364AF /* textHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textHelpers.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				F7A76ADA2A5A8C750000297C /* AccountMenu.swift */,
 				F7C748752A58F76E0075DE40 /* CAccount.swift */,
 				F7B6CE742A62728F0036DAC8 /* CFrameworks.swift */,
-				F7A76ADF2A5A9FA10000297C /* CResponsiveStacksView.swift */,
 				F7C152572A60DCCB0094FAFB /* CResponsiveTabView.swift */,
 				F73B39562A5D339800997186 /* CSafariView.swift */,
 				F7BFC1982A5D4F1800969430 /* CSheet.swift */,
@@ -295,7 +292,6 @@
 				F71512EC2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift in Sources */,
 				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
 				F71512EA2A5FEAD900D1B5A5 /* DbPortfolioFeed.swift in Sources */,
-				F7A76AE02A5A9FA10000297C /* CResponsiveStacksView.swift in Sources */,
 				F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

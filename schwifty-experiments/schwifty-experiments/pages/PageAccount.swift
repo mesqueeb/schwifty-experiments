@@ -2,10 +2,26 @@ import SwiftUI
 
 struct PageAccount: View {
   @EnvironmentObject var stackVC: StackVC
+  @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var body: some View {
-    CResponsiveStacksView(stacks: $stackVC.stacks) {
-      CAccount()
+    if horizontalSizeClass == .compact {
+      NavigationStack(path: $stackVC.stacks3) {
+        CAccount()
+          .navigationDestination(for: StackPath.self) { path in
+            pathToView(path)
+          }
+      }
+    }
+    else {
+      HStack {
+        CAccount()
+        ForEach(stackVC.stacks3, id: \.self) { path in
+          NavigationStack {
+            pathToView(path)
+          }
+        }
+      }
     }
   }
 }

@@ -1,34 +1,28 @@
 import SwiftUI
 
-let tabs: [StackRoot] = [
-  .rootWeather,
-  .rootPortfolios,
-  .rootFrameworks,
-  .rootAccount,
-]
-
-let tabItemDic: [StackRoot: TabItem] = [
-  .rootWeather: TabItem(title: "Weather", icon: "house"),
-  .rootPortfolios: TabItem(title: "Portfolios", icon: "house"),
-  .rootFrameworks: TabItem(title: "Frameworks", icon: "gear"),
-  .rootAccount: TabItem(title: "Account", icon: "person"),
+let tabs: [TabItem] = [
+  TabItem(title: "Weather", icon: "house", index: 0),
+  TabItem(title: "Portfolios", icon: "house", index: 1),
+  TabItem(title: "Frameworks", icon: "gear", index: 2),
+  TabItem(title: "Account", icon: "person", index: 3),
 ]
 
 struct AppLayout: View {
   @StateObject private var safari = Safari()
 
-  @StateObject private var stackVC = StackVC(initialRoot: .rootWeather, initialRootCacheDic: [
-    ._404: StackCache(stacks: []),
-    .rootWeather: StackCache(stacks: []),
-    .rootPortfolios: StackCache(stacks: []),
-    .rootFrameworks: StackCache(stacks: []),
-    .rootAccount: StackCache(stacks: []),
-  ])
+  @StateObject private var stackVC = StackVC(initialRootIndex: 0)
+
+  @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var body: some View {
-    CResponsiveTabView(currentTab: $stackVC.currentRoot, tabs: tabs, tabItemDic: tabItemDic)
+    CResponsiveTabView(currentIndex: $stackVC.rootIndex, tabs: tabs)
       .environmentObject(safari)
       .environmentObject(stackVC)
+      .onChange(of: horizontalSizeClass) { _, newSize in
+        if newSize == .compact {
+          stackVC.backupAndResetStacks()
+        }
+      }
   }
 }
 

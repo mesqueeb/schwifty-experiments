@@ -16,7 +16,7 @@ func pathToView(_ path: StackPath) -> some View {
   case .pageAccount:
     CAccount()
   case ._404:
-    rootToView(._404)
+    Text("404 🍕🧑🏼‍💻")
   }
 }
 
@@ -35,3 +35,5 @@ func rootToView(_ root: StackRoot) -> some View {
     Text("404 🍕🧑🏼‍💻")
   }
 }
+
+let rootPerIndex: [StackRoot] = [.rootWeather, .rootPortfolios, .rootFrameworks, .rootAccount]

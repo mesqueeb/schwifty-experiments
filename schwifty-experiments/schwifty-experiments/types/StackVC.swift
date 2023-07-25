@@ -1,55 +1,73 @@
 import SwiftUI
 
-struct StackCache {
-  let stacks: [StackPath]
-}
-
 class StackVC: ObservableObject {
-  @Published public var currentRoot: StackRoot {
+  @Published public var rootIndex: Int {
     willSet {
-      print("willSet currentRoot:", currentRoot)
+      print("willSet rootIndex:", rootIndex)
     }
     didSet {
-      print("didSet currentRoot:", currentRoot)
-      if currentRoot != oldValue {
-        rootCacheDic[oldValue] = StackCache(stacks: stacks)
-        stacks = rootCacheDic[currentRoot]?.stacks ?? []
-      }
+      print("didSet rootIndex:", rootIndex)
     }
   }
 
-  @Published public var stacks: [StackPath] = [] {
-    didSet {
-      print("stacks:", stacks)
+  @Published public var stacks0: [StackPath] = []
+  @Published public var stacks1: [StackPath] = []
+  @Published public var stacks2: [StackPath] = []
+  @Published public var stacks3: [StackPath] = []
+
+  var currentStacks: Binding<[StackPath]> {
+    switch rootIndex {
+    case 0:
+      return Binding<[StackPath]>(
+        get: { self.stacks0 },
+        set: { self.stacks0 = $0 }
+      )
+    case 1:
+      return Binding<[StackPath]>(
+        get: { self.stacks1 },
+        set: { self.stacks1 = $0 }
+      )
+    case 2:
+      return Binding<[StackPath]>(
+        get: { self.stacks2 },
+        set: { self.stacks2 = $0 }
+      )
+    case 3:
+      return Binding<[StackPath]>(
+        get: { self.stacks3 },
+        set: { self.stacks3 = $0 }
+      )
+    default:
+      fatalError("Invalid root index")
     }
   }
 
-  //  public var currentPath: StackPath { stacks.last ?? StackPath._404 }
+  public func back() { currentStacks.wrappedValue.removeLast() }
 
-  /// cache per root
-  private var rootCacheDic: [StackRoot: StackCache]
-
-  public func back() { stacks.removeLast() }
-
-  public func backToRoot() { stacks.removeAll() }
+  public func backToRoot() { currentStacks.wrappedValue.removeAll() }
 
   public func replace(path: StackPath) {
-    stacks.removeLast()
-    stacks.append(path)
+    currentStacks.wrappedValue.removeLast()
+    currentStacks.wrappedValue.append(path)
   }
 
   public func pushTo(parent: StackPath, path: StackPath) {
-    while stacks.last != parent, !stacks.isEmpty {
-      stacks.removeLast()
+    while currentStacks.wrappedValue.last != parent, !currentStacks.wrappedValue.isEmpty {
+      currentStacks.wrappedValue.removeLast()
     }
-    stacks.append(path)
+    currentStacks.wrappedValue.append(path)
   }
 
-  init(initialRoot: StackRoot, initialRootCacheDic: [StackRoot: StackCache]) {
-    print("initialRoot:", initialRoot)
-    self.currentRoot = initialRoot
-    self.rootCacheDic = initialRootCacheDic
-    let stackCache = initialRootCacheDic[initialRoot]
-    self.stacks = stackCache?.stacks ?? []
+  /// This fixes an issue when changing from WIDE to COMPACT view where the current stack stayed but the screen becomes blank
+  public func backupAndResetStacks() {
+    let stacksBackup = currentStacks.wrappedValue
+    currentStacks.wrappedValue = []
+    Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
+      self.currentStacks.wrappedValue = stacksBackup
+    }
+  }
+
+  init(initialRootIndex: Int) {
+    self.rootIndex = initialRootIndex
   }
 }

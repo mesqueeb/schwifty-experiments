@@ -3,6 +3,7 @@ import SwiftUI
 struct TabItem: Identifiable, Hashable, Equatable {
   let title: String
   let icon: String
+  let index: Int
   var id: String { title + icon }
 
   func hash(into hasher: inout Hasher) {
@@ -11,40 +12,35 @@ struct TabItem: Identifiable, Hashable, Equatable {
 }
 
 struct CTabViewCompact: View {
-  @Binding var currentTab: StackRoot
-  let tabs: [StackRoot]
-  let tabItemDic: [StackRoot: TabItem]
+  @Binding var currentIndex: Int
+  let tabs: [TabItem]
 
   var body: some View {
-    TabView(selection: $currentTab) {
+    TabView(selection: $currentIndex) {
       ForEach(tabs, id: \.self) { tab in
-        rootToView(tab)
+        rootToView(rootPerIndex[tab.index])
           .id(tab.id)
           .tabItem {
-            if let item = tabItemDic[tab] {
-              Image(systemName: item.icon)
-              Text(item.title)
-            }
+            Image(systemName: tab.icon)
+            Text(tab.title)
           }
-          .tag(tab)
+          .tag(tab.index)
       }
     }
   }
 }
 
-///// This component doesn't seem to work in preview, but it works in simulator.
 struct CTabViewWide: View {
-  @Binding var currentTab: StackRoot
-  let tabs: [StackRoot]
-  let tabItemDic: [StackRoot: TabItem]
+  @Binding var currentIndex: Int
+  let tabs: [TabItem]
 
   /// Required fix to get the correct overload that requires the selection to be optional
-  var currentTabOptional: Binding<StackRoot?> {
-    Binding<StackRoot?>(
-      get: { self.currentTab },
+  var currentIndexOptional: Binding<Int?> {
+    Binding<Int?>(
+      get: { self.currentIndex },
       set: { newValue in
         if let newValue {
-          self.currentTab = newValue
+          self.currentIndex = newValue
         }
       }
     )
@@ -52,56 +48,49 @@ struct CTabViewWide: View {
 
   var body: some View {
     NavigationSplitView {
-      List(tabs, id: \.id, selection: currentTabOptional) { tab in
-        if let item = tabItemDic[tab] {
-          NavigationLink(value: tab) {
-            HStack {
-              Image(systemName: item.icon)
-              Text(item.title)
-            }
+      List(tabs.indices, id: \.self, selection: currentIndexOptional) { tabIndex in
+        let tab = tabs[tabIndex]
+        NavigationLink(value: tabIndex) {
+          HStack {
+            Image(systemName: tab.icon)
+            Text(tab.title)
           }
         }
       }
       .navigationTitle("Get Schwifty")
       .listStyle(SidebarListStyle())
     } detail: {
-      rootToView(currentTab).id(currentTab.id)
+      rootToView(rootPerIndex[tabs[currentIndex].index])
+        .id(currentIndex)
     }
   }
 }
 
 struct CResponsiveTabView: View {
-  @Binding var currentTab: StackRoot
-  let tabs: [StackRoot]
-  let tabItemDic: [StackRoot: TabItem]
+  @Binding var currentIndex: Int
+  let tabs: [TabItem]
 
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var body: some View {
     if horizontalSizeClass == .compact {
-      CTabViewCompact(currentTab: $currentTab, tabs: tabs, tabItemDic: tabItemDic)
+      CTabViewCompact(currentIndex: $currentIndex, tabs: tabs)
     } else {
-      CTabViewWide(currentTab: $currentTab, tabs: tabs, tabItemDic: tabItemDic)
+      CTabViewWide(currentIndex: $currentIndex, tabs: tabs)
     }
   }
 }
 
 #Preview {
-  let tabs: [StackRoot] = [
-    .rootWeather,
-    .rootPortfolios,
-    .rootFrameworks,
-    .rootAccount,
-  ]
-  let tabItemDic: [StackRoot: TabItem] = [
-    .rootWeather: TabItem(title: "Weather", icon: "house"),
-    .rootPortfolios: TabItem(title: "Portfolios", icon: "house"),
-    .rootFrameworks: TabItem(title: "Frameworks", icon: "gear"),
-    .rootAccount: TabItem(title: "Account", icon: "person"),
+  let tabs: [TabItem] = [
+    .rootWeather: TabItem(title: "Weather", icon: "house".index: 0),
+    .rootPortfolios: TabItem(title: "Portfolios", icon: "house".index: 1),
+    .rootFrameworks: TabItem(title: "Frameworks", icon: "gear".index: 2),
+    .rootAccount: TabItem(title: "Account", icon: "person".index: 3),
   ]
 
   @ViewBuilder
-  func rootToView(_ root: StackRoot) -> some View {
+  func rootToView(_ root: Int) -> some View {
     switch root {
     case .rootWeather:
       Text("Weather 🍕🧑🏼‍💻")
@@ -115,10 +104,7 @@ struct CResponsiveTabView: View {
       Text("404 🍕🧑🏼‍💻")
     }
   }
-  @State var t: StackRoot = .rootAccount
+  @State var t: Int = 0
 
-  // - CTabViewCompact works in preview
-  // - CTabViewWide doesn't work in preview
-  // - Both work in simulator
-  return CResponsiveTabView(currentTab: $t, tabs: tabs, tabItemDic: tabItemDic)
+  return CResponsiveTabView(currentIndex: $t, tabs: tabs)
 }
