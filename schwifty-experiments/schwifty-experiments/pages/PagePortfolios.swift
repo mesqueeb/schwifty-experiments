@@ -7,24 +7,10 @@ struct PagePortfolios: View {
   var body: some View {
     if horizontalSizeClass == .compact {
       NavigationStack(path: $stackVC.stacks1) {
-        VStack {
-          ForEach(stackVC.stacks1, id: \.self) { Ppath in
-            Text(Ppath.id)
-          }
-          DbPortfolioFeed()
-        }
-        .navigationDestination(for: StackPath.self) { path in
-          VStack {
-            Text("===")
-            Text(path.id)
-            Text("===")
-            ForEach(stackVC.stacks1, id: \.self) { _path in
-              Text(_path.id)
-            }
-            Text("===")
+        DbPortfolioFeed()
+          .navigationDestination(for: StackPath.self) { path in
             pathToView(path)
           }
-        }
       }
     }
     else {
