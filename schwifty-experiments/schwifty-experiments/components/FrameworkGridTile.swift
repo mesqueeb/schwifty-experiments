@@ -1,8 +1,14 @@
 import SwiftUI
 
 struct FrameworkGridTile: View {
+  // ╔═══════╗
+  // ║ Props ║
+  // ╚═══════╝
   let framework: Framework
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     VStack {
       Image(framework.imageName)

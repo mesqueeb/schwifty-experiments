@@ -4,21 +4,23 @@ import SwiftUI
 func pathToView(_ path: StackPath) -> some View {
   switch path {
   case .portfolioFeed:
-    DbPortfolioFeed()
+    DbPortfolioFeed(path: .portfolioFeed)
   case .publicPortfolio(let username):
-    DbPublicPortfolio(username: username)
+    DbPublicPortfolio(path: .publicPortfolio(username), username: username)
   case .publicPortfolioCv(let username):
-    DbPublicPortfolioCv(username: username)
+    DbPublicPortfolioCv(path: .publicPortfolioCv(username), username: username)
   case .pageWeather:
-    CWeather()
+    DbWeather(path: .pageWeather)
   case .pageFrameworks:
-    CFrameworks()
+    DbFrameworks(path: .pageFrameworks)
   case .pageAccount:
-    CAccount()
+    DbAccount(path: .pageAccount)
   case ._404:
     Text("404 🍕🧑🏼‍💻")
   }
 }
+
+let rootPathPerTabIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
 
 @ViewBuilder
 func rootToView(_ root: StackRoot) -> some View {

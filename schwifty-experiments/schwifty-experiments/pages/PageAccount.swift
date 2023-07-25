@@ -1,13 +1,19 @@
 import SwiftUI
 
 struct PageAccount: View {
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   @EnvironmentObject var stackVC: StackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     if horizontalSizeClass == .compact {
       NavigationStack(path: $stackVC.stacks3) {
-        CAccount()
+        DbAccount(path: .pageAccount)
           .navigationDestination(for: StackPath.self) { path in
             pathToView(path)
           }
@@ -15,7 +21,7 @@ struct PageAccount: View {
     }
     else {
       HStack {
-        CAccount()
+        DbAccount(path: .pageAccount)
         ForEach(stackVC.stacks3, id: \.self) { path in
           NavigationStack {
             pathToView(path)

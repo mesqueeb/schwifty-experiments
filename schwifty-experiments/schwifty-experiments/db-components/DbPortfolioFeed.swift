@@ -1,10 +1,27 @@
 import SwiftUI
 
 struct DbPortfolioFeed: View {
+  // ╔═══════╗
+  // ║ Props ║
+  // ╚═══════╝
+  let path: StackPath
+
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   @EnvironmentObject var stackVC: StackVC
 
+  var title: String {
+    return "Portfolios"
+  }
+
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     VStack {
+      CNavigationHeader(path, title)
+
       List(dbPortfolios.values, id: \.username) { p in
         HStack {
           Button(action: {
@@ -13,10 +30,10 @@ struct DbPortfolioFeed: View {
           }) { Text(p.username).foregroundColor(.primary) }
         }
       }
-    }.navigationTitle("Portfolios")
+    }
   }
 }
 
 #Preview {
-  DbPortfolioFeed()
+  DbPortfolioFeed(path: .portfolioFeed)
 }

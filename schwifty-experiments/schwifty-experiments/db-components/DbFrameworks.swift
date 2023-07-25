@@ -1,10 +1,23 @@
 import SwiftUI
 
-struct CFrameworks: View {
+struct DbFrameworks: View {
+  // ╔═══════╗
+  // ║ Props ║
+  // ╚═══════╝
+  let path: StackPath
+
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   @State private var shownFramework: Framework? = nil
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     ScrollView {
+      CNavigationHeader(path, "🍏 Frameworks")
+
       FrameworkGrid(clickItem: { payload in shownFramework = payload })
         .padding()
     }
@@ -15,10 +28,9 @@ struct CFrameworks: View {
         Spacer()
       }
     }
-    .navigationTitle("🍏 Frameworks")
   }
 }
 
 #Preview {
-  CFrameworks()
+  DbFrameworks(path: .pageFrameworks)
 }

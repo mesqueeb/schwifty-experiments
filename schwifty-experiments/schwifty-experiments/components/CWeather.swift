@@ -1,8 +1,14 @@
 import SwiftUI
 
 struct CWeather: View {
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   @State private var isNight = false
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     ZStack {
       Bg(isNight: isNight).ignoresSafeArea()
@@ -42,6 +48,9 @@ struct CWeather: View {
 struct Bg: View {
   let isNight: Bool
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     LinearGradient(gradient: Gradient(colors: [isNight ? .black : .blue, isNight ? .gray : Color("blueLight")]), startPoint: .topLeading, endPoint: .bottomTrailing)
   }

@@ -1,13 +1,19 @@
 import SwiftUI
 
 struct PageFrameworks: View {
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   @EnvironmentObject var stackVC: StackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     if horizontalSizeClass == .compact {
       NavigationStack(path: $stackVC.stacks2) {
-        CFrameworks()
+        DbFrameworks(path: .pageFrameworks)
           .navigationDestination(for: StackPath.self) { path in
             pathToView(path)
           }
@@ -15,7 +21,7 @@ struct PageFrameworks: View {
     }
     else {
       HStack {
-        CFrameworks()
+        DbFrameworks(path: .pageFrameworks)
         ForEach(stackVC.stacks2, id: \.self) { path in
           NavigationStack {
             pathToView(path)

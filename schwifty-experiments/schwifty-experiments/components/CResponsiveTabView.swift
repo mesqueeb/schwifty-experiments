@@ -12,9 +12,15 @@ struct TabItem: Identifiable, Hashable, Equatable {
 }
 
 struct CTabViewCompact: View {
+  // ╔═══════╗
+  // ║ Props ║
+  // ╚═══════╝
   @Binding var currentIndex: Int
   let tabs: [TabItem]
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     TabView(selection: $currentIndex) {
       ForEach(tabs, id: \.self) { tab in
@@ -31,9 +37,15 @@ struct CTabViewCompact: View {
 }
 
 struct CTabViewWide: View {
+  // ╔═══════╗
+  // ║ Props ║
+  // ╚═══════╝
   @Binding var currentIndex: Int
   let tabs: [TabItem]
 
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   /// Required fix to get the correct overload that requires the selection to be optional
   var currentIndexOptional: Binding<Int?> {
     Binding<Int?>(
@@ -46,6 +58,9 @@ struct CTabViewWide: View {
     )
   }
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     NavigationSplitView {
       List(tabs.indices, id: \.self, selection: currentIndexOptional) { tabIndex in
@@ -67,11 +82,20 @@ struct CTabViewWide: View {
 }
 
 struct CResponsiveTabView: View {
+  // ╔═══════╗
+  // ║ Props ║
+  // ╚═══════╝
   @Binding var currentIndex: Int
   let tabs: [TabItem]
 
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     if horizontalSizeClass == .compact {
       CTabViewCompact(currentIndex: $currentIndex, tabs: tabs)

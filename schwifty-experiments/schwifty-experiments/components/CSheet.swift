@@ -1,14 +1,20 @@
 import SwiftUI
 
 struct CSheet<Content: View>: View {
-  let content: Content
+  // ╔═══════╗
+  // ║ Props ║
+  // ╚═══════╝
   let close: () -> Void
+  let content: Content
 
   init(close: @escaping () -> Void, @ViewBuilder content: () -> Content) {
     self.content = content()
     self.close = close
   }
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     VStack {
       HStack {

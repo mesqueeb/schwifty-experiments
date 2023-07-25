@@ -15,7 +15,7 @@ class StackVC: ObservableObject {
   @Published public var stacks2: [StackPath] = []
   @Published public var stacks3: [StackPath] = []
 
-  var currentStacks: Binding<[StackPath]> {
+  public var currentStacks: Binding<[StackPath]> {
     switch rootIndex {
     case 0:
       return Binding<[StackPath]>(
@@ -42,6 +42,10 @@ class StackVC: ObservableObject {
     }
   }
 
+  public var openBookStacks: ArraySlice<StackPath> {
+    return currentStacks.wrappedValue.suffix(2)
+  }
+
   public func back() { currentStacks.wrappedValue.removeLast() }
 
   public func backToRoot() { currentStacks.wrappedValue.removeAll() }
@@ -65,6 +69,21 @@ class StackVC: ObservableObject {
     Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
       self.currentStacks.wrappedValue = stacksBackup
     }
+  }
+
+  /// "is LEFT side stack" when looking at an open book
+  public func isTrailingStack(_ path: StackPath) -> Bool {
+    (path == openBookStacks.first && openBookStacks.count == 2) || (openBookStacks.count == 1 && path == rootPathPerTabIndex[rootIndex])
+  }
+
+  /// "is RIGHT side stack" when looking at an open book
+  public func isLeadingStack(_ path: StackPath) -> Bool {
+    path == openBookStacks.last
+  }
+
+  /// the current open stack: EITHER the leading stack or the open root stack
+  public func isCurrentStack(_ path: StackPath) -> Bool {
+    isLeadingStack(path) || (openBookStacks.isEmpty && path == rootPathPerTabIndex[rootIndex])
   }
 
   init(initialRootIndex: Int) {

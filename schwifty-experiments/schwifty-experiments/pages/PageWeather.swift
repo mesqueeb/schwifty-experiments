@@ -1,9 +1,15 @@
 import SwiftUI
 
 struct PageWeather: View {
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   @EnvironmentObject var stackVC: StackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     if horizontalSizeClass == .compact {
       NavigationStack(path: $stackVC.stacks0) {

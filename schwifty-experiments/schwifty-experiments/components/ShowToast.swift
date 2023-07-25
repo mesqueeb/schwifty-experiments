@@ -16,8 +16,14 @@ class ShowToast: ObservableObject {
 }
 
 struct ToastView: View {
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   @ObservedObject var showToast: ShowToast
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     if showToast.isShowing {
       Text(showToast.message)

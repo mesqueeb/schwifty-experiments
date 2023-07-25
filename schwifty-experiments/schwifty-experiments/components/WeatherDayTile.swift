@@ -9,10 +9,16 @@ enum WeatherType: String {
 }
 
 struct WeatherDayTile: View {
+  // ╔═══════╗
+  // ║ Props ║
+  // ╚═══════╝
   let day: String
   let weather: WeatherType
   let temperature: Int
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     VStack(spacing: 8) {
       Text(day).font(.system(size: 16, weight: .bold)).foregroundColor(.white)

@@ -8,12 +8,17 @@ let tabs: [TabItem] = [
 ]
 
 struct AppLayout: View {
+  // ╔═══════╗
+  // ║ Setup ║
+  // ╚═══════╝
   @StateObject private var safari = Safari()
-
-  @StateObject private var stackVC = StackVC(initialRootIndex: 0)
+  @StateObject private var stackVC = StackVC(initialRootIndex: 1)
 
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
+  // ╔══════════╗
+  // ║ Template ║
+  // ╚══════════╝
   var body: some View {
     CResponsiveTabView(currentIndex: $stackVC.rootIndex, tabs: tabs)
       .environmentObject(safari)

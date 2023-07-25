@@ -10,6 +10,8 @@
 		F71512EA2A5FEAD900D1B5A5 /* DbPortfolioFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512E92A5FEAD900D1B5A5 /* DbPortfolioFeed.swift */; };
 		F71512EC2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512EB2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift */; };
 		F71512EE2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512ED2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift */; };
+		F71CA8292A707F030092C2D4 /* CNavigationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */; };
+		F71CA82C2A708A0B0092C2D4 /* DbWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CA82B2A708A0B0092C2D4 /* DbWeather.swift */; };
 		F73B394B2A5BE28C00997186 /* PageFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394A2A5BE28C00997186 /* PageFrameworks.swift */; };
 		F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */; };
 		F73B394F2A5BE3BC00997186 /* dbFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394E2A5BE3BC00997186 /* dbFramework.swift */; };
@@ -25,7 +27,7 @@
 		F7B6CE042A62463B007364AF /* PagePortfolios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE032A62463B007364AF /* PagePortfolios.swift */; };
 		F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE062A626F93007364AF /* textHelpers.swift */; };
 		F7B6CE732A6272460036DAC8 /* CWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE722A6272460036DAC8 /* CWeather.swift */; };
-		F7B6CE752A62728F0036DAC8 /* CFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE742A62728F0036DAC8 /* CFrameworks.swift */; };
+		F7B6CE752A62728F0036DAC8 /* DbFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE742A62728F0036DAC8 /* DbFrameworks.swift */; };
 		F7B6CE772A62738A0036DAC8 /* PageAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE762A62738A0036DAC8 /* PageAccount.swift */; };
 		F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */; };
 		F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFC1982A5D4F1800969430 /* CSheet.swift */; };
@@ -37,7 +39,7 @@
 		F7C748672A58EACF0075DE40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */; };
 		F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */; };
 		F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748712A58F6130075DE40 /* WeatherDayTile.swift */; };
-		F7C748762A58F76E0075DE40 /* CAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* CAccount.swift */; };
+		F7C748762A58F76E0075DE40 /* DbAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* DbAccount.swift */; };
 		F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748772A58F7C30075DE40 /* AppLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		F71512E92A5FEAD900D1B5A5 /* DbPortfolioFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbPortfolioFeed.swift; sourceTree = "<group>"; };
 		F71512EB2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbPublicPortfolio.swift; sourceTree = "<group>"; };
 		F71512ED2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbPublicPortfolioCv.swift; sourceTree = "<group>"; };
+		F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNavigationHeader.swift; sourceTree = "<group>"; };
+		F71CA82B2A708A0B0092C2D4 /* DbWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbWeather.swift; sourceTree = "<group>"; };
 		F73B394A2A5BE28C00997186 /* PageFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFrameworks.swift; sourceTree = "<group>"; };
 		F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameworkGrid.swift; sourceTree = "<group>"; };
 		F73B394E2A5BE3BC00997186 /* dbFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dbFramework.swift; sourceTree = "<group>"; };
@@ -60,7 +64,7 @@
 		F7B6CE032A62463B007364AF /* PagePortfolios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagePortfolios.swift; sourceTree = "<group>"; };
 		F7B6CE062A626F93007364AF /* textHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textHelpers.swift; sourceTree = "<group>"; };
 		F7B6CE722A6272460036DAC8 /* CWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWeather.swift; sourceTree = "<group>"; };
-		F7B6CE742A62728F0036DAC8 /* CFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFrameworks.swift; sourceTree = "<group>"; };
+		F7B6CE742A62728F0036DAC8 /* DbFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbFrameworks.swift; sourceTree = "<group>"; };
 		F7B6CE762A62738A0036DAC8 /* PageAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAccount.swift; sourceTree = "<group>"; };
 		F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTypes.swift; sourceTree = "<group>"; };
 		F7BFC1982A5D4F1800969430 /* CSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSheet.swift; sourceTree = "<group>"; };
@@ -74,7 +78,7 @@
 		F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowToast.swift; sourceTree = "<group>"; };
 		F7C748712A58F6130075DE40 /* WeatherDayTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayTile.swift; sourceTree = "<group>"; };
-		F7C748752A58F76E0075DE40 /* CAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAccount.swift; sourceTree = "<group>"; };
+		F7C748752A58F76E0075DE40 /* DbAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbAccount.swift; sourceTree = "<group>"; };
 		F7C748772A58F7C30075DE40 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +93,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F71CA82A2A7081C00092C2D4 /* db-components */ = {
+			isa = PBXGroup;
+			children = (
+				F7C748752A58F76E0075DE40 /* DbAccount.swift */,
+				F7B6CE742A62728F0036DAC8 /* DbFrameworks.swift */,
+				F71512E92A5FEAD900D1B5A5 /* DbPortfolioFeed.swift */,
+				F71512EB2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift */,
+				F71512ED2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift */,
+				F71CA82B2A708A0B0092C2D4 /* DbWeather.swift */,
+			);
+			path = "db-components";
+			sourceTree = "<group>";
+		};
 		F7A76AE12A5AA2390000297C /* db */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +157,7 @@
 				F7B6CE052A626F87007364AF /* utils */,
 				F7A76AE12A5AA2390000297C /* db */,
 				F7B7DF002A5A3ED00068FDE5 /* types */,
+				F71CA82A2A7081C00092C2D4 /* db-components */,
 				F7C7486E2A58F5E10075DE40 /* components */,
 				F7C7486D2A58ED750075DE40 /* pages */,
 				F7C748622A58EACF0075DE40 /* Assets.xcassets */,
@@ -174,15 +192,11 @@
 			isa = PBXGroup;
 			children = (
 				F7A76ADA2A5A8C750000297C /* AccountMenu.swift */,
-				F7C748752A58F76E0075DE40 /* CAccount.swift */,
-				F7B6CE742A62728F0036DAC8 /* CFrameworks.swift */,
+				F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */,
 				F7C152572A60DCCB0094FAFB /* CResponsiveTabView.swift */,
 				F73B39562A5D339800997186 /* CSafariView.swift */,
 				F7BFC1982A5D4F1800969430 /* CSheet.swift */,
 				F7B6CE722A6272460036DAC8 /* CWeather.swift */,
-				F71512E92A5FEAD900D1B5A5 /* DbPortfolioFeed.swift */,
-				F71512EB2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift */,
-				F71512ED2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift */,
 				F73B39522A5BE83900997186 /* FrameworkDetails.swift */,
 				F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */,
 				F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */,
@@ -263,11 +277,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71CA82C2A708A0B0092C2D4 /* DbWeather.swift in Sources */,
 				F7C1525A2A60E8B60094FAFB /* Portfolio.swift in Sources */,
 				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
 				F7B6CE772A62738A0036DAC8 /* PageAccount.swift in Sources */,
 				F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */,
-				F7C748762A58F76E0075DE40 /* CAccount.swift in Sources */,
+				F7C748762A58F76E0075DE40 /* DbAccount.swift in Sources */,
 				F7751D782A61FE4400FAA861 /* Framework.swift in Sources */,
 				F7C748612A58EACD0075DE40 /* PageWeather.swift in Sources */,
 				F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */,
@@ -284,10 +299,11 @@
 				F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */,
 				F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */,
 				F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */,
-				F7B6CE752A62728F0036DAC8 /* CFrameworks.swift in Sources */,
+				F7B6CE752A62728F0036DAC8 /* DbFrameworks.swift in Sources */,
 				F78D26D02A61642500B7B76E /* StackVC.swift in Sources */,
 				F7B6CE732A6272460036DAC8 /* CWeather.swift in Sources */,
 				F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */,
+				F71CA8292A707F030092C2D4 /* CNavigationHeader.swift in Sources */,
 				F73B394B2A5BE28C00997186 /* PageFrameworks.swift in Sources */,
 				F71512EC2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift in Sources */,
 				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
