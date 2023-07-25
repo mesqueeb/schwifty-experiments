@@ -11,14 +11,15 @@ struct TabItem: Identifiable, Hashable, Equatable {
 }
 
 struct CTabViewCompact: View {
-  @Binding var currentTab: StackRoot
+  let rootVC: RootVC
   let tabs: [StackRoot]
   let tabItemDic: [StackRoot: TabItem]
 
   var body: some View {
-    TabView(selection: $currentTab) {
+    @Bindable var rootVC = rootVC
+    TabView(selection: $rootVC.currentRoot) {
       ForEach(tabs, id: \.self) { tab in
-        rootToView(tab)
+        rootToView(rootVC)
           .id(tab.id)
           .tabItem {
             if let item = tabItemDic[tab] {
@@ -32,19 +33,18 @@ struct CTabViewCompact: View {
   }
 }
 
-///// This component doesn't seem to work in preview, but it works in simulator.
 struct CTabViewWide: View {
-  @Binding var currentTab: StackRoot
+  let rootVC: RootVC
   let tabs: [StackRoot]
   let tabItemDic: [StackRoot: TabItem]
 
   /// Required fix to get the correct overload that requires the selection to be optional
   var currentTabOptional: Binding<StackRoot?> {
     Binding<StackRoot?>(
-      get: { self.currentTab },
+      get: { self.rootVC.currentRoot },
       set: { newValue in
         if let newValue {
-          self.currentTab = newValue
+          self.rootVC.currentRoot = newValue
         }
       }
     )
@@ -65,13 +65,13 @@ struct CTabViewWide: View {
       .navigationTitle("Get Schwifty")
       .listStyle(SidebarListStyle())
     } detail: {
-      rootToView(currentTab).id(currentTab.id)
+      rootToView(rootVC).id(rootVC.currentRoot.id)
     }
   }
 }
 
 struct CResponsiveTabView: View {
-  @Binding var currentTab: StackRoot
+  let rootVC: RootVC
   let tabs: [StackRoot]
   let tabItemDic: [StackRoot: TabItem]
 
@@ -79,9 +79,9 @@ struct CResponsiveTabView: View {
 
   var body: some View {
     if horizontalSizeClass == .compact {
-      CTabViewCompact(currentTab: $currentTab, tabs: tabs, tabItemDic: tabItemDic)
+      CTabViewCompact(rootVC: rootVC, tabs: tabs, tabItemDic: tabItemDic)
     } else {
-      CTabViewWide(currentTab: $currentTab, tabs: tabs, tabItemDic: tabItemDic)
+      CTabViewWide(rootVC: rootVC, tabs: tabs, tabItemDic: tabItemDic)
     }
   }
 }
@@ -101,8 +101,8 @@ struct CResponsiveTabView: View {
   ]
 
   @ViewBuilder
-  func rootToView(_ root: StackRoot) -> some View {
-    switch root {
+  func rootToView(_ rootVC: RootVC) -> some View {
+    switch rootVC.currentRoot {
     case .rootWeather:
       Text("Weather 🍕🧑🏼‍💻")
     case .rootPortfolios:
@@ -115,10 +115,10 @@ struct CResponsiveTabView: View {
       Text("404 🍕🧑🏼‍💻")
     }
   }
-  @State var t: StackRoot = .rootAccount
+  @State var rootVC: RootVC = .init(initialRoot: .rootAccount)
 
   // - CTabViewCompact works in preview
   // - CTabViewWide doesn't work in preview
   // - Both work in simulator
-  return CResponsiveTabView(currentTab: $t, tabs: tabs, tabItemDic: tabItemDic)
+  return CResponsiveTabView(rootVC: rootVC, tabs: tabs, tabItemDic: tabItemDic)
 }

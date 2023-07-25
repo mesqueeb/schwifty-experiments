@@ -15,20 +15,13 @@ let tabItemDic: [StackRoot: TabItem] = [
 ]
 
 struct AppLayout: View {
-  @StateObject private var safari = Safari()
-
-  @StateObject private var stackVC = StackVC(initialRoot: .rootWeather, initialRootCacheDic: [
-    ._404: StackCache(stacks: []),
-    .rootWeather: StackCache(stacks: []),
-    .rootPortfolios: StackCache(stacks: []),
-    .rootFrameworks: StackCache(stacks: []),
-    .rootAccount: StackCache(stacks: []),
-  ])
+  @State private var safari = Safari()
+  let rootVC = RootVC(initialRoot: .rootWeather)
 
   var body: some View {
-    CResponsiveTabView(currentTab: $stackVC.currentRoot, tabs: tabs, tabItemDic: tabItemDic)
-      .environmentObject(safari)
-      .environmentObject(stackVC)
+    CResponsiveTabView(rootVC: rootVC, tabs: tabs, tabItemDic: tabItemDic)
+      .environment(safari)
+      .environment(rootVC)
   }
 }
 

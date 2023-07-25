@@ -1,12 +1,21 @@
 import SwiftUI
 
 struct PageFrameworks: View {
-  @EnvironmentObject var stackVC: StackVC
+  let rootVC: RootVC
+  @State var pathVC: PathVC
+
+  init(rootVC: RootVC) {
+    self.rootVC = rootVC
+    _pathVC = State(initialValue: .init(initialStacks: [], rootVC: rootVC))
+    rootVC.registerPathVC(root: .rootFrameworks, pathVC: pathVC)
+  }
 
   var body: some View {
-    CResponsiveStacksView(stacks: $stackVC.stacks) {
+    CResponsiveStacksView(stacks: $pathVC.stacks) {
       CFrameworks()
     }
+    .environment(pathVC)
+    .onAppear {}
   }
 }
 
@@ -15,6 +24,7 @@ struct PageFrameworks: View {
   func pathToView(_ path: StackPath) -> some View {
     Text("404")
   }
+  @State var rootVC: RootVC = .init(initialRoot: .rootAccount)
 
-  return PageFrameworks()
+  return PageFrameworks(rootVC: rootVC)
 }

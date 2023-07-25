@@ -1,55 +1,52 @@
 import SwiftUI
 
-struct StackCache {
-  let stacks: [StackPath]
+/// `RootVC` manages the currently active root view and a dictionary of `PathVC` instances for each root.
+///
+/// Example usage:
+/// ```
+/// let rootVC = RootVC(initialRoot: .rootWeather)
+/// let pathVC = PathVC(initialStacks: [.portfolioFeed], rootVC: rootVC)
+/// rootVC.registerPathVC(root: .rootWeather, pathVC: pathVC)
+/// ```
+@Observable class RootVC {
+  /// The currently active root view.
+  public var currentRoot: StackRoot
+
+  /// Creates a new RootVC with the specified initial root view.
+  init(initialRoot: StackRoot) {
+    self.currentRoot = initialRoot
+  }
+
+  /// A dictionary mapping each root view to its corresponding PathVC instance.
+  public var rootPathVCDic: [StackRoot: PathVC] = [:]
+
+  /// Registers a PathVC instance for the specified root view.
+  public func registerPathVC(root: StackRoot, pathVC: PathVC) {
+    rootPathVCDic[root] = pathVC
+  }
 }
 
-class StackVC: ObservableObject {
-  @Published public var currentRoot: StackRoot {
-    willSet {
-      print("willSet currentRoot:", currentRoot)
-    }
-    didSet {
-      print("didSet currentRoot:", currentRoot)
-      if currentRoot != oldValue {
-        rootCacheDic[oldValue] = StackCache(stacks: stacks)
-        stacks = rootCacheDic[currentRoot]?.stacks ?? []
-      }
-    }
-  }
+/// `PathVC` manages the navigation stack for a particular root view.
+///
+/// Example instantiation usage:
+/// ```
+/// let rootVC = RootVC(initialRoot: .rootWeather)
+///
+/// // Pass `rootVC` to any `PathVC` instance
+/// let pathVC = PathVC(initialStacks: [], rootVC: rootVC)
+///
+/// // Register `pathVC` back to the `RootVC` instance
+/// rootVC.registerPathVC(root: .rootWeather, pathVC: pathVC)
+/// ```
+/// Example usage:
+/// ```
+/// pathVC.pushAfter(parent: .portfolioFeed, path: .publicPortfolio)
+/// ```
+@Observable class PathVC {
+  /// The navigation stack for this root view.
+  public var stacks: [StackPath]
+  /// The RootVC instance that manages this PathVC.
+  private var rootVC: RootVC
 
-  @Published public var stacks: [StackPath] = [] {
-    didSet {
-      print("stacks:", stacks)
-    }
-  }
-
-  //  public var currentPath: StackPath { stacks.last ?? StackPath._404 }
-
-  /// cache per root
-  private var rootCacheDic: [StackRoot: StackCache]
-
-  public func back() { stacks.removeLast() }
-
-  public func backToRoot() { stacks.removeAll() }
-
-  public func replace(path: StackPath) {
-    stacks.removeLast()
-    stacks.append(path)
-  }
-
-  public func pushTo(parent: StackPath, path: StackPath) {
-    while stacks.last != parent, !stacks.isEmpty {
-      stacks.removeLast()
-    }
-    stacks.append(path)
-  }
-
-  init(initialRoot: StackRoot, initialRootCacheDic: [StackRoot: StackCache]) {
-    print("initialRoot:", initialRoot)
-    self.currentRoot = initialRoot
-    self.rootCacheDic = initialRootCacheDic
-    let stackCache = initialRootCacheDic[initialRoot]
-    self.stacks = stackCache?.stacks ?? []
-  }
+  
 }

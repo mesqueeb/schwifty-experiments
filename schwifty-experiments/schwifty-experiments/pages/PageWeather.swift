@@ -1,11 +1,21 @@
 import SwiftUI
 
 struct PageWeather: View {
-  @EnvironmentObject var stackVC: StackVC
+  let rootVC: RootVC
+  @State var pathVC: PathVC
+
+  init(rootVC: RootVC) {
+    self.rootVC = rootVC
+    _pathVC = State(initialValue: .init(initialStacks: [], rootVC: rootVC))
+  }
 
   var body: some View {
-    CResponsiveStacksView(stacks: $stackVC.stacks) {
+    CResponsiveStacksView(stacks: $pathVC.stacks) {
       CWeather()
+    }
+    .environment(pathVC)
+    .onAppear {
+      rootVC.registerPathVC(root: .rootWeather, pathVC: pathVC)
     }
   }
 }
@@ -15,6 +25,7 @@ struct PageWeather: View {
   func pathToView(_ path: StackPath) -> some View {
     Text("404")
   }
+  @State var rootVC: RootVC = .init(initialRoot: .rootAccount)
 
-  return PageWeather()
+  return PageWeather(rootVC: rootVC)
 }
