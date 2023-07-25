@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DbPublicPortfolio: View {
-  @EnvironmentObject var stackVC: StackVC
+  @Environment(PathVC.self) private var pathVC
 
   let username: String?
 
@@ -13,7 +13,7 @@ struct DbPublicPortfolio: View {
     VStack {
       Text(textIf(portfolio?.username) { "Welcome to \($0)'s place" })
       Button(action: {
-        stackVC.pushTo(parent: .publicPortfolio(portfolio?.username ?? ""),
+        pathVC.pushAfter(parent: .publicPortfolio(portfolio?.username ?? ""),
                        path: StackPath.publicPortfolioCv(username ?? ""))
       }) { Text("See CV") }
     }

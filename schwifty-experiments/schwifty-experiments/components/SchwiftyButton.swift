@@ -6,7 +6,7 @@ enum SchwiftyButtonKind {
 }
 
 struct SchwiftyButton: View {
-  @EnvironmentObject private var safari: Safari
+  @Environment(Safari.self) private var safari
 
   let action: (() -> Void)?
   let url: String?
@@ -28,6 +28,7 @@ struct SchwiftyButton: View {
   }
 
   var body: some View {
+    @Bindable var safari = safari
     Button(action: {
       if let action = action {
         action()

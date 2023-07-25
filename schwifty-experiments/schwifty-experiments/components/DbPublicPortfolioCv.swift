@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DbPublicPortfolioCv: View {
-  @EnvironmentObject var stackVC: StackVC
+  @Environment(PathVC.self) private var pathVC
 
   let username: String?
 

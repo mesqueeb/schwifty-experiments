@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct DbPortfolioFeed: View {
-  @EnvironmentObject var stackVC: StackVC
+  @Environment(PathVC.self) private var pathVC
 
   var body: some View {
     VStack {
       List(dbPortfolios.values, id: \.username) { p in
         HStack {
           Button(action: {
-            stackVC.pushTo(parent: .portfolioFeed,
-                           path: StackPath.publicPortfolio(p.username))
+            pathVC.pushAfter(parent: .portfolioFeed,
+                             path: StackPath.publicPortfolio(p.username))
           }) { Text(p.username).foregroundColor(.primary) }
         }
       }

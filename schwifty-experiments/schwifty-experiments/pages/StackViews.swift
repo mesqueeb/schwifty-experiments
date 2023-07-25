@@ -16,21 +16,21 @@ func pathToView(_ path: StackPath) -> some View {
   case .pageAccount:
     CAccount()
   case ._404:
-    rootToView(._404)
+    Text("404 🍕🧑🏼‍💻")
   }
 }
 
 @ViewBuilder
-func rootToView(_ root: StackRoot) -> some View {
-  switch root {
+func rootToView(_ rootVC: RootVC) -> some View {
+  switch rootVC.currentRoot {
   case .rootWeather:
-    PageWeather()
+    PageWeather(rootVC: rootVC)
   case .rootPortfolios:
-    PagePortfolios()
+    PagePortfolios(rootVC: rootVC)
   case .rootFrameworks:
-    PageFrameworks()
+    PageFrameworks(rootVC: rootVC)
   case .rootAccount:
-    PageAccount()
+    PageAccount(rootVC: rootVC)
   case ._404:
     Text("404 🍕🧑🏼‍💻")
   }
