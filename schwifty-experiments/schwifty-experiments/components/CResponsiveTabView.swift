@@ -83,14 +83,17 @@ struct CResponsiveTabView: View {
 
 #Preview {
   let tabs: [TabItem] = [
-    .rootWeather: TabItem(title: "Weather", icon: "house".index: 0),
-    .rootPortfolios: TabItem(title: "Portfolios", icon: "house".index: 1),
-    .rootFrameworks: TabItem(title: "Frameworks", icon: "gear".index: 2),
-    .rootAccount: TabItem(title: "Account", icon: "person".index: 3),
+    TabItem(title: "Weather", icon: "house", index: 0),
+    TabItem(title: "Portfolios", icon: "house", index: 1),
+    TabItem(title: "Frameworks", icon: "gear", index: 2),
+    TabItem(title: "Account", icon: "person", index: 3),
   ]
 
+  @StateObject var stackVC = StackVC(initialRootIndex: 0)
+  @StateObject var safari = Safari()
+
   @ViewBuilder
-  func rootToView(_ root: Int) -> some View {
+  func rootToView(_ root: StackRoot) -> some View {
     switch root {
     case .rootWeather:
       Text("Weather 🍕🧑🏼‍💻")
@@ -107,4 +110,6 @@ struct CResponsiveTabView: View {
   @State var t: Int = 0
 
   return CResponsiveTabView(currentIndex: $t, tabs: tabs)
+    .environmentObject(stackVC)
+    .environmentObject(safari)
 }

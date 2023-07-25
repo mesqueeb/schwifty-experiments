@@ -14,11 +14,24 @@ struct PagePortfolios: View {
       }
     }
     else {
-      HStack {
-        DbPortfolioFeed()
-        ForEach(stackVC.stacks1, id: \.self) { path in
-          NavigationStack {
-            pathToView(path)
+      GeometryReader { geometry in
+        ScrollView(.horizontal, showsIndicators: false) {
+          HStack {
+            DbPortfolioFeed()
+            ForEach(stackVC.stacks1, id: \.self) { path in
+              NavigationStack {
+                ScrollView {
+                  VStack {
+//                    Text(title)
+//                       .font(.largeTitle)
+//                       .fontWeight(.semibold)
+                    pathToView(path)
+                  }
+                }
+              }
+              .frame(width: geometry.size.width * 0.5)
+              .background(Color.red)
+            }
           }
         }
       }
