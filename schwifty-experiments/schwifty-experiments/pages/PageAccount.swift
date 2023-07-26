@@ -37,6 +37,8 @@ struct PageAccount: View {
   func pathToView(_ path: StackPath) -> some View {
     Text("404")
   }
+  @StateObject var stackVC = StackVC(initialRootIndex: 1)
 
   return PageAccount()
+    .environmentObject(stackVC)
 }

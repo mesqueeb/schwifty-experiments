@@ -7,6 +7,7 @@ enum StackPath: Hashable, Identifiable, Equatable {
   case pageAccount
   case publicPortfolio(String?)
   case publicPortfolioCv(String?)
+  case barcodeScanner
   case _404
 
   var id: String {
@@ -23,6 +24,8 @@ enum StackPath: Hashable, Identifiable, Equatable {
       return "publicPortfolio(\(username ?? ""))"
     case .publicPortfolioCv(let username):
       return "publicPortfolioCv(\(username ?? ""))"
+    case .barcodeScanner:
+      return "barcodeScanner"
     case ._404:
       return StackRoot._404.id
     }

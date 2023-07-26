@@ -19,7 +19,11 @@
 		F73B39532A5BE83900997186 /* FrameworkDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39522A5BE83900997186 /* FrameworkDetails.swift */; };
 		F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */; };
 		F73B39572A5D339800997186 /* CSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B39562A5D339800997186 /* CSafariView.swift */; };
+		F75AC3302A70F73200B108F8 /* _DbTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AC32F2A70F73200B108F8 /* _DbTemplate.swift */; };
+		F75AC3322A70F77300B108F8 /* DbBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AC3312A70F77300B108F8 /* DbBarcodeScanner.swift */; };
+		F75AC3342A70FC7200B108F8 /* CBarcodeCameraFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AC3332A70FC7200B108F8 /* CBarcodeCameraFinder.swift */; };
 		F7751D782A61FE4400FAA861 /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7751D772A61FE4400FAA861 /* Framework.swift */; };
+		F77E0C212A7100390043B6BE /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77E0C202A7100390043B6BE /* ScannerVC.swift */; };
 		F77FBD622A64A3F400CD3178 /* StackViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FBD612A64A3F400CD3178 /* StackViews.swift */; };
 		F78D26D02A61642500B7B76E /* StackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D26CF2A61642500B7B76E /* StackVC.swift */; };
 		F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76ADA2A5A8C750000297C /* AccountMenu.swift */; };
@@ -41,6 +45,7 @@
 		F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748712A58F6130075DE40 /* WeatherDayTile.swift */; };
 		F7C748762A58F76E0075DE40 /* DbAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* DbAccount.swift */; };
 		F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748772A58F7C30075DE40 /* AppLayout.swift */; };
+		F7DDD89A2A710F6D00C0CB87 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +61,11 @@
 		F73B39522A5BE83900997186 /* FrameworkDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkDetails.swift; sourceTree = "<group>"; };
 		F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchwiftyButton.swift; sourceTree = "<group>"; };
 		F73B39562A5D339800997186 /* CSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSafariView.swift; sourceTree = "<group>"; };
+		F75AC32F2A70F73200B108F8 /* _DbTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _DbTemplate.swift; sourceTree = "<group>"; };
+		F75AC3312A70F77300B108F8 /* DbBarcodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbBarcodeScanner.swift; sourceTree = "<group>"; };
+		F75AC3332A70FC7200B108F8 /* CBarcodeCameraFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBarcodeCameraFinder.swift; sourceTree = "<group>"; };
 		F7751D772A61FE4400FAA861 /* Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
+		F77E0C202A7100390043B6BE /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		F77FBD612A64A3F400CD3178 /* StackViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViews.swift; sourceTree = "<group>"; };
 		F78D26CF2A61642500B7B76E /* StackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackVC.swift; sourceTree = "<group>"; };
 		F7A76ADA2A5A8C750000297C /* AccountMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenu.swift; sourceTree = "<group>"; };
@@ -80,6 +89,7 @@
 		F7C748712A58F6130075DE40 /* WeatherDayTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayTile.swift; sourceTree = "<group>"; };
 		F7C748752A58F76E0075DE40 /* DbAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbAccount.swift; sourceTree = "<group>"; };
 		F7C748772A58F7C30075DE40 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
+		F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				F7C748752A58F76E0075DE40 /* DbAccount.swift */,
+				F75AC32F2A70F73200B108F8 /* _DbTemplate.swift */,
+				F75AC3312A70F77300B108F8 /* DbBarcodeScanner.swift */,
 				F7B6CE742A62728F0036DAC8 /* DbFrameworks.swift */,
 				F71512E92A5FEAD900D1B5A5 /* DbPortfolioFeed.swift */,
 				F71512EB2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift */,
@@ -118,7 +130,9 @@
 		F7B6CE052A626F87007364AF /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */,
 				F7B6CE062A626F93007364AF /* textHelpers.swift */,
+				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -127,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				F7751D772A61FE4400FAA861 /* Framework.swift */,
+				F77E0C202A7100390043B6BE /* ScannerVC.swift */,
 				F78D26CF2A61642500B7B76E /* StackVC.swift */,
 				F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */,
 				F7C152592A60E8B60094FAFB /* Portfolio.swift */,
@@ -195,13 +210,13 @@
 				F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */,
 				F7C152572A60DCCB0094FAFB /* CResponsiveTabView.swift */,
 				F73B39562A5D339800997186 /* CSafariView.swift */,
+				F75AC3332A70FC7200B108F8 /* CBarcodeCameraFinder.swift */,
 				F7BFC1982A5D4F1800969430 /* CSheet.swift */,
 				F7B6CE722A6272460036DAC8 /* CWeather.swift */,
 				F73B39522A5BE83900997186 /* FrameworkDetails.swift */,
 				F73B394C2A5BE31B00997186 /* FrameworkGrid.swift */,
 				F73B39502A5BE47F00997186 /* FrameworkGridTile.swift */,
 				F73B39542A5BEAAB00997186 /* SchwiftyButton.swift */,
-				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
 				F7C748712A58F6130075DE40 /* WeatherDayTile.swift */,
 			);
 			path = components;
@@ -278,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F71CA82C2A708A0B0092C2D4 /* DbWeather.swift in Sources */,
+				F75AC3322A70F77300B108F8 /* DbBarcodeScanner.swift in Sources */,
 				F7C1525A2A60E8B60094FAFB /* Portfolio.swift in Sources */,
 				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
 				F7B6CE772A62738A0036DAC8 /* PageAccount.swift in Sources */,
@@ -290,17 +306,20 @@
 				F71512EE2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift in Sources */,
 				F73B394F2A5BE3BC00997186 /* dbFramework.swift in Sources */,
 				F7C152582A60DCCB0094FAFB /* CResponsiveTabView.swift in Sources */,
+				F75AC3342A70FC7200B108F8 /* CBarcodeCameraFinder.swift in Sources */,
 				F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */,
 				F73B39512A5BE47F00997186 /* FrameworkGridTile.swift in Sources */,
 				F77FBD622A64A3F400CD3178 /* StackViews.swift in Sources */,
 				F7B6CE042A62463B007364AF /* PagePortfolios.swift in Sources */,
 				F7A76AE32A5AA2560000297C /* dbPortfolio.swift in Sources */,
 				F73B39572A5D339800997186 /* CSafariView.swift in Sources */,
+				F77E0C212A7100390043B6BE /* ScannerVC.swift in Sources */,
 				F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */,
 				F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */,
 				F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */,
 				F7B6CE752A62728F0036DAC8 /* DbFrameworks.swift in Sources */,
 				F78D26D02A61642500B7B76E /* StackVC.swift in Sources */,
+				F75AC3302A70F73200B108F8 /* _DbTemplate.swift in Sources */,
 				F7B6CE732A6272460036DAC8 /* CWeather.swift in Sources */,
 				F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */,
 				F71CA8292A707F030092C2D4 /* CNavigationHeader.swift in Sources */,
@@ -308,6 +327,7 @@
 				F71512EC2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift in Sources */,
 				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
 				F71512EA2A5FEAD900D1B5A5 /* DbPortfolioFeed.swift in Sources */,
+				F7DDD89A2A710F6D00C0CB87 /* ShowAlert.swift in Sources */,
 				F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +462,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"schwifty-experiments/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ULH57827C;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -482,6 +503,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"schwifty-experiments/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ULH57827C;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

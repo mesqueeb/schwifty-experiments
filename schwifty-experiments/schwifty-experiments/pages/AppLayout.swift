@@ -32,5 +32,8 @@ struct AppLayout: View {
 }
 
 #Preview {
-  AppLayout()
+  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+
+  return AppLayout()
+    .environmentObject(stackVC)
 }

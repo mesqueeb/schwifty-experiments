@@ -50,5 +50,8 @@ struct DbPublicPortfolioCv: View {
 }
 
 #Preview {
-  DbPublicPortfolioCv(path: .publicPortfolioCv("Michael"), username: "Michael")
+  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+
+  return DbPublicPortfolioCv(path: .publicPortfolioCv("Michael"), username: "Michael")
+    .environmentObject(stackVC)
 }

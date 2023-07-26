@@ -23,5 +23,8 @@ struct DbWeather: View {
 }
 
 #Preview {
-  DbWeather(path: .pageWeather)
+  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+
+  return DbWeather(path: .pageWeather)
+    .environmentObject(stackVC)
 }

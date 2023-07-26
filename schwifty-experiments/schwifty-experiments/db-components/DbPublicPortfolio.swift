@@ -30,13 +30,15 @@ struct DbPublicPortfolio: View {
 
       Text(textIf(portfolio?.username) { "Welcome to \($0)'s place" })
       Button(action: {
-        stackVC.pushTo(parent: .publicPortfolio(portfolio?.username ?? ""),
-                       path: StackPath.publicPortfolioCv(username ?? ""))
+        stackVC.pushTo(.publicPortfolio(portfolio?.username ?? ""), StackPath.publicPortfolioCv(username ?? ""))
       }) { Text("See CV") }
     }
   }
 }
 
 #Preview {
-  DbPublicPortfolio(path: .publicPortfolio("Michael"), username: "Michael")
+  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+
+  return DbPublicPortfolio(path: .publicPortfolio("Michael"), username: "Michael")
+    .environmentObject(stackVC)
 }

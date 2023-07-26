@@ -32,5 +32,8 @@ struct DbFrameworks: View {
 }
 
 #Preview {
-  DbFrameworks(path: .pageFrameworks)
+  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+
+  return DbFrameworks(path: .pageFrameworks)
+    .environmentObject(stackVC)
 }

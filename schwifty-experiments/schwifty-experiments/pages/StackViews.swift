@@ -15,6 +15,8 @@ func pathToView(_ path: StackPath) -> some View {
     DbFrameworks(path: .pageFrameworks)
   case .pageAccount:
     DbAccount(path: .pageAccount)
+  case .barcodeScanner:
+    DbBarcodeScanner(path: .barcodeScanner)
   case ._404:
     Text("404 🍕🧑🏼‍💻")
   }

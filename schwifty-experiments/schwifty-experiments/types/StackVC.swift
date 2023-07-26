@@ -55,7 +55,7 @@ class StackVC: ObservableObject {
     currentStacks.wrappedValue.append(path)
   }
 
-  public func pushTo(parent: StackPath, path: StackPath) {
+  public func pushTo(_ parent: StackPath, _ path: StackPath) {
     while currentStacks.wrappedValue.last != parent, !currentStacks.wrappedValue.isEmpty {
       currentStacks.wrappedValue.removeLast()
     }

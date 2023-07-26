@@ -37,6 +37,8 @@ struct PageFrameworks: View {
   func pathToView(_ path: StackPath) -> some View {
     Text("404")
   }
+  @StateObject var stackVC = StackVC(initialRootIndex: 1)
 
   return PageFrameworks()
+    .environmentObject(stackVC)
 }
