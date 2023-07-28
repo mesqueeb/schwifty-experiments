@@ -44,7 +44,9 @@ struct DbBarcodeScanner: View {
 }
 
 #Preview {
-  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+
+  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return DbBarcodeScanner(path: ._404)
     .environmentObject(stackVC)

@@ -1,6 +1,8 @@
 import SwiftUI
 
 class StackVC: ObservableObject {
+  @Published public var sidenavShown: NavigationSplitViewVisibility = .all
+
   @Published public var rootIndex: Int {
     willSet {
       print("willSet rootIndex:", rootIndex)
@@ -10,10 +12,16 @@ class StackVC: ObservableObject {
     }
   }
 
+  private var stackPathPerRootIndex: [StackPath]
+
   @Published public var stacks0: [StackPath] = []
   @Published public var stacks1: [StackPath] = []
   @Published public var stacks2: [StackPath] = []
   @Published public var stacks3: [StackPath] = []
+
+  public var currentRootStack: StackPath {
+    return stackPathPerRootIndex[rootIndex]
+  }
 
   public var currentStacks: Binding<[StackPath]> {
     switch rootIndex {
@@ -42,8 +50,10 @@ class StackVC: ObservableObject {
     }
   }
 
+  /// Only for non-compact. Up to 2 stacks are shown at the same time.
   public var openBookStacks: ArraySlice<StackPath> {
-    return currentStacks.wrappedValue.suffix(2)
+    let lastTwoStacks = currentStacks.wrappedValue.suffix(2)
+    return lastTwoStacks.count < 2 ? [currentRootStack] + lastTwoStacks : lastTwoStacks
   }
 
   public func back() { currentStacks.wrappedValue.removeLast() }
@@ -71,22 +81,28 @@ class StackVC: ObservableObject {
     }
   }
 
-  /// "is LEFT side stack" when looking at an open book
-  public func isTrailingStack(_ path: StackPath) -> Bool {
-    (path == openBookStacks.first && openBookStacks.count == 2) || (openBookStacks.count == 1 && path == rootPathPerTabIndex[rootIndex])
+  /// is "TOP level stack" no matter wether there are stacks open next to / on top of it
+  public func isRootStack(_ path: StackPath) -> Bool {
+    path == currentRootStack
   }
 
-  /// "is RIGHT side stack" when looking at an open book
+  /// is "LEFT side stack" when looking at an open book
+  public func isTrailingStack(_ path: StackPath) -> Bool {
+    path == openBookStacks.first && openBookStacks.count == 2
+  }
+
+  /// is "RIGHT side stack" when looking at an open book
   public func isLeadingStack(_ path: StackPath) -> Bool {
-    path == openBookStacks.last
+    path == openBookStacks.last && openBookStacks.count == 2
   }
 
   /// the current open stack: EITHER the leading stack or the open root stack
   public func isCurrentStack(_ path: StackPath) -> Bool {
-    isLeadingStack(path) || (openBookStacks.isEmpty && path == rootPathPerTabIndex[rootIndex])
+    isLeadingStack(path) || (openBookStacks.count == 1 && path == openBookStacks.first)
   }
 
-  init(initialRootIndex: Int) {
+  init(initialRootIndex: Int, _ stackPathPerRootIndex: [StackPath]) {
     self.rootIndex = initialRootIndex
+    self.stackPathPerRootIndex = stackPathPerRootIndex
   }
 }

@@ -46,6 +46,7 @@
 		F7C748762A58F76E0075DE40 /* DbAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* DbAccount.swift */; };
 		F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748772A58F7C30075DE40 /* AppLayout.swift */; };
 		F7DDD89A2A710F6D00C0CB87 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */; };
+		F7E99AF62A7404A70071A94E /* DbPublicPortfolioCvEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E99AF52A7404A60071A94E /* DbPublicPortfolioCvEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		F7C748752A58F76E0075DE40 /* DbAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbAccount.swift; sourceTree = "<group>"; };
 		F7C748772A58F7C30075DE40 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 		F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
+		F7E99AF52A7404A60071A94E /* DbPublicPortfolioCvEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbPublicPortfolioCvEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				F71512E92A5FEAD900D1B5A5 /* DbPortfolioFeed.swift */,
 				F71512EB2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift */,
 				F71512ED2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift */,
+				F7E99AF52A7404A60071A94E /* DbPublicPortfolioCvEntry.swift */,
 				F71CA82B2A708A0B0092C2D4 /* DbWeather.swift */,
 			);
 			path = "db-components";
@@ -297,6 +300,7 @@
 				F7C1525A2A60E8B60094FAFB /* Portfolio.swift in Sources */,
 				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
 				F7B6CE772A62738A0036DAC8 /* PageAccount.swift in Sources */,
+				F7E99AF62A7404A70071A94E /* DbPublicPortfolioCvEntry.swift in Sources */,
 				F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */,
 				F7C748762A58F76E0075DE40 /* DbAccount.swift in Sources */,
 				F7751D782A61FE4400FAA861 /* Framework.swift in Sources */,

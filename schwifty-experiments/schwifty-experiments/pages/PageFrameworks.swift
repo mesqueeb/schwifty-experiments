@@ -33,11 +33,12 @@ struct PageFrameworks: View {
 }
 
 #Preview {
-  @ViewBuilder
-  func pathToView(_ path: StackPath) -> some View {
+  @ViewBuilder func pathToView(_ path: StackPath) -> some View {
     Text("404")
   }
-  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+
+  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return PageFrameworks()
     .environmentObject(stackVC)

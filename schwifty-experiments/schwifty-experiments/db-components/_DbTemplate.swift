@@ -22,7 +22,9 @@ struct _DbTemplate: View {
 }
 
 #Preview {
-  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+
+  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return _DbTemplate(path: ._404)
     .environmentObject(stackVC)

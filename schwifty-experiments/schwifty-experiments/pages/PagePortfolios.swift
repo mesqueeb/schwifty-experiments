@@ -1,5 +1,30 @@
 import SwiftUI
 
+struct SlidingTransition: AnimatableModifier {
+  var isActive: Bool
+  var animatableData: CGFloat {
+    didSet {
+      if animatableData == 1 {
+        isActive = true
+      } else if animatableData == 0 {
+        isActive = false
+      }
+    }
+  }
+
+  func body(content: Content) -> some View {
+    content
+      .offset(x: isActive ? 0 : UIScreen.main.bounds.width)
+  }
+}
+
+extension AnyTransition {
+  static var sliding: AnyTransition {
+    .modifier(active: SlidingTransition(isActive: false, animatableData: 0),
+              identity: SlidingTransition(isActive: true, animatableData: 1))
+  }
+}
+
 struct PagePortfolios: View {
   // ╔═══════╗
   // ║ Setup ║
@@ -13,21 +38,35 @@ struct PagePortfolios: View {
   var body: some View {
     if horizontalSizeClass == .compact {
       NavigationStack(path: $stackVC.stacks1) {
-        DbPortfolioFeed(path: .portfolioFeed)
-          .navigationDestination(for: StackPath.self) { path in
-            pathToView(path)
-          }
+        ScrollView {
+          pathToView(.portfolioFeed)
+        }
+        .navigationDestination(for: StackPath.self) { path in
+          pathToView(path)
+        }
       }
-    }
-    else {
+    } else {
       GeometryReader { geometry in
-        HStack {
-          DbPortfolioFeed(path: .portfolioFeed)
-          ForEach(stackVC.openBookStacks, id: \.self) { path in
-            ScrollView {
-              pathToView(path)
+        ZStack(alignment: .topLeading) {
+          Button(action: { stackVC.sidenavShown = .all }) {
+            Image(systemName: "sidebar.left")
+              .font(.title2)
+              .fontWeight(.semibold)
+              .foregroundColor(.primary)
+          }
+          .opacity(stackVC.sidenavShown != .all ? 1 : 0)
+          .zIndex(stackVC.sidenavShown != .all ? 1 : -1)
+
+          HStack {
+            ForEach(stackVC.openBookStacks, id: \.self) { path in
+              ScrollView {
+                pathToView(path)
+              }.id(path)
+                .frame(width: geometry.size.width * 0.5)
+                .navigationBarHidden(true)
+                .transition(.sliding)
+                .animation(.easeInOut, value: stackVC.openBookStacks)
             }
-            .frame(width: geometry.size.width * 0.5)
           }
         }
       }
@@ -36,11 +75,12 @@ struct PagePortfolios: View {
 }
 
 #Preview {
-  @ViewBuilder
-  func pathToView(_ path: StackPath) -> some View {
+  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+
+  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @ViewBuilder func pathToView(_ path: StackPath) -> some View {
     Text("404")
   }
-  @StateObject var stackVC = StackVC(initialRootIndex: 1)
 
   return PagePortfolios()
     .environmentObject(stackVC)

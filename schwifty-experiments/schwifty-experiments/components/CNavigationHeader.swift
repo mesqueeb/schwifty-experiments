@@ -21,6 +21,7 @@ struct CNavigationHeader: View {
   var isTrailingStack: Bool { stackVC.isTrailingStack(path) }
   var isLeadingStack: Bool { stackVC.isLeadingStack(path) }
   var isCurrentStack: Bool { stackVC.isCurrentStack(path) }
+  var isRootStack: Bool { stackVC.isRootStack(path) }
 
   // ╔══════════╗
   // ║ Template ║
@@ -30,9 +31,9 @@ struct CNavigationHeader: View {
       VStack {}
         .navigationTitle(title)
     } else {
-      HStack {
+      VStack {
         HStack {
-          if isTrailingStack {
+          if isTrailingStack && !isRootStack {
             Button(action: { stackVC.back() }) {
               Image(systemName: "arrow.left")
                 .font(.title2)
@@ -44,16 +45,16 @@ struct CNavigationHeader: View {
             .font(.largeTitle)
             .fontWeight(.semibold)
             .foregroundColor(.primary)
-        }
-        Spacer()
-        if isLeadingStack {
-          Button(action: { stackVC.back() }) {
-            Image(systemName: "xmark")
-              .font(.title2)
-              .fontWeight(.semibold)
-              .foregroundColor(.primary)
+          Spacer()
+          if isLeadingStack {
+            Button(action: { stackVC.back() }) {
+              Image(systemName: "xmark")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.primary)
+            }
           }
-        }
+        }.padding(.top, 24)
       }
     }
   }

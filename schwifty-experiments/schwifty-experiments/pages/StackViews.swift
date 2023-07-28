@@ -1,7 +1,6 @@
 import SwiftUI
 
-@ViewBuilder
-func pathToView(_ path: StackPath) -> some View {
+@ViewBuilder func pathToView(_ path: StackPath) -> some View {
   switch path {
   case .portfolioFeed:
     DbPortfolioFeed(path: .portfolioFeed)
@@ -9,6 +8,8 @@ func pathToView(_ path: StackPath) -> some View {
     DbPublicPortfolio(path: .publicPortfolio(username), username: username)
   case .publicPortfolioCv(let username):
     DbPublicPortfolioCv(path: .publicPortfolioCv(username), username: username)
+  case .publicPortfolioCvEntry(let username, let entryId):
+    DbPublicPortfolioCvEntry(path: .publicPortfolioCvEntry(username, entryId), username: username, entryId: entryId)
   case .pageWeather:
     DbWeather(path: .pageWeather)
   case .pageFrameworks:
@@ -22,10 +23,7 @@ func pathToView(_ path: StackPath) -> some View {
   }
 }
 
-let rootPathPerTabIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
-
-@ViewBuilder
-func rootToView(_ root: StackRoot) -> some View {
+@ViewBuilder func rootToView(_ root: StackRoot) -> some View {
   switch root {
   case .rootWeather:
     PageWeather()

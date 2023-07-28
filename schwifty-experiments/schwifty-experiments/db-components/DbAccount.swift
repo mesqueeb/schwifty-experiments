@@ -26,7 +26,9 @@ struct DbAccount: View {
 }
 
 #Preview {
-  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+
+  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return DbAccount(path: .pageAccount)
     .environmentObject(stackVC)

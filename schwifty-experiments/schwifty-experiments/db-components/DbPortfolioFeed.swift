@@ -22,7 +22,7 @@ struct DbPortfolioFeed: View {
     VStack {
       CNavigationHeader(path, title)
 
-      List(dbPortfolios.values, id: \.username) { p in
+      ForEach(dbPortfolios.values, id: \.username) { p in
         HStack {
           Button(action: {
             stackVC.pushTo(.portfolioFeed, StackPath.publicPortfolio(p.username))
@@ -34,7 +34,9 @@ struct DbPortfolioFeed: View {
 }
 
 #Preview {
-  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+
+  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return DbPortfolioFeed(path: .portfolioFeed)
     .environmentObject(stackVC)

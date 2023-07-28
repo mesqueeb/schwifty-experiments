@@ -32,7 +32,9 @@ struct DbFrameworks: View {
 }
 
 #Preview {
-  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+
+  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return DbFrameworks(path: .pageFrameworks)
     .environmentObject(stackVC)

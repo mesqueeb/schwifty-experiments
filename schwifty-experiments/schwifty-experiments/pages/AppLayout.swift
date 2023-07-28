@@ -1,18 +1,18 @@
 import SwiftUI
 
-let tabs: [TabItem] = [
-  TabItem(title: "Weather", icon: "house", index: 0),
-  TabItem(title: "Portfolios", icon: "house", index: 1),
-  TabItem(title: "Frameworks", icon: "gear", index: 2),
-  TabItem(title: "Account", icon: "person", index: 3),
-]
-
 struct AppLayout: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
+  let tabs: [TabItem] = [
+    TabItem(title: "Weather", icon: "house", index: 0),
+    TabItem(title: "Portfolios", icon: "house", index: 1),
+    TabItem(title: "Frameworks", icon: "gear", index: 2),
+    TabItem(title: "Account", icon: "person", index: 3),
+  ]
+
   @StateObject private var safari = Safari()
-  @StateObject private var stackVC = StackVC(initialRootIndex: 1)
+  @StateObject private var stackVC = StackVC(initialRootIndex: 1, [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount])
 
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
@@ -20,7 +20,7 @@ struct AppLayout: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    CResponsiveTabView(currentIndex: $stackVC.rootIndex, tabs: tabs)
+    CResponsiveTabView(currentIndex: $stackVC.rootIndex, tabs: tabs, sidenavShown: $stackVC.sidenavShown)
       .environmentObject(safari)
       .environmentObject(stackVC)
       .onChange(of: horizontalSizeClass) { _, newSize in
@@ -32,7 +32,9 @@ struct AppLayout: View {
 }
 
 #Preview {
-  @StateObject var stackVC = StackVC(initialRootIndex: 1)
+  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+
+  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return AppLayout()
     .environmentObject(stackVC)
