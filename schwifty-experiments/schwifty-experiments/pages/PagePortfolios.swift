@@ -1,30 +1,5 @@
 import SwiftUI
 
-struct SlidingTransition: AnimatableModifier {
-  var isActive: Bool
-  var animatableData: CGFloat {
-    didSet {
-      if animatableData == 1 {
-        isActive = true
-      } else if animatableData == 0 {
-        isActive = false
-      }
-    }
-  }
-
-  func body(content: Content) -> some View {
-    content
-      .offset(x: isActive ? 0 : UIScreen.main.bounds.width)
-  }
-}
-
-extension AnyTransition {
-  static var sliding: AnyTransition {
-    .modifier(active: SlidingTransition(isActive: false, animatableData: 0),
-              identity: SlidingTransition(isActive: true, animatableData: 1))
-  }
-}
-
 struct PagePortfolios: View {
   // ╔═══════╗
   // ║ Setup ║
@@ -68,33 +43,19 @@ struct PagePortfolios: View {
           .zIndex(stackVC.sidenavShown != .all ? 1 : -1)
 
           HStack {
-            ScrollView {
-              pathToView(leadingPath)
-            }
-            .id(leadingPath)
-            .frame(width: trailingPath != nil ? geometry.size.width * 0.5 : geometry.size.width)
-            .navigationBarHidden(true)
-            .transition(.move(edge: .leading))
+            ScrollView { pathToView(leadingPath) }
+              .id(leadingPath)
+              .frame(width: trailingPath != nil ? geometry.size.width * 0.5 : geometry.size.width)
+              .navigationBarHidden(true)
+              .transition(.move(edge: .leading))
 
             if trailingPath != nil {
-              ScrollView {
-                pathToView(trailingPath!)
-              }
-              .id(trailingPath)
-              .frame(width: geometry.size.width * 0.5)
-              .navigationBarHidden(true)
-              .transition(.move(edge: .trailing))
+              ScrollView { pathToView(trailingPath!) }
+                .id(trailingPath)
+                .frame(width: geometry.size.width * 0.5)
+                .navigationBarHidden(true)
+                .transition(.move(edge: .trailing))
             }
-
-//            ForEach(stackVC.openBookStacks, id: \.self) { path in
-//              ScrollView {
-//                pathToView(path)
-//              }.id(path)
-//                .frame(width: geometry.size.width * 0.5)
-//                .navigationBarHidden(true)
-//                .transition(.sliding)
-//                .animation(.easeInOut, value: stackVC.openBookStacks)
-//            }
           }
         }
       }
