@@ -75,7 +75,6 @@ struct CTabViewWide<Content: View>: View {
           }
         }
       }
-      .navigationTitle("Get Schwifty")
       .navigationBarHidden(true)
       .listStyle(SidebarListStyle())
       .onChange(of: currentIndex) { _, _ in

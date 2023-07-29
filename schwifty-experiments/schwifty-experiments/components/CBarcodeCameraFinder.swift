@@ -22,15 +22,19 @@ struct CBarcodeCameraFinder: UIViewControllerRepresentable {
     }
 
     func didFind(barcode: String) {
-      scannerView.scannedCode = barcode
+      DispatchQueue.main.async {
+        self.scannerView.scannedCode = barcode
+      }
     }
 
     func didSurface(error: CameraError) {
-      switch error {
-      case .invalidDeviceInput:
-        scannerView.alert = AlertContext.invalidDeviceInput
-      case .invalidScannedValue:
-        scannerView.alert = AlertContext.invalidScannedType
+      DispatchQueue.main.async {
+        switch error {
+        case .invalidDeviceInput:
+          self.scannerView.alert = AlertContext.invalidDeviceInput
+        case .invalidScannedValue:
+          self.scannerView.alert = AlertContext.invalidScannedType
+        }
       }
     }
   }

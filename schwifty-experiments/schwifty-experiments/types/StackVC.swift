@@ -79,18 +79,18 @@ class StackVC: ObservableObject {
   }
 
   /// is "LEFT side stack" when looking at an open book
-  public func isTrailingStack(_ path: StackPath) -> Bool {
+  public func isLeadingStack(_ path: StackPath) -> Bool {
     path == openBookStacks.first && openBookStacks.count == 2
   }
 
   /// is "RIGHT side stack" when looking at an open book
-  public func isLeadingStack(_ path: StackPath) -> Bool {
+  public func isTrailingStack(_ path: StackPath) -> Bool {
     path == openBookStacks.last && openBookStacks.count == 2
   }
 
-  /// the current open stack: EITHER the leading stack or the open root stack
+  /// the current open stack: EITHER the trailing stack or the open root stack
   public func isCurrentStack(_ path: StackPath) -> Bool {
-    isLeadingStack(path) || (openBookStacks.count == 1 && path == openBookStacks.first)
+    isTrailingStack(path) || (openBookStacks.count == 1 && path == openBookStacks.first)
   }
 
   init(initialRootIndex: Int, _ stackPathPerRootIndex: [StackPath]) {

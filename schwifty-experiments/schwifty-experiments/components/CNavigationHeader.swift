@@ -18,8 +18,8 @@ struct CNavigationHeader: View {
   @EnvironmentObject var stackVC: StackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
-  var isTrailingStack: Bool { stackVC.isTrailingStack(path) }
   var isLeadingStack: Bool { stackVC.isLeadingStack(path) }
+  var isTrailingStack: Bool { stackVC.isTrailingStack(path) }
   var isCurrentStack: Bool { stackVC.isCurrentStack(path) }
   var isRootStack: Bool { stackVC.isRootStack(path) }
 
@@ -33,7 +33,7 @@ struct CNavigationHeader: View {
     } else {
       VStack {
         HStack {
-          if isTrailingStack && !isRootStack {
+          if isLeadingStack && !isRootStack {
             Button(action: { stackVC.back() }) {
               Image(systemName: "arrow.left")
                 .font(.title2)
@@ -46,7 +46,7 @@ struct CNavigationHeader: View {
             .fontWeight(.semibold)
             .foregroundColor(.primary)
           Spacer()
-          if isLeadingStack {
+          if isTrailingStack {
             Button(action: { stackVC.back() }) {
               Image(systemName: "xmark")
                 .font(.title2)

@@ -32,6 +32,16 @@ struct PagePortfolios: View {
   @EnvironmentObject var stackVC: StackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
+  var leadingPath: StackPath {
+    stackVC.openBookStacks[0]
+  }
+
+  var trailingPath: StackPath? {
+    stackVC.openBookStacks.count == 2
+      ? stackVC.openBookStacks[1]
+      : nil
+  }
+
   // ╔══════════╗
   // ║ Template ║
   // ╚══════════╝
@@ -58,15 +68,33 @@ struct PagePortfolios: View {
           .zIndex(stackVC.sidenavShown != .all ? 1 : -1)
 
           HStack {
-            ForEach(stackVC.openBookStacks, id: \.self) { path in
-              ScrollView {
-                pathToView(path)
-              }.id(path)
-                .frame(width: geometry.size.width * 0.5)
-                .navigationBarHidden(true)
-                .transition(.sliding)
-                .animation(.easeInOut, value: stackVC.openBookStacks)
+            ScrollView {
+              pathToView(leadingPath)
             }
+            .id(leadingPath)
+            .frame(width: trailingPath != nil ? geometry.size.width * 0.5 : geometry.size.width)
+            .navigationBarHidden(true)
+            .transition(.move(edge: .leading))
+
+            if trailingPath != nil {
+              ScrollView {
+                pathToView(trailingPath!)
+              }
+              .id(trailingPath)
+              .frame(width: geometry.size.width * 0.5)
+              .navigationBarHidden(true)
+              .transition(.move(edge: .trailing))
+            }
+
+//            ForEach(stackVC.openBookStacks, id: \.self) { path in
+//              ScrollView {
+//                pathToView(path)
+//              }.id(path)
+//                .frame(width: geometry.size.width * 0.5)
+//                .navigationBarHidden(true)
+//                .transition(.sliding)
+//                .animation(.easeInOut, value: stackVC.openBookStacks)
+//            }
           }
         }
       }
