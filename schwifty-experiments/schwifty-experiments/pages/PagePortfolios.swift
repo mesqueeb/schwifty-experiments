@@ -1,11 +1,31 @@
 import SwiftUI
 
 struct PagePortfolios: View {
+  let pageRootIndex = 1
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
   @EnvironmentObject var stackVC: StackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
+  var rootPath: StackPath {
+    stackVC.stackPathPerRootIndex[pageRootIndex]
+  }
+
+  var stacks: [StackPath] {
+    switch pageRootIndex {
+      case 0:
+        return stackVC.stacks0
+      case 1:
+        return stackVC.stacks1
+      case 2:
+        return stackVC.stacks2
+      case 3:
+        return stackVC.stacks3
+      default:
+        return [._404]
+    }
+  }
 
   // ╔══════════╗
   // ║ Template ║
@@ -33,20 +53,20 @@ struct PagePortfolios: View {
           .zIndex(stackVC.sidenavShown != .all ? 1 : -1)
 
           HStack {
-            if stackVC.stacks1.count < 2 {
-              ScrollView { pathToView(stackVC.stackPathPerRootIndex[1]) }
-                .id(stackVC.stackPathPerRootIndex[1])
-                .frame(width: stackVC.stacks1.count == 0 ? geometry.size.width : geometry.size.width * 0.5)
+            if stacks.count < 2 {
+              ScrollView { pathToView(rootPath) }
+                .id(rootPath)
+                .frame(width: stacks.count == 0 ? geometry.size.width : geometry.size.width * 0.5)
                 .transition(.move(edge: .leading))
-                .animation(.smooth, value: stackVC.stacks1.count)
+                .animation(.smooth, value: stacks.count)
             }
 
-            ForEach(stackVC.stacks1, id: \.id) { path in
-              if stackVC.stacks1.last == path || stackVC.stacks1.suffix(2).first == path {
+            ForEach(stacks, id: \.id) { path in
+              if stacks.last == path || stacks.suffix(2).first == path {
                 ScrollView { pathToView(path) }
                   .id(path)
                   .frame(width: geometry.size.width * 0.5)
-                  .transition(.move(edge: stackVC.stacks1.last == path ? .trailing : .leading))
+                  .transition(.move(edge: stacks.last == path ? .trailing : .leading))
               }
             }
           }
