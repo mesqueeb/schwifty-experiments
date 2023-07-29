@@ -7,16 +7,6 @@ struct PagePortfolios: View {
   @EnvironmentObject var stackVC: StackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
-  var leadingPath: StackPath {
-    stackVC.openBookStacks[0]
-  }
-
-  var trailingPath: StackPath? {
-    stackVC.openBookStacks.count == 2
-      ? stackVC.openBookStacks[1]
-      : nil
-  }
-
   // ╔══════════╗
   // ║ Template ║
   // ╚══════════╝
@@ -43,20 +33,24 @@ struct PagePortfolios: View {
           .zIndex(stackVC.sidenavShown != .all ? 1 : -1)
 
           HStack {
-            ScrollView { pathToView(leadingPath) }
-              .id(leadingPath)
-              .frame(width: trailingPath != nil ? geometry.size.width * 0.5 : geometry.size.width)
-              .navigationBarHidden(true)
-              .transition(.move(edge: .leading))
+            if stackVC.stacks1.count < 2 {
+              ScrollView { pathToView(stackVC.stackPathPerRootIndex[1]) }
+                .id(stackVC.stackPathPerRootIndex[1])
+                .frame(width: stackVC.stacks1.count == 0 ? geometry.size.width : geometry.size.width * 0.5)
+                .transition(.move(edge: .leading))
+                .animation(.smooth, value: stackVC.stacks1.count)
+            }
 
-            if trailingPath != nil {
-              ScrollView { pathToView(trailingPath!) }
-                .id(trailingPath)
-                .frame(width: geometry.size.width * 0.5)
-                .navigationBarHidden(true)
-                .transition(.move(edge: .trailing))
+            ForEach(stackVC.stacks1, id: \.id) { path in
+              if stackVC.stacks1.last == path || stackVC.stacks1.suffix(2).first == path {
+                ScrollView { pathToView(path) }
+                  .id(path)
+                  .frame(width: geometry.size.width * 0.5)
+                  .transition(.move(edge: stackVC.stacks1.last == path ? .trailing : .leading))
+              }
             }
           }
+          .navigationBarHidden(true)
         }
       }
     }

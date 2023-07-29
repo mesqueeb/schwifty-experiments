@@ -4,7 +4,8 @@ class StackVC: ObservableObject {
   @Published public var sidenavShown: NavigationSplitViewVisibility = .all
   @Published public var rootIndex: Int
 
-  private var stackPathPerRootIndex: [StackPath]
+  /// Non-dynamic! (should only be ever set up on initialisation)
+  public var stackPathPerRootIndex: [StackPath]
 
   @Published public var stacks0: [StackPath] = []
   @Published public var stacks1: [StackPath] = []
@@ -48,20 +49,28 @@ class StackVC: ObservableObject {
     return lastTwoStacks.count < 2 ? [currentRootStack] + lastTwoStacks : lastTwoStacks
   }
 
-  public func back() { currentStacks.wrappedValue.removeLast() }
+  public func back() {
+    withAnimation { currentStacks.wrappedValue.removeLast() }
+  }
 
-  public func backToRoot() { currentStacks.wrappedValue.removeAll() }
+  public func backToRoot() {
+    withAnimation { currentStacks.wrappedValue.removeAll() }
+  }
 
   public func replace(path: StackPath) {
-    currentStacks.wrappedValue.removeLast()
-    currentStacks.wrappedValue.append(path)
+    withAnimation {
+      currentStacks.wrappedValue.removeLast()
+      currentStacks.wrappedValue.append(path)
+    }
   }
 
   public func pushTo(_ parent: StackPath, _ path: StackPath) {
-    while currentStacks.wrappedValue.last != parent, !currentStacks.wrappedValue.isEmpty {
-      currentStacks.wrappedValue.removeLast()
+    withAnimation {
+      while currentStacks.wrappedValue.last != parent, !currentStacks.wrappedValue.isEmpty {
+        currentStacks.wrappedValue.removeLast()
+      }
+      currentStacks.wrappedValue.append(path)
     }
-    currentStacks.wrappedValue.append(path)
   }
 
   /// This fixes an issue when changing from WIDE to COMPACT view where the current stack stayed but the screen becomes blank
