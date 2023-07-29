@@ -16,26 +16,11 @@ import SwiftUI
     DbFrameworks(path: .pageFrameworks)
   case .pageAccount:
     DbAccount(path: .pageAccount)
+  case .pageAccountForm:
+    DbAccountForm(path: .pageAccountForm)
   case .barcodeScanner:
     DbBarcodeScanner(path: .barcodeScanner)
   case ._404:
     Text("404 🍕🧑🏼‍💻")
   }
 }
-
-@ViewBuilder func rootToView(_ root: StackRoot) -> some View {
-  switch root {
-  case .rootWeather:
-    PageWeather()
-  case .rootPortfolios:
-    PagePortfolios()
-  case .rootFrameworks:
-    PageFrameworks()
-  case .rootAccount:
-    PageAccount()
-  case ._404:
-    Text("404 🍕🧑🏼‍💻")
-  }
-}
-
-let rootPerIndex: [StackRoot] = [.rootWeather, .rootPortfolios, .rootFrameworks, .rootAccount]

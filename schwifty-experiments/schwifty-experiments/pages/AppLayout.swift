@@ -10,6 +10,20 @@ struct AppLayout: View {
     TabItem(title: "Frameworks", icon: "gear", index: 2),
     TabItem(title: "Account", icon: "person", index: 3),
   ]
+  @ViewBuilder func tabIndexToView(_ index: Int) -> some View {
+    switch index {
+    case 0:
+      PageWeather()
+    case 1:
+      PagePortfolios()
+    case 2:
+      PageFrameworks()
+    case 3:
+      PageAccount()
+    default:
+      Text("404 🍕🧑🏼‍💻")
+    }
+  }
 
   @StateObject private var safari = Safari()
   @StateObject private var stackVC = StackVC(initialRootIndex: 1, [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount])
@@ -20,7 +34,7 @@ struct AppLayout: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    CResponsiveTabView(currentIndex: $stackVC.rootIndex, tabs: tabs, sidenavShown: $stackVC.sidenavShown)
+    CResponsiveTabView(tabs: tabs, tabIndexToView: tabIndexToView, currentIndex: $stackVC.rootIndex, sidenavShown: $stackVC.sidenavShown)
       .environmentObject(safari)
       .environmentObject(stackVC)
       .onChange(of: horizontalSizeClass) { _, newSize in

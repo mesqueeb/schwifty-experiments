@@ -11,12 +11,13 @@ struct TabItem: Identifiable, Hashable, Equatable {
   }
 }
 
-struct CTabViewCompact: View {
+struct CTabViewCompact<Content: View>: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
-  @Binding var currentIndex: Int
   let tabs: [TabItem]
+  let tabIndexToView: (Int) -> Content
+  @Binding var currentIndex: Int
 
   // ╔══════════╗
   // ║ Template ║
@@ -24,7 +25,7 @@ struct CTabViewCompact: View {
   var body: some View {
     TabView(selection: $currentIndex) {
       ForEach(tabs, id: \.self) { tab in
-        rootToView(rootPerIndex[tab.index])
+        tabIndexToView(tab.index)
           .id(tab.id)
           .tabItem {
             Image(systemName: tab.icon)
@@ -36,12 +37,13 @@ struct CTabViewCompact: View {
   }
 }
 
-struct CTabViewWide: View {
+struct CTabViewWide<Content: View>: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
-  @Binding var currentIndex: Int
   let tabs: [TabItem]
+  let tabIndexToView: (Int) -> Content
+  @Binding var currentIndex: Int
   @Binding var sidenavShown: NavigationSplitViewVisibility
 
   // ╔═══════╗
@@ -80,18 +82,19 @@ struct CTabViewWide: View {
         self.sidenavShown = .detailOnly
       }
     } detail: {
-      rootToView(rootPerIndex[currentIndex])
+      tabIndexToView(currentIndex)
         .id(currentIndex)
     }
   }
 }
 
-struct CResponsiveTabView: View {
+struct CResponsiveTabView<Content: View>: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
-  @Binding var currentIndex: Int
   let tabs: [TabItem]
+  let tabIndexToView: (Int) -> Content
+  @Binding var currentIndex: Int
   @Binding var sidenavShown: NavigationSplitViewVisibility
 
   // ╔═══════╗
@@ -104,15 +107,17 @@ struct CResponsiveTabView: View {
   // ╚══════════╝
   var body: some View {
     if horizontalSizeClass == .compact {
-      CTabViewCompact(currentIndex: $currentIndex, tabs: tabs)
+      CTabViewCompact(tabs: tabs, tabIndexToView: tabIndexToView, currentIndex: $currentIndex)
     } else {
-      CTabViewWide(currentIndex: $currentIndex, tabs: tabs, sidenavShown: $sidenavShown)
+      CTabViewWide(tabs: tabs, tabIndexToView: tabIndexToView, currentIndex: $currentIndex, sidenavShown: $sidenavShown)
     }
   }
 }
 
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+  @StateObject var stackVC = StackVC(initialRootIndex: 0, stackPathPerRootIndex)
+  @StateObject var safari = Safari()
 
   let tabs: [TabItem] = [
     TabItem(title: "Weather", icon: "house", index: 0),
@@ -120,28 +125,24 @@ struct CResponsiveTabView: View {
     TabItem(title: "Frameworks", icon: "gear", index: 2),
     TabItem(title: "Account", icon: "person", index: 3),
   ]
-
-  @StateObject var stackVC = StackVC(initialRootIndex: 0, stackPathPerRootIndex)
-  @StateObject var safari = Safari()
-  @State var sidenavShown: NavigationSplitViewVisibility = .detailOnly
-
-  @ViewBuilder func rootToView(_ root: StackRoot) -> some View {
-    switch root {
-    case .rootWeather:
+  @ViewBuilder func tabIndexToView(_ index: Int) -> some View {
+    switch index {
+    case 0:
       Text("Weather 🍕🧑🏼‍💻")
-    case .rootPortfolios:
+    case 1:
       Text("Portfolios 🍕🧑🏼‍💻")
-    case .rootFrameworks:
+    case 2:
       Text("Frameworks 🍕🧑🏼‍💻")
-    case .rootAccount:
+    case 3:
       Text("Account 🍕🧑🏼‍💻")
-    case ._404:
+    default:
       Text("404 🍕🧑🏼‍💻")
     }
   }
   @State var t: Int = 0
+  @State var sidenavShown: NavigationSplitViewVisibility = .detailOnly
 
-  return CResponsiveTabView(currentIndex: $t, tabs: tabs, sidenavShown: $sidenavShown)
+  return CResponsiveTabView(tabs: tabs, tabIndexToView: tabIndexToView, currentIndex: $t, sidenavShown: $sidenavShown)
     .environmentObject(stackVC)
     .environmentObject(safari)
 }

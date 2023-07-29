@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DbAccount: View {
+struct DbAccountForm: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -10,20 +10,16 @@ struct DbAccount: View {
   // ║ Setup ║
   // ╚═══════╝
   @EnvironmentObject var stackVC: StackVC
+  @State var username: String = ""
 
   // ╔══════════╗
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
     VStack {
-      CNavigationHeader(path, "🍳 Account")
+      CNavigationHeader(path, "\(username)'s Details")
 
-      Button(action: { stackVC.pushTo(path, .barcodeScanner) }) {
-        Text("Barcode Scanner")
-      }
-      Button(action: { stackVC.pushTo(path, .pageAccountForm) }) {
-        Text("Account Form")
-      }
+      CFormAccount(username: $username)
     }
   }
 }
@@ -33,6 +29,6 @@ struct DbAccount: View {
 
   @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return DbAccount(path: .pageAccount)
+  return DbAccountForm(path: .pageAccount)
     .environmentObject(stackVC)
 }

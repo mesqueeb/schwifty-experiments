@@ -2,15 +2,7 @@ import SwiftUI
 
 class StackVC: ObservableObject {
   @Published public var sidenavShown: NavigationSplitViewVisibility = .all
-
-  @Published public var rootIndex: Int {
-    willSet {
-      print("willSet rootIndex:", rootIndex)
-    }
-    didSet {
-      print("didSet rootIndex:", rootIndex)
-    }
-  }
+  @Published public var rootIndex: Int
 
   private var stackPathPerRootIndex: [StackPath]
 
