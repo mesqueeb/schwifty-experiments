@@ -4,12 +4,12 @@ import SwiftUI
 ///
 /// It provides functions and properties to navigate through different stacks of views,
 /// and to query the current navigation state.
-class StackVC: ObservableObject {
+@Observable class StackVC {
   // ╔═══════╗
   // ║ State ║
   // ╚═══════╝
-  @Published public var sidenavShown: NavigationSplitViewVisibility = .all
-  @Published public var rootIndex: Int {
+  public var sidenavShown: NavigationSplitViewVisibility = .all
+  public var rootIndex: Int {
     didSet {
       Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
         self.restoreStacksIfNeeded()
@@ -20,10 +20,10 @@ class StackVC: ObservableObject {
   /// Non-dynamic! (should only be ever set up on initialisation)
   public var stackPathPerRootIndex: [StackPath]
 
-  @Published public var stacks0: [StackPath] = []
-  @Published public var stacks1: [StackPath] = []
-  @Published public var stacks2: [StackPath] = []
-  @Published public var stacks3: [StackPath] = []
+  public var stacks0: [StackPath] = []
+  public var stacks1: [StackPath] = []
+  public var stacks2: [StackPath] = []
+  public var stacks3: [StackPath] = []
 
   init(initialRootIndex: Int, _ stackPathPerRootIndex: [StackPath]) {
     self.rootIndex = initialRootIndex

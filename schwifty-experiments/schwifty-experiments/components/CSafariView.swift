@@ -21,8 +21,8 @@ struct SafariUrl: Identifiable {
   }
 }
 
-class Safari: ObservableObject {
-  @Published public var shown: SafariUrl? = nil
+@Observable class Safari {
+  public var shown: SafariUrl?
 
   public func openUrl(_ url: String) {
     shown = SafariUrl(url)
@@ -31,7 +31,7 @@ class Safari: ObservableObject {
 #endif
 
 #if os(macOS)
-class Safari: ObservableObject {
+@Observable class Safari {
   public func openUrl(_ url: String) {
     NSWorkspace.shared.open(URL(string: url)!)
   }

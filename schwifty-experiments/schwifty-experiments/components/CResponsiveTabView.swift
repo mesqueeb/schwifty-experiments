@@ -75,7 +75,9 @@ struct CTabViewWide<Content: View>: View {
           }
         }
       }
+      #if os(iOS)
       .navigationBarHidden(true)
+      #endif
       .listStyle(SidebarListStyle())
       .onChange(of: currentIndex) { _, _ in
         self.sidenavShown = .detailOnly
@@ -115,8 +117,8 @@ struct CResponsiveTabView<Content: View>: View {
 
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
-  @StateObject var stackVC = StackVC(initialRootIndex: 0, stackPathPerRootIndex)
-  @StateObject var safari = Safari()
+  @State var stackVC = StackVC(initialRootIndex: 0, stackPathPerRootIndex)
+  @State var safari = Safari()
 
   let tabs: [TabItem] = [
     TabItem(title: "Weather", icon: "house", index: 0),
@@ -142,6 +144,6 @@ struct CResponsiveTabView<Content: View>: View {
   @State var sidenavShown: NavigationSplitViewVisibility = .detailOnly
 
   return CResponsiveTabView(tabs: tabs, tabIndexToView: tabIndexToView, currentIndex: $t, sidenavShown: $sidenavShown)
-    .environmentObject(stackVC)
-    .environmentObject(safari)
+    .environment(stackVC)
+    .environment(safari)
 }

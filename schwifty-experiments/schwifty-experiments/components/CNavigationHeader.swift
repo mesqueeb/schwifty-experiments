@@ -15,7 +15,7 @@ struct CNavigationHeader: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
-  @EnvironmentObject var stackVC: StackVC
+  @Environment(StackVC.self) private var stackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var isLeadingStack: Bool { stackVC.isLeadingStack(path) }

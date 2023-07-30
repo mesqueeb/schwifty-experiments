@@ -9,7 +9,7 @@ struct DbPortfolioFeed: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
-  @EnvironmentObject var stackVC: StackVC
+  @Environment(StackVC.self) private var stackVC
 
   var title: String {
     return "Portfolios"
@@ -36,8 +36,8 @@ struct DbPortfolioFeed: View {
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
 
-  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return DbPortfolioFeed(path: .portfolioFeed)
-    .environmentObject(stackVC)
+    .environment(stackVC)
 }

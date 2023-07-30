@@ -14,8 +14,8 @@ struct AppLayout: View {
     CResponsiveStacks(forRootIndex: index, pathToView: pathToView)
   }
 
-  @StateObject private var safari = Safari()
-  @StateObject private var stackVC = StackVC(initialRootIndex: 1, [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount])
+  @State var stackVC = StackVC(initialRootIndex: 1, [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount])
+  @State var safari = Safari()
 
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
@@ -24,8 +24,8 @@ struct AppLayout: View {
   // ╚══════════╝
   var body: some View {
     CResponsiveTabView(tabs: tabs, tabIndexToView: tabIndexToView, currentIndex: $stackVC.rootIndex, sidenavShown: $stackVC.sidenavShown)
-      .environmentObject(safari)
-      .environmentObject(stackVC)
+      .environment(stackVC)
+      .environment(safari)
       .onChange(of: horizontalSizeClass) { _, newSize in
         if newSize == .compact {
           stackVC.backupAndResetStacks()
@@ -37,8 +37,8 @@ struct AppLayout: View {
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
 
-  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return AppLayout()
-    .environmentObject(stackVC)
+    .environment(stackVC)
 }

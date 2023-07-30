@@ -11,7 +11,7 @@ struct DbPublicPortfolioCvEntry: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
-  @EnvironmentObject var stackVC: StackVC
+  @Environment(StackVC.self) private var stackVC
 
   var portfolio: Portfolio? {
     return dbPortfolios.doc(username)?.data
@@ -44,8 +44,8 @@ struct DbPublicPortfolioCvEntry: View {
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
 
-  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return DbPublicPortfolioCvEntry(path: .publicPortfolioCvEntry("Michael", UUID()), username: "Michael", entryId: UUID())
-    .environmentObject(stackVC)
+    .environment(stackVC)
 }

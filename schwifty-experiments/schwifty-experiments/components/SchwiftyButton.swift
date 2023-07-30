@@ -28,12 +28,14 @@ struct SchwiftyButton: View {
     self.kind = kind
   }
 
-  @EnvironmentObject private var safari: Safari
+  @Environment(Safari.self) var safari
 
   // ╔══════════╗
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
+    @Bindable var safari = safari
+
     Button(action: {
       if let action = action {
         action()

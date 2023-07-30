@@ -1,8 +1,9 @@
 import SwiftUI
 
-class ShowToast: ObservableObject {
-  @Published var isShowing = false
-  var message = ""
+@Observable class ShowToast {
+  public var isShowing = false
+
+  public var message = ""
 
   func show(_ message: String, duration: Double = 2) {
     self.message = message
@@ -19,7 +20,7 @@ struct ToastView: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
-  @ObservedObject var showToast: ShowToast
+  var showToast: ShowToast
 
   // ╔══════════╗
   // ║ Template ║

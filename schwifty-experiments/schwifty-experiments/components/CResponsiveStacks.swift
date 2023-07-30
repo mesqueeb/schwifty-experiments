@@ -15,7 +15,7 @@ struct CResponsiveStacks<Content: View>: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
-  @EnvironmentObject var stackVC: StackVC
+  @Environment(StackVC.self) private var stackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var rootPath: StackPath {
@@ -89,7 +89,9 @@ struct CResponsiveStacks<Content: View>: View {
               }
             }
           }
+          #if os(iOS)
           .navigationBarHidden(true)
+          #endif
         }
       }
     }
@@ -99,11 +101,11 @@ struct CResponsiveStacks<Content: View>: View {
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
 
-  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
   @ViewBuilder func pathToView(_ path: StackPath) -> some View {
     Text("404")
   }
 
   return CResponsiveStacks(forRootIndex: 1, pathToView: pathToView)
-    .environmentObject(stackVC)
+    .environment(stackVC)
 }

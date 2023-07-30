@@ -5,6 +5,7 @@
 //  Created by Sean Allen on 11/5/20.
 //
 
+#if os(iOS)
 import AVFoundation
 import UIKit
 
@@ -108,3 +109,4 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
     scannerDelegate?.didFind(barcode: barcode)
   }
 }
+#endif

@@ -9,7 +9,7 @@ struct DbBarcodeScanner: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
-  @EnvironmentObject var stackVC: StackVC
+  @Environment(StackVC.self) private var stackVC
 
   @State private var scannedCode: String = ""
   @State private var alertItem: AlertItem?
@@ -22,8 +22,10 @@ struct DbBarcodeScanner: View {
       CNavigationHeader(path, "👁️ Barcode Scanner")
 
       VStack {
+        #if os(iOS)
         CBarcodeCameraFinder(scannedCode: $scannedCode, alert: $alertItem)
           .frame(maxWidth: .infinity, maxHeight: 300)
+        #endif
 
         Label("Scanned Barcode:", systemImage: "barcode.viewfinder")
           .font(.title)
@@ -46,8 +48,8 @@ struct DbBarcodeScanner: View {
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
 
-  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return DbBarcodeScanner(path: ._404)
-    .environmentObject(stackVC)
+    .environment(stackVC)
 }

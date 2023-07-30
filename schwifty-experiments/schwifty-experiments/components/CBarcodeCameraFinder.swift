@@ -1,5 +1,6 @@
 import SwiftUI
 
+#if os(iOS)
 struct CBarcodeCameraFinder: UIViewControllerRepresentable {
   @Binding var scannedCode: String
   @Binding var alert: AlertItem?
@@ -39,3 +40,4 @@ struct CBarcodeCameraFinder: UIViewControllerRepresentable {
     }
   }
 }
+#endif

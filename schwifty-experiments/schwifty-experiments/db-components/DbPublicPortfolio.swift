@@ -10,7 +10,7 @@ struct DbPublicPortfolio: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
-  @EnvironmentObject var stackVC: StackVC
+  @Environment(StackVC.self) private var stackVC
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var portfolio: Portfolio? {
@@ -39,8 +39,8 @@ struct DbPublicPortfolio: View {
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
 
-  @StateObject var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
   return DbPublicPortfolio(path: .publicPortfolio("Michael"), username: "Michael")
-    .environmentObject(stackVC)
+    .environment(stackVC)
 }
