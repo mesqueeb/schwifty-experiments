@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Returns a SwiftUI view for a given `StackPath`.
 @ViewBuilder func pathToView(_ path: StackPath) -> some View {
   switch path {
   case .portfolioFeed:

@@ -1,5 +1,10 @@
 import SwiftUI
 
+/// `CResponsiveStacks` is a SwiftUI view that displays different stacks of views based on the device's size class.
+///
+/// Relies on StackVC existence and must be able to access the stackVC via the environment.
+///
+/// It uses a horizontal size class environment value to determine whether to show one or two stacks of views.
 struct CResponsiveStacks<Content: View>: View {
   // ╔═══════╗
   // ║ Props ║
@@ -63,7 +68,6 @@ struct CResponsiveStacks<Content: View>: View {
                 .id(rootPath)
                 .frame(width: stacks.count == 0 ? geometry.size.width : geometry.size.width * 0.5)
                 .transition(.move(edge: .leading))
-                .animation(.smooth, value: stacks.count)
             }
 
             ForEach(stacks, id: \.id) { path in

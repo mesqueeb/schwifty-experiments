@@ -1,6 +1,13 @@
 import SwiftUI
 
+/// `StackVC` is a class that manages the navigation state of the application.
+///
+/// It provides functions and properties to navigate through different stacks of views,
+/// and to query the current navigation state.
 class StackVC: ObservableObject {
+  // ╔═══════╗
+  // ║ State ║
+  // ╚═══════╝
   @Published public var sidenavShown: NavigationSplitViewVisibility = .all
   @Published public var rootIndex: Int
 
@@ -12,6 +19,14 @@ class StackVC: ObservableObject {
   @Published public var stacks2: [StackPath] = []
   @Published public var stacks3: [StackPath] = []
 
+  init(initialRootIndex: Int, _ stackPathPerRootIndex: [StackPath]) {
+    self.rootIndex = initialRootIndex
+    self.stackPathPerRootIndex = stackPathPerRootIndex
+  }
+
+  // ╔══════════╗
+  // ║ Computed ║
+  // ╚══════════╝
   public var currentRootStack: StackPath {
     return stackPathPerRootIndex[rootIndex]
   }
@@ -49,23 +64,34 @@ class StackVC: ObservableObject {
     return lastTwoStacks.count < 2 ? [currentRootStack] + lastTwoStacks : lastTwoStacks
   }
 
+  // ╔═════════╗
+  // ║ Methods ║
+  // ╚═════════╝
+  /// Removes the last view from the current navigation stack.
+  ///
+  /// This function performs a backward navigation action, equivalent to pressing a back button.
   public func back() {
-    withAnimation { currentStacks.wrappedValue.removeLast() }
+    withAnimation(.smooth(duration: 0.25)) { currentStacks.wrappedValue.removeLast() }
   }
 
+  /// Removes all open stacks, goes back to the root
   public func backToRoot() {
-    withAnimation { currentStacks.wrappedValue.removeAll() }
+    withAnimation(.smooth(duration: 0.25)) { currentStacks.wrappedValue.removeAll() }
   }
 
+  /// Replaces the last view in the current navigation stack with a new one.
   public func replace(path: StackPath) {
-    withAnimation {
+    withAnimation(.smooth(duration: 0.25)) {
       currentStacks.wrappedValue.removeLast()
       currentStacks.wrappedValue.append(path)
     }
   }
 
+  /// Navigates to a new view that will be shown directly after a given parent view.
+  ///
+  /// It will remove any other paths until it finds the target parent and put the new path on top.
   public func pushTo(_ parent: StackPath, _ path: StackPath) {
-    withAnimation {
+    withAnimation(.smooth(duration: 0.25)) {
       while currentStacks.wrappedValue.last != parent, !currentStacks.wrappedValue.isEmpty {
         currentStacks.wrappedValue.removeLast()
       }
@@ -102,8 +128,7 @@ class StackVC: ObservableObject {
     isTrailingStack(path) || (openBookStacks.count == 1 && path == openBookStacks.first)
   }
 
-  init(initialRootIndex: Int, _ stackPathPerRootIndex: [StackPath]) {
-    self.rootIndex = initialRootIndex
-    self.stackPathPerRootIndex = stackPathPerRootIndex
-  }
+  // ╔═══════════════╗
+  // ║ Private stuff ║
+  // ╚═══════════════╝
 }
