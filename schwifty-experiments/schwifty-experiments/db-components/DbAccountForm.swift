@@ -19,7 +19,15 @@ struct DbAccountForm: View {
     VStack {
       CNavigationHeader(path, "\(username)'s Details")
 
+      Text("test")
+
       CFormAccount(username: $username)
+
+      Text("test")
+    }
+    .onAppear {
+      print("af has appeared!")
+      print(username)
     }
   }
 }
