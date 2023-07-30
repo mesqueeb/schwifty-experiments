@@ -1,7 +1,12 @@
 import SwiftUI
 
-struct PagePortfolios: View {
-  let pageRootIndex = 1
+struct CResponsiveStacks<Content: View>: View {
+  // ╔═══════╗
+  // ║ Props ║
+  // ╚═══════╝
+  let forRootIndex: Int
+  let pathToView: (_ path: StackPath) -> Content
+
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
@@ -9,11 +14,11 @@ struct PagePortfolios: View {
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var rootPath: StackPath {
-    stackVC.stackPathPerRootIndex[pageRootIndex]
+    stackVC.stackPathPerRootIndex[forRootIndex]
   }
 
   var stacks: [StackPath] {
-    switch pageRootIndex {
+    switch forRootIndex {
       case 0:
         return stackVC.stacks0
       case 1:
@@ -85,6 +90,6 @@ struct PagePortfolios: View {
     Text("404")
   }
 
-  return PagePortfolios()
+  return CResponsiveStacks(forRootIndex: 1, pathToView: pathToView)
     .environmentObject(stackVC)
 }

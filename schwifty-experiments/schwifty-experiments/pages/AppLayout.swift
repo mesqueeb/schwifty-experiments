@@ -11,18 +11,7 @@ struct AppLayout: View {
     TabItem(title: "Account", icon: "person", index: 3),
   ]
   @ViewBuilder func tabIndexToView(_ index: Int) -> some View {
-    switch index {
-    case 0:
-      PageWeather()
-    case 1:
-      PagePortfolios()
-    case 2:
-      PageFrameworks()
-    case 3:
-      PageAccount()
-    default:
-      Text("404 🍕🧑🏼‍💻")
-    }
+    CResponsiveStacks(forRootIndex: index, pathToView: pathToView)
   }
 
   @StateObject private var safari = Safari()
