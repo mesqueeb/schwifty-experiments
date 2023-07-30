@@ -55,44 +55,49 @@ struct CResponsiveStacks<Content: View>: View {
   var body: some View {
     if horizontalSizeClass == .compact {
       NavigationStack(path: stacks) {
-        ScrollView { pathToView(rootPath) }
-          .navigationDestination(for: StackPath.self) { path in
+        CResponsiveStack(stacks: stacks.wrappedValue) {
+          pathToView(rootPath)
+        }
+        .navigationDestination(for: StackPath.self) { path in
+          CResponsiveStack(stacks: stacks.wrappedValue) {
             pathToView(path)
           }
+        }
       }
     } else {
-      GeometryReader { geometry in
-        ZStack(alignment: .topLeading) {
-          Button(action: { stackVC.sidenavShown = .all }) {
-            Image(systemName: "sidebar.left")
-              .font(.title2)
-              .fontWeight(.semibold)
-              .foregroundColor(.primary)
-          }
-          .opacity(stackVC.sidenavShown != .all ? 1 : 0)
-          .zIndex(stackVC.sidenavShown != .all ? 1 : -1)
-
-          HStack {
-            if stacks.wrappedValue.count < 2 {
-              ScrollView { pathToView(rootPath) }
-                .id(rootPath)
-                .frame(width: stacks.wrappedValue.count == 0 ? geometry.size.width : geometry.size.width * 0.5)
-                .transition(.move(edge: .leading))
-            }
-
-            ForEach(stacks.wrappedValue, id: \.id) { path in
-              if stackVC.isVisibleStack(path) {
-                ScrollView { pathToView(path) }
-                  .id(path)
-                  .frame(width: geometry.size.width * 0.5)
-                  .transition(.move(edge: stacks.wrappedValue.last == path ? .trailing : .leading))
-              }
-            }
-          }
-          #if os(iOS)
-          .navigationBarHidden(true)
-          #endif
+      ZStack(alignment: .topLeading) {
+        Button(action: { stackVC.sidenavShown = .all }) {
+          Image(systemName: "sidebar.left")
+            .font(.title2)
+            .fontWeight(.semibold)
+            .foregroundColor(.primary)
         }
+        .opacity(stackVC.sidenavShown != .all ? 1 : 0)
+        .zIndex(stackVC.sidenavShown != .all ? 1 : -1)
+        .padding()
+
+        HStack(spacing: 0) {
+          if stacks.wrappedValue.count < 2 {
+            CResponsiveStack(stacks: stacks.wrappedValue) {
+              pathToView(rootPath)
+            }
+            .transition(.move(edge: .leading))
+            .id(rootPath)
+          }
+
+          ForEach(stacks.wrappedValue, id: \.id) { path in
+            if stackVC.isVisibleStack(path) {
+              CResponsiveStack(stacks: stacks.wrappedValue) {
+                pathToView(path)
+              }
+              .transition(.move(edge: stacks.wrappedValue.last == path ? .trailing : .leading))
+              .id(path)
+            }
+          }
+        }
+        #if os(iOS)
+        .navigationBarHidden(true)
+        #endif
       }
     }
   }
@@ -101,9 +106,30 @@ struct CResponsiveStacks<Content: View>: View {
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
 
-  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex, initialStacks: [[], [.publicPortfolio("Michael"), .publicPortfolioCv("Michael")]])
   @ViewBuilder func pathToView(_ path: StackPath) -> some View {
-    Text("404")
+    switch path {
+    case .portfolioFeed:
+      DbPortfolioFeed(path: .portfolioFeed)
+    case .publicPortfolio(let username):
+      DbPublicPortfolio(path: .publicPortfolio(username), username: username)
+    case .publicPortfolioCv(let username):
+      DbPublicPortfolioCv(path: .publicPortfolioCv(username), username: username)
+    case .publicPortfolioCvEntry(let username, let entryId):
+      DbPublicPortfolioCvEntry(path: .publicPortfolioCvEntry(username, entryId), username: username, entryId: entryId)
+    case .pageWeather:
+      DbWeather(path: .pageWeather)
+    case .pageFrameworks:
+      DbFrameworks(path: .pageFrameworks)
+    case .pageAccount:
+      DbAccount(path: .pageAccount)
+    case .pageAccountForm:
+      DbAccountForm(path: .pageAccountForm)
+    case .barcodeScanner:
+      DbBarcodeScanner(path: .barcodeScanner)
+    case ._404:
+      Text("404 🍕🧑🏼‍💻")
+    }
   }
 
   return CResponsiveStacks(forRootIndex: 1, pathToView: pathToView)

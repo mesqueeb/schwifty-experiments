@@ -15,19 +15,16 @@ struct DbFrameworks: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    ScrollView {
-      CNavigationHeader(path, "🍏 Frameworks")
+    CNavigationHeader(path, "🍏 Frameworks")
 
-      FrameworkGrid(clickItem: { payload in shownFramework = payload })
-        .padding()
-    }
-    .sheet(item: $shownFramework) { framework in
-      CSheet(close: { shownFramework = nil }) {
-        Spacer()
-        FrameworkDetails(framework: framework)
-        Spacer()
+    FrameworkGrid(clickItem: { payload in shownFramework = payload })
+      .sheet(item: $shownFramework) { framework in
+        CSheet(close: { shownFramework = nil }) {
+          Spacer()
+          FrameworkDetails(framework: framework)
+          Spacer()
+        }
       }
-    }
   }
 }
 

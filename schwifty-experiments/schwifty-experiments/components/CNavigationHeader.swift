@@ -54,7 +54,7 @@ struct CNavigationHeader: View {
                 .foregroundColor(.primary)
             }
           }
-        }.padding(.top, 24)
+        }
       }
     }
   }

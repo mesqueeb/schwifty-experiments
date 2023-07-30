@@ -44,6 +44,9 @@
 		F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748772A58F7C30075DE40 /* AppLayout.swift */; };
 		F7DDD1AA2A748B19006332E4 /* CFormAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDD1A92A748B19006332E4 /* CFormAccount.swift */; };
 		F7DDD89A2A710F6D00C0CB87 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */; };
+		F7DE78872A77082900E4DFC7 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DE78862A77082900E4DFC7 /* Typography.swift */; };
+		F7DE78892A77087D00E4DFC7 /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DE78882A77087D00E4DFC7 /* Space.swift */; };
+		F7DE788B2A772AE900E4DFC7 /* CResponsiveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DE788A2A772AE900E4DFC7 /* CResponsiveStack.swift */; };
 		F7E99AF62A7404A70071A94E /* DbPublicPortfolioCvEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E99AF52A7404A60071A94E /* DbPublicPortfolioCvEntry.swift */; };
 		F7E99AF82A74898D0071A94E /* DbAccountForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E99AF72A74898D0071A94E /* DbAccountForm.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +91,9 @@
 		F7C748772A58F7C30075DE40 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 		F7DDD1A92A748B19006332E4 /* CFormAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFormAccount.swift; sourceTree = "<group>"; };
 		F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
+		F7DE78862A77082900E4DFC7 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
+		F7DE78882A77087D00E4DFC7 /* Space.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
+		F7DE788A2A772AE900E4DFC7 /* CResponsiveStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CResponsiveStack.swift; sourceTree = "<group>"; };
 		F7E99AF52A7404A60071A94E /* DbPublicPortfolioCvEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbPublicPortfolioCvEntry.swift; sourceTree = "<group>"; };
 		F7E99AF72A74898D0071A94E /* DbAccountForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbAccountForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */,
+				F7CDCFFD2A77039A0057FEC1 /* styles */,
 				F7B6CE052A626F87007364AF /* utils */,
 				F7A76AE12A5AA2390000297C /* db */,
 				F7B7DF002A5A3ED00068FDE5 /* types */,
@@ -210,6 +217,7 @@
 				F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */,
 				F7C152572A60DCCB0094FAFB /* CResponsiveTabView.swift */,
 				F7B6CE032A62463B007364AF /* CResponsiveStacks.swift */,
+				F7DE788A2A772AE900E4DFC7 /* CResponsiveStack.swift */,
 				F73B39562A5D339800997186 /* CSafariView.swift */,
 				F7BFC1982A5D4F1800969430 /* CSheet.swift */,
 				F7B6CE722A6272460036DAC8 /* CWeather.swift */,
@@ -220,6 +228,15 @@
 				F7C748712A58F6130075DE40 /* WeatherDayTile.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		F7CDCFFD2A77039A0057FEC1 /* styles */ = {
+			isa = PBXGroup;
+			children = (
+				F7DE78862A77082900E4DFC7 /* Typography.swift */,
+				F7DE78882A77087D00E4DFC7 /* Space.swift */,
+			);
+			path = styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +333,7 @@
 				F73B39572A5D339800997186 /* CSafariView.swift in Sources */,
 				F77E0C212A7100390043B6BE /* ScannerVC.swift in Sources */,
 				F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */,
+				F7DE788B2A772AE900E4DFC7 /* CResponsiveStack.swift in Sources */,
 				F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */,
 				F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */,
 				F7B6CE752A62728F0036DAC8 /* DbFrameworks.swift in Sources */,
@@ -324,11 +342,13 @@
 				F7B6CE732A6272460036DAC8 /* CWeather.swift in Sources */,
 				F73B394D2A5BE31B00997186 /* FrameworkGrid.swift in Sources */,
 				F71CA8292A707F030092C2D4 /* CNavigationHeader.swift in Sources */,
+				F7DE78872A77082900E4DFC7 /* Typography.swift in Sources */,
 				F71512EC2A5FEB1200D1B5A5 /* DbPublicPortfolio.swift in Sources */,
 				F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */,
 				F71512EA2A5FEAD900D1B5A5 /* DbPortfolioFeed.swift in Sources */,
 				F7DDD89A2A710F6D00C0CB87 /* ShowAlert.swift in Sources */,
 				F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */,
+				F7DE78892A77087D00E4DFC7 /* Space.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

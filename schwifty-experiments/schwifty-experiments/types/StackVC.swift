@@ -25,9 +25,15 @@ import SwiftUI
   public var stacks2: [StackPath] = []
   public var stacks3: [StackPath] = []
 
-  init(initialRootIndex: Int, _ stackPathPerRootIndex: [StackPath]) {
+  init(initialRootIndex: Int, _ stackPathPerRootIndex: [StackPath], initialStacks: [[StackPath]]? = nil) {
     self.rootIndex = initialRootIndex
     self.stackPathPerRootIndex = stackPathPerRootIndex
+    if let initialStacks {
+      if initialStacks.count > 0 { self.stacks0 = initialStacks[0] }
+      if initialStacks.count > 1 { self.stacks1 = initialStacks[1] }
+      if initialStacks.count > 2 { self.stacks2 = initialStacks[2] }
+      if initialStacks.count > 3 { self.stacks3 = initialStacks[3] }
+    }
   }
 
   // ╔══════════╗
