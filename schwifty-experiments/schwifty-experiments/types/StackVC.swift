@@ -9,7 +9,13 @@ class StackVC: ObservableObject {
   // ║ State ║
   // ╚═══════╝
   @Published public var sidenavShown: NavigationSplitViewVisibility = .all
-  @Published public var rootIndex: Int
+  @Published public var rootIndex: Int {
+    didSet {
+      Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
+        self.restoreStacksIfNeeded()
+      }
+    }
+  }
 
   /// Non-dynamic! (should only be ever set up on initialisation)
   public var stackPathPerRootIndex: [StackPath]
@@ -59,6 +65,7 @@ class StackVC: ObservableObject {
   }
 
   /// Only for non-compact. Up to 2 stacks are shown at the same time.
+  /// This computed property will include the currentRootStack if this is visible.
   public var openBookStacks: ArraySlice<StackPath> {
     let lastTwoStacks = currentStacks.wrappedValue.suffix(2)
     return lastTwoStacks.count < 2 ? [currentRootStack] + lastTwoStacks : lastTwoStacks
@@ -99,15 +106,6 @@ class StackVC: ObservableObject {
     }
   }
 
-  /// This fixes an issue when changing from WIDE to COMPACT view where the current stack stayed but the screen becomes blank
-  public func backupAndResetStacks() {
-    let stacksBackup = currentStacks.wrappedValue
-    currentStacks.wrappedValue = []
-    Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
-      self.currentStacks.wrappedValue = stacksBackup
-    }
-  }
-
   /// is "TOP level stack" no matter wether there are stacks open next to / on top of it
   public func isRootStack(_ path: StackPath) -> Bool {
     path == currentRootStack
@@ -126,6 +124,50 @@ class StackVC: ObservableObject {
   /// the current open stack: EITHER the trailing stack or the open root stack
   public func isCurrentStack(_ path: StackPath) -> Bool {
     isTrailingStack(path) || (openBookStacks.count == 1 && path == openBookStacks.first)
+  }
+
+  /// the stack is currently visible: EITHER the current root path, the leading or trailing stack
+  public func isVisibleStack(_ path: StackPath) -> Bool {
+    openBookStacks.contains(path)
+  }
+
+  // ╔═════════════╗
+  // ║ WORKAROUNDS ║
+  // ╚═════════════╝
+  /// See `backupAndResetStacks`
+  private var stackBackupsPerIndex: [[StackPath]] = [[], [], [], []]
+  /// See `backupAndResetStacks`
+  private var stacksRestoredPerIndex: [Bool] = [true, true, true, true]
+  /// See `backupAndResetStacks`
+  private func restoreStacksIfNeeded() {
+    if !stacksRestoredPerIndex[rootIndex] {
+      switch rootIndex {
+      case 0:
+        stacks0 = stackBackupsPerIndex[0]
+      case 1:
+        stacks1 = stackBackupsPerIndex[1]
+      case 2:
+        stacks2 = stackBackupsPerIndex[2]
+      case 3:
+        stacks3 = stackBackupsPerIndex[3]
+      default:
+        fatalError("Invalid rootIndex")
+      }
+      stacksRestoredPerIndex[rootIndex] = true
+    }
+  }
+
+  /// This fixes an issue when changing from WIDE to COMPACT view (on iPad) where the current stack should stay open but on compact only an empty navigation destination screen is shown
+  public func backupAndResetStacks() {
+    stackBackupsPerIndex = [stacks0, stacks1, stacks2, stacks3]
+    stacksRestoredPerIndex = [false, false, false, false]
+    stacks0 = []
+    stacks1 = []
+    stacks2 = []
+    stacks3 = []
+    Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { _ in
+      self.restoreStacksIfNeeded()
+    }
   }
 
   // ╔═══════════════╗

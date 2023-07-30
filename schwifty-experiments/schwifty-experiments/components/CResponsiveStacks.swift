@@ -22,18 +22,30 @@ struct CResponsiveStacks<Content: View>: View {
     stackVC.stackPathPerRootIndex[forRootIndex]
   }
 
-  var stacks: [StackPath] {
+  var stacks: Binding<[StackPath]> {
     switch forRootIndex {
-      case 0:
-        return stackVC.stacks0
-      case 1:
-        return stackVC.stacks1
-      case 2:
-        return stackVC.stacks2
-      case 3:
-        return stackVC.stacks3
-      default:
-        return [._404]
+    case 0:
+      return Binding<[StackPath]>(
+        get: { stackVC.stacks0 },
+        set: { stackVC.stacks0 = $0 }
+      )
+    case 1:
+      return Binding<[StackPath]>(
+        get: { stackVC.stacks1 },
+        set: { stackVC.stacks1 = $0 }
+      )
+    case 2:
+      return Binding<[StackPath]>(
+        get: { stackVC.stacks2 },
+        set: { stackVC.stacks2 = $0 }
+      )
+    case 3:
+      return Binding<[StackPath]>(
+        get: { stackVC.stacks3 },
+        set: { stackVC.stacks3 = $0 }
+      )
+    default:
+      fatalError("Invalid root index")
     }
   }
 
@@ -42,13 +54,11 @@ struct CResponsiveStacks<Content: View>: View {
   // ╚══════════╝
   var body: some View {
     if horizontalSizeClass == .compact {
-      NavigationStack(path: $stackVC.stacks1) {
-        ScrollView {
-          pathToView(.portfolioFeed)
-        }
-        .navigationDestination(for: StackPath.self) { path in
-          pathToView(path)
-        }
+      NavigationStack(path: stacks) {
+        ScrollView { pathToView(rootPath) }
+          .navigationDestination(for: StackPath.self) { path in
+            pathToView(path)
+          }
       }
     } else {
       GeometryReader { geometry in
@@ -63,19 +73,19 @@ struct CResponsiveStacks<Content: View>: View {
           .zIndex(stackVC.sidenavShown != .all ? 1 : -1)
 
           HStack {
-            if stacks.count < 2 {
+            if stacks.wrappedValue.count < 2 {
               ScrollView { pathToView(rootPath) }
                 .id(rootPath)
-                .frame(width: stacks.count == 0 ? geometry.size.width : geometry.size.width * 0.5)
+                .frame(width: stacks.wrappedValue.count == 0 ? geometry.size.width : geometry.size.width * 0.5)
                 .transition(.move(edge: .leading))
             }
 
-            ForEach(stacks, id: \.id) { path in
-              if stacks.last == path || stacks.suffix(2).first == path {
+            ForEach(stacks.wrappedValue, id: \.id) { path in
+              if stackVC.isVisibleStack(path) {
                 ScrollView { pathToView(path) }
                   .id(path)
                   .frame(width: geometry.size.width * 0.5)
-                  .transition(.move(edge: stacks.last == path ? .trailing : .leading))
+                  .transition(.move(edge: stacks.wrappedValue.last == path ? .trailing : .leading))
               }
             }
           }

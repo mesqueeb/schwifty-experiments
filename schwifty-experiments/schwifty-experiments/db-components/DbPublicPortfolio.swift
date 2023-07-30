@@ -33,6 +33,10 @@ struct DbPublicPortfolio: View {
         stackVC.pushTo(.publicPortfolio(portfolio?.username ?? ""), StackPath.publicPortfolioCv(username ?? ""))
       }) { Text("See CV") }
     }
+    .onAppear {
+      print("DbPublicPortfolio has appeared!")
+      print(portfolio?.username ?? "-")
+    }
   }
 }
 
