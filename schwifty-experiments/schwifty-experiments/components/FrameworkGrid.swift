@@ -18,6 +18,7 @@ struct FrameworkGrid: View {
         }
       }
     }
+    .contentMargins(.horizontal, Space.lg)
   }
 }
 

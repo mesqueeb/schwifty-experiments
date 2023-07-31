@@ -77,9 +77,9 @@ import SwiftUI
     return lastTwoStacks.count < 2 ? [currentRootStack] + lastTwoStacks : lastTwoStacks
   }
 
-  // ╔═════════╗
-  // ║ Methods ║
-  // ╚═════════╝
+  // ╔══════════════════════╗
+  // ║ Methods — Navigation ║
+  // ╚══════════════════════╝
   /// Removes the last view from the current navigation stack.
   ///
   /// This function performs a backward navigation action, equivalent to pressing a back button.
@@ -92,11 +92,10 @@ import SwiftUI
     withAnimation(.smooth(duration: 0.25)) { currentStacks.wrappedValue.removeAll() }
   }
 
-  /// Replaces the last view in the current navigation stack with a new one.
-  public func replace(path: StackPath) {
+  /// Replaces the current stacks with a set of new ones.
+  public func setStacks(_ stacks: [StackPath]) {
     withAnimation(.smooth(duration: 0.25)) {
-      currentStacks.wrappedValue.removeLast()
-      currentStacks.wrappedValue.append(path)
+      currentStacks.wrappedValue = stacks
     }
   }
 
@@ -112,6 +111,9 @@ import SwiftUI
     }
   }
 
+  // ╔═══════════════════════╗
+  // ║ Methods — Informative ║
+  // ╚═══════════════════════╝
   /// is "TOP level stack" no matter wether there are stacks open next to / on top of it
   public func isRootStack(_ path: StackPath) -> Bool {
     path == currentRootStack

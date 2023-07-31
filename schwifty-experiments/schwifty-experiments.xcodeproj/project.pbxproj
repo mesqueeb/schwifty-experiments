@@ -42,6 +42,8 @@
 		F7C748722A58F6130075DE40 /* WeatherDayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748712A58F6130075DE40 /* WeatherDayTile.swift */; };
 		F7C748762A58F76E0075DE40 /* DbAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* DbAccount.swift */; };
 		F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748772A58F7C30075DE40 /* AppLayout.swift */; };
+		F7D9E2472A779E4900C9AAD0 /* Appetizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9E2462A779E4900C9AAD0 /* Appetizer.swift */; };
+		F7D9E2492A77AC5B00C9AAD0 /* CNavigationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9E2482A77AC5B00C9AAD0 /* CNavigationList.swift */; };
 		F7DDD1AA2A748B19006332E4 /* CFormAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDD1A92A748B19006332E4 /* CFormAccount.swift */; };
 		F7DDD89A2A710F6D00C0CB87 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */; };
 		F7DE78872A77082900E4DFC7 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DE78862A77082900E4DFC7 /* Typography.swift */; };
@@ -89,6 +91,8 @@
 		F7C748712A58F6130075DE40 /* WeatherDayTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDayTile.swift; sourceTree = "<group>"; };
 		F7C748752A58F76E0075DE40 /* DbAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbAccount.swift; sourceTree = "<group>"; };
 		F7C748772A58F7C30075DE40 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
+		F7D9E2462A779E4900C9AAD0 /* Appetizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appetizer.swift; sourceTree = "<group>"; };
+		F7D9E2482A77AC5B00C9AAD0 /* CNavigationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNavigationList.swift; sourceTree = "<group>"; };
 		F7DDD1A92A748B19006332E4 /* CFormAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFormAccount.swift; sourceTree = "<group>"; };
 		F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		F7DE78862A77082900E4DFC7 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				F7751D772A61FE4400FAA861 /* Framework.swift */,
+				F7D9E2462A779E4900C9AAD0 /* Appetizer.swift */,
 				F77E0C202A7100390043B6BE /* ScannerVC.swift */,
 				F78D26CF2A61642500B7B76E /* StackVC.swift */,
 				F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */,
@@ -215,6 +220,7 @@
 				F7DDD1A92A748B19006332E4 /* CFormAccount.swift */,
 				F75AC3332A70FC7200B108F8 /* CBarcodeCameraFinder.swift */,
 				F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */,
+				F7D9E2482A77AC5B00C9AAD0 /* CNavigationList.swift */,
 				F7C152572A60DCCB0094FAFB /* CResponsiveTabView.swift */,
 				F7B6CE032A62463B007364AF /* CResponsiveStacks.swift */,
 				F7DE788A2A772AE900E4DFC7 /* CResponsiveStack.swift */,
@@ -319,6 +325,7 @@
 				F7E99AF82A74898D0071A94E /* DbAccountForm.swift in Sources */,
 				F7DDD1AA2A748B19006332E4 /* CFormAccount.swift in Sources */,
 				F7751D782A61FE4400FAA861 /* Framework.swift in Sources */,
+				F7D9E2492A77AC5B00C9AAD0 /* CNavigationList.swift in Sources */,
 				F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */,
 				F73B39532A5BE83900997186 /* FrameworkDetails.swift in Sources */,
 				F71512EE2A5FEB1900D1B5A5 /* DbPublicPortfolioCv.swift in Sources */,
@@ -334,6 +341,7 @@
 				F77E0C212A7100390043B6BE /* ScannerVC.swift in Sources */,
 				F73B39552A5BEAAB00997186 /* SchwiftyButton.swift in Sources */,
 				F7DE788B2A772AE900E4DFC7 /* CResponsiveStack.swift in Sources */,
+				F7D9E2472A779E4900C9AAD0 /* Appetizer.swift in Sources */,
 				F7A76ADB2A5A8C750000297C /* AccountMenu.swift in Sources */,
 				F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */,
 				F7B6CE752A62728F0036DAC8 /* DbFrameworks.swift in Sources */,

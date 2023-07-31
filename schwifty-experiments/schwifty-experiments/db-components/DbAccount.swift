@@ -10,6 +10,12 @@ struct DbAccount: View {
   // ║ Setup ║
   // ╚═══════╝
   @Environment(StackVC.self) private var stackVC
+  let rows = [
+    CNavigationRow(title: "Weather App", stacks: [.pageWeather]),
+    CNavigationRow(title: "Frameworks Overview", stacks: [.pageFrameworks]),
+    CNavigationRow(title: "Barcode Scanner", stacks: [.barcodeScanner]),
+    CNavigationRow(title: "Account Form", stacks: [.pageAccountForm]),
+  ]
 
   // ╔══════════╗
   // ║ Template ║
@@ -18,12 +24,7 @@ struct DbAccount: View {
     VStack {
       CNavigationHeader(path, "🍳 Account")
 
-      Button(action: { stackVC.pushTo(path, .barcodeScanner) }) {
-        Text("Barcode Scanner")
-      }
-      Button(action: { stackVC.pushTo(path, .pageAccountForm) }) {
-        Text("Account Form")
-      }
+      CNavigationList(rows: rows)
     }
   }
 }
