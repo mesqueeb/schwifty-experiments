@@ -10,6 +10,8 @@
 		F71512EA2A5FEAD900D1B5A5 /* SPortfolioFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512E92A5FEAD900D1B5A5 /* SPortfolioFeed.swift */; };
 		F71512EC2A5FEB1200D1B5A5 /* SPublicPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512EB2A5FEB1200D1B5A5 /* SPublicPortfolio.swift */; };
 		F71512EE2A5FEB1900D1B5A5 /* SPublicPortfolioCv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512ED2A5FEB1900D1B5A5 /* SPublicPortfolioCv.swift */; };
+		F717CBA72A78C2B9003D3433 /* SAppetizerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717CBA62A78C2B9003D3433 /* SAppetizerList.swift */; };
+		F717CBA92A78C2C5003D3433 /* SAppetizerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717CBA82A78C2C5003D3433 /* SAppetizerOrder.swift */; };
 		F71CA8292A707F030092C2D4 /* CNavigationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */; };
 		F71CA82C2A708A0B0092C2D4 /* SWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CA82B2A708A0B0092C2D4 /* SWeather.swift */; };
 		F73B394D2A5BE31B00997186 /* DbFrameworkGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394C2A5BE31B00997186 /* DbFrameworkGrid.swift */; };
@@ -56,6 +58,8 @@
 		F71512E92A5FEAD900D1B5A5 /* SPortfolioFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPortfolioFeed.swift; sourceTree = "<group>"; };
 		F71512EB2A5FEB1200D1B5A5 /* SPublicPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPublicPortfolio.swift; sourceTree = "<group>"; };
 		F71512ED2A5FEB1900D1B5A5 /* SPublicPortfolioCv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPublicPortfolioCv.swift; sourceTree = "<group>"; };
+		F717CBA62A78C2B9003D3433 /* SAppetizerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAppetizerList.swift; sourceTree = "<group>"; };
+		F717CBA82A78C2C5003D3433 /* SAppetizerOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAppetizerOrder.swift; sourceTree = "<group>"; };
 		F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNavigationHeader.swift; sourceTree = "<group>"; };
 		F71CA82B2A708A0B0092C2D4 /* SWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWeather.swift; sourceTree = "<group>"; };
 		F73B394C2A5BE31B00997186 /* DbFrameworkGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbFrameworkGrid.swift; sourceTree = "<group>"; };
@@ -141,12 +145,12 @@
 		F7B7DF002A5A3ED00068FDE5 /* types */ = {
 			isa = PBXGroup;
 			children = (
-				F7751D772A61FE4400FAA861 /* Framework.swift */,
 				F7D9E2462A779E4900C9AAD0 /* Appetizer.swift */,
-				F77E0C202A7100390043B6BE /* ScannerVC.swift */,
-				F78D26CF2A61642500B7B76E /* StackVC.swift */,
-				F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */,
+				F7751D772A61FE4400FAA861 /* Framework.swift */,
 				F7C152592A60E8B60094FAFB /* Portfolio.swift */,
+				F77E0C202A7100390043B6BE /* ScannerVC.swift */,
+				F7B7DF022A5A3EF50068FDE5 /* StackTypes.swift */,
+				F78D26CF2A61642500B7B76E /* StackVC.swift */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -201,6 +205,8 @@
 				F77FBD612A64A3F400CD3178 /* AppStacks.swift */,
 				F7C748752A58F76E0075DE40 /* SAccount.swift */,
 				F7E99AF72A74898D0071A94E /* SAccountForm.swift */,
+				F717CBA62A78C2B9003D3433 /* SAppetizerList.swift */,
+				F717CBA82A78C2C5003D3433 /* SAppetizerOrder.swift */,
 				F75AC3312A70F77300B108F8 /* SBarcodeScanner.swift */,
 				F7B6CE742A62728F0036DAC8 /* SFrameworks.swift */,
 				F71512E92A5FEAD900D1B5A5 /* SPortfolioFeed.swift */,
@@ -334,6 +340,7 @@
 				F77FBD622A64A3F400CD3178 /* AppStacks.swift in Sources */,
 				F7B6CE042A62463B007364AF /* CResponsiveStacks.swift in Sources */,
 				F7A76AE32A5AA2560000297C /* dbPortfolio.swift in Sources */,
+				F717CBA72A78C2B9003D3433 /* SAppetizerList.swift in Sources */,
 				F73B39572A5D339800997186 /* CSafariView.swift in Sources */,
 				F77E0C212A7100390043B6BE /* ScannerVC.swift in Sources */,
 				F73B39552A5BEAAB00997186 /* CButton.swift in Sources */,
@@ -352,6 +359,7 @@
 				F71512EA2A5FEAD900D1B5A5 /* SPortfolioFeed.swift in Sources */,
 				F7DDD89A2A710F6D00C0CB87 /* ShowAlert.swift in Sources */,
 				F7BFC1992A5D4F1800969430 /* CSheet.swift in Sources */,
+				F717CBA92A78C2C5003D3433 /* SAppetizerOrder.swift in Sources */,
 				F7DE78892A77087D00E4DFC7 /* Space.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

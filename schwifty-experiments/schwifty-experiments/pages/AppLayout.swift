@@ -5,16 +5,16 @@ struct AppLayout: View {
   // ║ Setup ║
   // ╚═══════╝
   let tabs: [TabItem] = [
-    TabItem(title: "Weather", icon: "house", index: 0),
-    TabItem(title: "Portfolios", icon: "house", index: 1),
-    TabItem(title: "Frameworks", icon: "gear", index: 2),
+    TabItem(title: "Appetizers", icon: "fork.knife.circle", index: 0),
+    TabItem(title: "Order", icon: "takeoutbag.and.cup.and.straw", index: 1),
+    TabItem(title: "Portfolios", icon: "doc.text.image", index: 2),
     TabItem(title: "Account", icon: "person", index: 3),
   ]
   @ViewBuilder func tabIndexToView(_ index: Int) -> some View {
     CResponsiveStacks(forRootIndex: index, pathToView: pathToView)
   }
 
-  @State var stackVC = StackVC(initialRootIndex: 1, [.weather, .portfolioFeed, .frameworks, .account])
+  @State var stackVC = StackVC(initialRootIndex: 1, [.appetizerList, .appetizerOrder, .portfolioFeed, .account])
   @State var safari = Safari()
 
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -35,9 +35,9 @@ struct AppLayout: View {
 }
 
 #Preview {
-  let stackPathPerRootIndex: [StackPath] = [.weather, .portfolioFeed, .frameworks, .account]
+  let stackPathPerRootIndex: [StackPath] = [.appetizerList, .appetizerOrder, .portfolioFeed, .account]
 
-  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @State var stackVC = StackVC(initialRootIndex: 0, stackPathPerRootIndex)
 
   return AppLayout()
     .environment(stackVC)
