@@ -11,10 +11,10 @@ struct SAccount: View {
   // ╚═══════╝
   @Environment(StackVC.self) private var stackVC
   let rows = [
-    CNavigationRow(title: "Weather App", stacks: [.pageWeather]),
-    CNavigationRow(title: "Frameworks Overview", stacks: [.pageFrameworks]),
+    CNavigationRow(title: "Weather App", stacks: [.weather]),
+    CNavigationRow(title: "Frameworks Overview", stacks: [.frameworks]),
     CNavigationRow(title: "Barcode Scanner", stacks: [.barcodeScanner]),
-    CNavigationRow(title: "Account Form", stacks: [.pageAccountForm]),
+    CNavigationRow(title: "Account Form", stacks: [.accountForm]),
   ]
 
   // ╔══════════╗
@@ -30,10 +30,10 @@ struct SAccount: View {
 }
 
 #Preview {
-  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+  let stackPathPerRootIndex: [StackPath] = [.weather, .portfolioFeed, .frameworks, .account]
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return SAccount(path: .pageAccount)
+  return SAccount(path: .account)
     .environment(stackVC)
 }
