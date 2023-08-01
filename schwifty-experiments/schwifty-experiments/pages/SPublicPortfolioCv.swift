@@ -1,12 +1,11 @@
 import SwiftUI
 
-struct DbPublicPortfolioCvEntry: View {
+struct SPublicPortfolioCv: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
   let path: StackPath
   let username: String?
-  let entryId: UUID?
 
   // ╔═══════╗
   // ║ Setup ║
@@ -17,12 +16,8 @@ struct DbPublicPortfolioCvEntry: View {
     return dbPortfolios.doc(username)?.data
   }
 
-  var entry: CvEntry? {
-    return portfolio?.cv.first(where: { $0.id == entryId })
-  }
-
   var title: String {
-    return textIf(entry?.id) { "Entry: \($0)" }
+    return textIf(portfolio?.username) { "\($0)'s CV" }
   }
 
   // ╔══════════╗
@@ -33,10 +28,27 @@ struct DbPublicPortfolioCvEntry: View {
       CNavigationHeader(path, title)
 
       VStack {
-        Text(entry?.description ?? "")
-        Text("\(entry?.year ?? 0)")
-        Text("\(entry?.month ?? 0)")
+        ForEach(portfolio?.cv ?? [], id: \.id) { entry in
+          Button(action: {
+            stackVC.pushTo(path, .publicPortfolioCvEntry(username, entry.id))
+          }) {
+            HStack {
+              Text("\(entry.year)/\(entry.month)")
+              Spacer()
+              Text("\(entry.description)")
+            }
+          }
+        }
       }
+
+      // this just won't show up on non-compact... why?
+//      List(portfolio?.cv ?? [], id: \.id) { entry in
+//        HStack {
+//          Text("\(entry.year)/\(entry.month)")
+//          Spacer()
+//          Text("\(entry.description)")
+//        }
+//      }
     }
   }
 }
@@ -46,6 +58,6 @@ struct DbPublicPortfolioCvEntry: View {
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return DbPublicPortfolioCvEntry(path: .publicPortfolioCvEntry("Michael", UUID()), username: "Michael", entryId: UUID())
+  return SPublicPortfolioCv(path: .publicPortfolioCv("Michael"), username: "Michael")
     .environment(stackVC)
 }

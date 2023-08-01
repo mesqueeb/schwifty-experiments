@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DbPortfolioFeed: View {
+struct SWeather: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -11,24 +11,13 @@ struct DbPortfolioFeed: View {
   // ╚═══════╝
   @Environment(StackVC.self) private var stackVC
 
-  var title: String {
-    return "Portfolios"
-  }
-
   // ╔══════════╗
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
     VStack {
-      CNavigationHeader(path, title)
-
-      ForEach(dbPortfolios.values, id: \.username) { p in
-        HStack {
-          Button(action: {
-            stackVC.pushTo(.portfolioFeed, StackPath.publicPortfolio(p.username))
-          }) { Text(p.username).foregroundColor(.primary) }
-        }
-      }
+//      CNavigationHeader(title)
+      CWeather()
     }
   }
 }
@@ -38,6 +27,6 @@ struct DbPortfolioFeed: View {
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return DbPortfolioFeed(path: .portfolioFeed)
+  return SWeather(path: .pageWeather)
     .environment(stackVC)
 }

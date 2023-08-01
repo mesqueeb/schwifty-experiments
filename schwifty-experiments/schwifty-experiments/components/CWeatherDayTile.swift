@@ -8,7 +8,7 @@ enum WeatherType: String {
   case windy = "wind"
 }
 
-struct WeatherDayTile: View {
+struct CWeatherDayTile: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -34,6 +34,6 @@ struct WeatherDayTile: View {
 
 struct WeatherDayTilePreviews: PreviewProvider {
   static var previews: some View {
-    WeatherDayTile(day: "Tue", weather: .cloudy, temperature: 20).padding(16).background(.blue)
+    CWeatherDayTile(day: "Tue", weather: .cloudy, temperature: 20).padding(16).background(.blue)
   }
 }

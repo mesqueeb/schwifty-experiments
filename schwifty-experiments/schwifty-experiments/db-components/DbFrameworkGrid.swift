@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FrameworkGrid: View {
+struct DbFrameworkGrid: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -13,7 +13,7 @@ struct FrameworkGrid: View {
   var body: some View {
     LazyVGrid(columns: columns) {
       ForEach(dbFramework.values, id: \.name) { framework in
-        FrameworkGridTile(framework: framework).onTapGesture {
+        CFrameworkGridTile(framework: framework).onTapGesture {
           clickItem(framework)
         }
       }
@@ -23,5 +23,5 @@ struct FrameworkGrid: View {
 }
 
 #Preview {
-  FrameworkGrid(clickItem: { _ in print(123) })
+  DbFrameworkGrid(clickItem: { _ in print(123) })
 }

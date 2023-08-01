@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DbBarcodeScanner: View {
+struct SBarcodeScanner: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -50,6 +50,6 @@ struct DbBarcodeScanner: View {
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return DbBarcodeScanner(path: ._404)
+  return SBarcodeScanner(path: ._404)
     .environment(stackVC)
 }

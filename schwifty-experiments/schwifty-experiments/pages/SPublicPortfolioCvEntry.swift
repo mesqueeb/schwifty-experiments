@@ -1,24 +1,28 @@
 import SwiftUI
 
-struct DbPublicPortfolio: View {
+struct SPublicPortfolioCvEntry: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
   let path: StackPath
   let username: String?
+  let entryId: UUID?
 
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
   @Environment(StackVC.self) private var stackVC
-  @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
   var portfolio: Portfolio? {
     return dbPortfolios.doc(username)?.data
   }
 
+  var entry: CvEntry? {
+    return portfolio?.cv.first(where: { $0.id == entryId })
+  }
+
   var title: String {
-    return portfolio?.username ?? ""
+    return textIf(entry?.id) { "Entry: \($0)" }
   }
 
   // ╔══════════╗
@@ -28,10 +32,11 @@ struct DbPublicPortfolio: View {
     VStack {
       CNavigationHeader(path, title)
 
-      Text(textIf(portfolio?.username) { "Welcome to \($0)'s place" })
-      Button(action: {
-        stackVC.pushTo(.publicPortfolio(portfolio?.username ?? ""), StackPath.publicPortfolioCv(username ?? ""))
-      }) { Text("See CV") }
+      VStack {
+        Text(entry?.description ?? "")
+        Text("\(entry?.year ?? 0)")
+        Text("\(entry?.month ?? 0)")
+      }
     }
   }
 }
@@ -41,6 +46,6 @@ struct DbPublicPortfolio: View {
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return DbPublicPortfolio(path: .publicPortfolio("Michael"), username: "Michael")
+  return SPublicPortfolioCvEntry(path: .publicPortfolioCvEntry("Michael", UUID()), username: "Michael", entryId: UUID())
     .environment(stackVC)
 }

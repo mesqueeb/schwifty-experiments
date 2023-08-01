@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FrameworkGridTile: View {
+struct CFrameworkGridTile: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -20,5 +20,5 @@ struct FrameworkGridTile: View {
 }
 
 #Preview {
-  FrameworkGridTile(framework: dbFramework.values[0])
+  CFrameworkGridTile(framework: dbFramework.values[0])
 }

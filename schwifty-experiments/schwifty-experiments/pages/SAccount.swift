@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DbWeather: View {
+struct SAccount: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -10,14 +10,21 @@ struct DbWeather: View {
   // ║ Setup ║
   // ╚═══════╝
   @Environment(StackVC.self) private var stackVC
+  let rows = [
+    CNavigationRow(title: "Weather App", stacks: [.pageWeather]),
+    CNavigationRow(title: "Frameworks Overview", stacks: [.pageFrameworks]),
+    CNavigationRow(title: "Barcode Scanner", stacks: [.barcodeScanner]),
+    CNavigationRow(title: "Account Form", stacks: [.pageAccountForm]),
+  ]
 
   // ╔══════════╗
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
     VStack {
-//      CNavigationHeader(title)
-      CWeather()
+      CNavigationHeader(path, "🍳 Account")
+
+      CNavigationList(rows: rows)
     }
   }
 }
@@ -27,6 +34,6 @@ struct DbWeather: View {
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return DbWeather(path: .pageWeather)
+  return SAccount(path: .pageAccount)
     .environment(stackVC)
 }

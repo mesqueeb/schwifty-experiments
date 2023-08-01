@@ -55,14 +55,10 @@ struct CResponsiveStacks<Content: View>: View {
   var body: some View {
     if horizontalSizeClass == .compact {
       NavigationStack(path: stacks) {
-        CResponsiveStack(stacks: stacks.wrappedValue) {
-          pathToView(rootPath)
-        }
-        .navigationDestination(for: StackPath.self) { path in
-          CResponsiveStack(stacks: stacks.wrappedValue) {
+        pathToView(rootPath)
+          .navigationDestination(for: StackPath.self) { path in
             pathToView(path)
           }
-        }
       }
     } else {
       ZStack(alignment: .topLeading) {
@@ -78,20 +74,18 @@ struct CResponsiveStacks<Content: View>: View {
 
         HStack(spacing: 0) {
           if stacks.wrappedValue.count < 2 {
-            CResponsiveStack(stacks: stacks.wrappedValue) {
-              pathToView(rootPath)
-            }
-            .transition(.move(edge: .leading))
-            .id(rootPath)
+            pathToView(rootPath)
+              .containerRelativeFrame(.horizontal, count: stacks.count == 0 ? 1 : 2, spacing: 0)
+              .transition(.move(edge: .leading))
+              .id(rootPath)
           }
 
           ForEach(stacks.wrappedValue, id: \.id) { path in
             if stackVC.isVisibleStack(path) {
-              CResponsiveStack(stacks: stacks.wrappedValue) {
-                pathToView(path)
-              }
-              .transition(.move(edge: stacks.wrappedValue.last == path ? .trailing : .leading))
-              .id(path)
+              pathToView(path)
+                .containerRelativeFrame(.horizontal, count: stacks.count == 0 ? 1 : 2, spacing: 0)
+                .transition(.move(edge: stacks.wrappedValue.last == path ? .trailing : .leading))
+                .id(path)
             }
           }
         }
@@ -110,23 +104,23 @@ struct CResponsiveStacks<Content: View>: View {
   @ViewBuilder func pathToView(_ path: StackPath) -> some View {
     switch path {
     case .portfolioFeed:
-      DbPortfolioFeed(path: .portfolioFeed)
+      SPortfolioFeed(path: .portfolioFeed)
     case .publicPortfolio(let username):
-      DbPublicPortfolio(path: .publicPortfolio(username), username: username)
+      SPublicPortfolio(path: .publicPortfolio(username), username: username)
     case .publicPortfolioCv(let username):
-      DbPublicPortfolioCv(path: .publicPortfolioCv(username), username: username)
+      SPublicPortfolioCv(path: .publicPortfolioCv(username), username: username)
     case .publicPortfolioCvEntry(let username, let entryId):
-      DbPublicPortfolioCvEntry(path: .publicPortfolioCvEntry(username, entryId), username: username, entryId: entryId)
+      SPublicPortfolioCvEntry(path: .publicPortfolioCvEntry(username, entryId), username: username, entryId: entryId)
     case .pageWeather:
-      DbWeather(path: .pageWeather)
+      SWeather(path: .pageWeather)
     case .pageFrameworks:
-      DbFrameworks(path: .pageFrameworks)
+      SFrameworks(path: .pageFrameworks)
     case .pageAccount:
-      DbAccount(path: .pageAccount)
+      SAccount(path: .pageAccount)
     case .pageAccountForm:
-      DbAccountForm(path: .pageAccountForm)
+      SAccountForm(path: .pageAccountForm)
     case .barcodeScanner:
-      DbBarcodeScanner(path: .barcodeScanner)
+      SBarcodeScanner(path: .barcodeScanner)
     case ._404:
       Text("404 🍕🧑🏼‍💻")
     }

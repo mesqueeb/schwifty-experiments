@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FrameworkDetails: View {
+struct CFrameworkDetails: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -11,17 +11,17 @@ struct FrameworkDetails: View {
   // ╚══════════╝
   var body: some View {
     VStack(spacing: 16) {
-      FrameworkGridTile(framework: framework)
+      CFrameworkGridTile(framework: framework)
 
       Text(framework.description)
         .font(.body)
         .padding()
 
-      SchwiftyButton(url: framework.url, label: "Learn More")
+      CButton(url: framework.url, label: "Learn More")
     }
   }
 }
 
 #Preview {
-  FrameworkDetails(framework: dbFramework.values[0])
+  CFrameworkDetails(framework: dbFramework.values[0])
 }

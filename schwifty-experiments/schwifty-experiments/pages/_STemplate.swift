@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DbAccount: View {
+struct _STemplate: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -10,21 +10,15 @@ struct DbAccount: View {
   // ║ Setup ║
   // ╚═══════╝
   @Environment(StackVC.self) private var stackVC
-  let rows = [
-    CNavigationRow(title: "Weather App", stacks: [.pageWeather]),
-    CNavigationRow(title: "Frameworks Overview", stacks: [.pageFrameworks]),
-    CNavigationRow(title: "Barcode Scanner", stacks: [.barcodeScanner]),
-    CNavigationRow(title: "Account Form", stacks: [.pageAccountForm]),
-  ]
 
   // ╔══════════╗
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    VStack {
-      CNavigationHeader(path, "🍳 Account")
-
-      CNavigationList(rows: rows)
+    CStack(scrollView: true, padding: .a) {
+      VStack {
+        CNavigationHeader(path, "Template")
+      }
     }
   }
 }
@@ -34,6 +28,6 @@ struct DbAccount: View {
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return DbAccount(path: .pageAccount)
+  return _STemplate(path: ._404)
     .environment(stackVC)
 }

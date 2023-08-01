@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DbAccountForm: View {
+struct SAccountForm: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -37,6 +37,6 @@ struct DbAccountForm: View {
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return DbAccountForm(path: .pageAccount)
+  return SAccountForm(path: .pageAccount)
     .environment(stackVC)
 }

@@ -29,14 +29,14 @@ struct CWeather: View {
           Text("22°").font(.system(size: 70, weight: .medium)).foregroundColor(.white)
         }.padding(.bottom, 40)
         HStack(spacing: 20) {
-          WeatherDayTile(day: "Tue", weather: .cloudy, temperature: 20)
-          WeatherDayTile(day: "Wed", weather: .rainy, temperature: 16)
-          WeatherDayTile(day: "Thu", weather: .snowy, temperature: -3)
-          WeatherDayTile(day: "Fri", weather: .sunny, temperature: 26)
-          WeatherDayTile(day: "Sat", weather: .windy, temperature: 22)
+          CWeatherDayTile(day: "Tue", weather: .cloudy, temperature: 20)
+          CWeatherDayTile(day: "Wed", weather: .rainy, temperature: 16)
+          CWeatherDayTile(day: "Thu", weather: .snowy, temperature: -3)
+          CWeatherDayTile(day: "Fri", weather: .sunny, temperature: 26)
+          CWeatherDayTile(day: "Sat", weather: .windy, temperature: 22)
         }
         Spacer()
-        SchwiftyButton(action: { isNight.toggle() },
+        CButton(action: { isNight.toggle() },
                        label: isNight ? "Set Day" : "Set Night",
                        kind: .onColor)
         Spacer()

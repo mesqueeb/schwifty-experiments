@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct DbFrameworks: View {
+struct SPortfolioFeed: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -9,22 +9,27 @@ struct DbFrameworks: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
-  @State private var shownFramework: Framework? = nil
+  @Environment(StackVC.self) private var stackVC
+
+  var title: String {
+    return "Portfolios"
+  }
 
   // ╔══════════╗
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    CNavigationHeader(path, "🍏 Frameworks")
+    VStack {
+      CNavigationHeader(path, title)
 
-    FrameworkGrid(clickItem: { payload in shownFramework = payload })
-      .sheet(item: $shownFramework) { framework in
-        CSheet(close: { shownFramework = nil }) {
-          Spacer()
-          FrameworkDetails(framework: framework)
-          Spacer()
+      ForEach(dbPortfolios.values, id: \.username) { p in
+        HStack {
+          Button(action: {
+            stackVC.pushTo(.portfolioFeed, StackPath.publicPortfolio(p.username))
+          }) { Text(p.username).foregroundColor(.primary) }
         }
       }
+    }
   }
 }
 
@@ -33,6 +38,6 @@ struct DbFrameworks: View {
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return DbFrameworks(path: .pageFrameworks)
+  return SPortfolioFeed(path: .portfolioFeed)
     .environment(stackVC)
 }

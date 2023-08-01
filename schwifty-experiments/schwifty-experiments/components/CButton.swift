@@ -5,7 +5,7 @@ enum SchwiftyButtonKind {
   case onColor
 }
 
-struct SchwiftyButton: View {
+struct CButton: View {
   // ╔═══════╗
   // ║ Props ║
   // ╚═══════╝
@@ -61,9 +61,9 @@ struct SchwiftyButton: View {
 
 #Preview {
   VStack(spacing: 16) {
-    SchwiftyButton(url: "https://apple.com", label: "Get Schwifty")
-    SchwiftyButton(action: { print("Get on the floor") }, label: "Get Schwifty")
-    SchwiftyButton(action: { print("Get on the floor") }, label: "Get Schwifty", kind: .onColor)
+    CButton(url: "https://apple.com", label: "Get Schwifty")
+    CButton(action: { print("Get on the floor") }, label: "Get Schwifty")
+    CButton(action: { print("Get on the floor") }, label: "Get Schwifty", kind: .onColor)
   }
   .padding(16)
   .background(Color.black)
