@@ -61,5 +61,5 @@ struct CNavigationHeader: View {
 }
 
 #Preview {
-  CNavigationHeader(.pageAccount, "Joe")
+  CNavigationHeader(.account, "Joe")
 }

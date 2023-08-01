@@ -25,7 +25,7 @@ struct SPublicPortfolio: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    VStack {
+    CStack(scrollView: true, padding: .a) {
       CNavigationHeader(path, title)
 
       Text(textIf(portfolio?.username) { "Welcome to \($0)'s place" })

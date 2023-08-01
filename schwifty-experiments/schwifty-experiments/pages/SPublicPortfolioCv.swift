@@ -24,7 +24,7 @@ struct SPublicPortfolioCv: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    VStack {
+    CStack(scrollView: true, padding: .a) {
       CNavigationHeader(path, title)
 
       VStack {
@@ -40,15 +40,6 @@ struct SPublicPortfolioCv: View {
           }
         }
       }
-
-      // this just won't show up on non-compact... why?
-//      List(portfolio?.cv ?? [], id: \.id) { entry in
-//        HStack {
-//          Text("\(entry.year)/\(entry.month)")
-//          Spacer()
-//          Text("\(entry.description)")
-//        }
-//      }
     }
   }
 }

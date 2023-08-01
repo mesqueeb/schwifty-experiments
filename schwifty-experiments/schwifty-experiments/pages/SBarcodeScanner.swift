@@ -18,14 +18,14 @@ struct SBarcodeScanner: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    VStack {
+    CStack(scrollView: true, padding: .a) {
       CNavigationHeader(path, "👁️ Barcode Scanner")
 
       VStack {
-        #if os(iOS)
+#if os(iOS)
         CBarcodeCameraFinder(scannedCode: $scannedCode, alert: $alertItem)
           .frame(maxWidth: .infinity, maxHeight: 300)
-        #endif
+#endif
 
         Label("Scanned Barcode:", systemImage: "barcode.viewfinder")
           .font(.title)
@@ -46,7 +46,7 @@ struct SBarcodeScanner: View {
 }
 
 #Preview {
-  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+  let stackPathPerRootIndex: [StackPath] = [.weather, .portfolioFeed, .frameworks, .account]
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 

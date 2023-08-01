@@ -19,7 +19,7 @@ struct SPortfolioFeed: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    VStack {
+    CStack(scrollView: true, padding: .a) {
       CNavigationHeader(path, title)
 
       ForEach(dbPortfolios.values, id: \.username) { p in

@@ -37,9 +37,10 @@ struct CStack<Content: View>: View {
   @ViewBuilder
   var maybeScrollView: some View {
     if scrollView {
-      ScrollView { content }
+      ScrollView { VStack { content }
+      }
     } else {
-      content
+      VStack { content }
     }
   }
 

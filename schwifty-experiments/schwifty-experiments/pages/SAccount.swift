@@ -21,7 +21,7 @@ struct SAccount: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    VStack {
+    CStack(scrollView: true, padding: .a) {
       CNavigationHeader(path, "🍳 Account")
 
       CNavigationList(rows: rows)

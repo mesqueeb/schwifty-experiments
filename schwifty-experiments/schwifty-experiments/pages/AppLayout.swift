@@ -14,7 +14,7 @@ struct AppLayout: View {
     CResponsiveStacks(forRootIndex: index, pathToView: pathToView)
   }
 
-  @State var stackVC = StackVC(initialRootIndex: 1, [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount])
+  @State var stackVC = StackVC(initialRootIndex: 1, [.weather, .portfolioFeed, .frameworks, .account])
   @State var safari = Safari()
 
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -35,7 +35,7 @@ struct AppLayout: View {
 }
 
 #Preview {
-  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+  let stackPathPerRootIndex: [StackPath] = [.weather, .portfolioFeed, .frameworks, .account]
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 

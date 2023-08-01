@@ -98,7 +98,7 @@ struct CResponsiveStacks<Content: View>: View {
 }
 
 #Preview {
-  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+  let stackPathPerRootIndex: [StackPath] = [.weather, .portfolioFeed, .frameworks, .account]
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex, initialStacks: [[], [.publicPortfolio("Michael"), .publicPortfolioCv("Michael")]])
   @ViewBuilder func pathToView(_ path: StackPath) -> some View {
@@ -111,14 +111,14 @@ struct CResponsiveStacks<Content: View>: View {
       SPublicPortfolioCv(path: .publicPortfolioCv(username), username: username)
     case .publicPortfolioCvEntry(let username, let entryId):
       SPublicPortfolioCvEntry(path: .publicPortfolioCvEntry(username, entryId), username: username, entryId: entryId)
-    case .pageWeather:
-      SWeather(path: .pageWeather)
-    case .pageFrameworks:
-      SFrameworks(path: .pageFrameworks)
-    case .pageAccount:
-      SAccount(path: .pageAccount)
-    case .pageAccountForm:
-      SAccountForm(path: .pageAccountForm)
+    case .weather:
+      SWeather(path: .weather)
+    case .frameworks:
+      SFrameworks(path: .frameworks)
+    case .account:
+      SAccount(path: .account)
+    case .accountForm:
+      SAccountForm(path: .accountForm)
     case .barcodeScanner:
       SBarcodeScanner(path: .barcodeScanner)
     case ._404:

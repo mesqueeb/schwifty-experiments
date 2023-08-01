@@ -15,24 +15,26 @@ struct SFrameworks: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    CNavigationHeader(path, "🍏 Frameworks")
+    CStack(scrollView: true, padding: .a) {
+      CNavigationHeader(path, "🍏 Frameworks")
 
-    DbFrameworkGrid(clickItem: { payload in shownFramework = payload })
-      .sheet(item: $shownFramework) { framework in
-        CSheet(close: { shownFramework = nil }) {
-          Spacer()
-          CFrameworkDetails(framework: framework)
-          Spacer()
+      DbFrameworkGrid(clickItem: { payload in shownFramework = payload })
+        .sheet(item: $shownFramework) { framework in
+          CSheet(close: { shownFramework = nil }) {
+            Spacer()
+            CFrameworkDetails(framework: framework)
+            Spacer()
+          }
         }
-      }
+    }
   }
 }
 
 #Preview {
-  let stackPathPerRootIndex: [StackPath] = [.pageWeather, .portfolioFeed, .pageFrameworks, .pageAccount]
+  let stackPathPerRootIndex: [StackPath] = [.weather, .portfolioFeed, .frameworks, .account]
 
   @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
 
-  return SFrameworks(path: .pageFrameworks)
+  return SFrameworks(path: .frameworks)
     .environment(stackVC)
 }
