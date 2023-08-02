@@ -18,6 +18,11 @@ struct SAppetizerList: View {
     CStack(scrollView: true, padding: .a) {
       VStack {
         CNavigationHeader(path, "Appetizers")
+
+        ForEach(AppetizerMockData.orderItems) { item in
+          CAppetizerRow(item: item)
+            .frame(width: .infinity)
+        }
       }
     }
   }

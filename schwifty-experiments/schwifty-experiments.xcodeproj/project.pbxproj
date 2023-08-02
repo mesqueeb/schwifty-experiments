@@ -12,6 +12,8 @@
 		F71512EE2A5FEB1900D1B5A5 /* SPublicPortfolioCv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71512ED2A5FEB1900D1B5A5 /* SPublicPortfolioCv.swift */; };
 		F717CBA72A78C2B9003D3433 /* SAppetizerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717CBA62A78C2B9003D3433 /* SAppetizerList.swift */; };
 		F717CBA92A78C2C5003D3433 /* SAppetizerOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717CBA82A78C2C5003D3433 /* SAppetizerOrder.swift */; };
+		F717CBAB2A79CEB1003D3433 /* CAppetizerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717CBAA2A79CEB1003D3433 /* CAppetizerRow.swift */; };
+		F717CBAD2A79D21F003D3433 /* CImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F717CBAC2A79D21F003D3433 /* CImage.swift */; };
 		F71CA8292A707F030092C2D4 /* CNavigationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */; };
 		F71CA82C2A708A0B0092C2D4 /* SWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CA82B2A708A0B0092C2D4 /* SWeather.swift */; };
 		F73B394D2A5BE31B00997186 /* DbFrameworkGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73B394C2A5BE31B00997186 /* DbFrameworkGrid.swift */; };
@@ -60,6 +62,8 @@
 		F71512ED2A5FEB1900D1B5A5 /* SPublicPortfolioCv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPublicPortfolioCv.swift; sourceTree = "<group>"; };
 		F717CBA62A78C2B9003D3433 /* SAppetizerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAppetizerList.swift; sourceTree = "<group>"; };
 		F717CBA82A78C2C5003D3433 /* SAppetizerOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAppetizerOrder.swift; sourceTree = "<group>"; };
+		F717CBAA2A79CEB1003D3433 /* CAppetizerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAppetizerRow.swift; sourceTree = "<group>"; };
+		F717CBAC2A79D21F003D3433 /* CImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CImage.swift; sourceTree = "<group>"; };
 		F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNavigationHeader.swift; sourceTree = "<group>"; };
 		F71CA82B2A708A0B0092C2D4 /* SWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWeather.swift; sourceTree = "<group>"; };
 		F73B394C2A5BE31B00997186 /* DbFrameworkGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbFrameworkGrid.swift; sourceTree = "<group>"; };
@@ -221,11 +225,13 @@
 		F7C7486E2A58F5E10075DE40 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				F717CBAA2A79CEB1003D3433 /* CAppetizerRow.swift */,
 				F75AC3332A70FC7200B108F8 /* CBarcodeCameraFinder.swift */,
 				F73B39542A5BEAAB00997186 /* CButton.swift */,
 				F7DDD1A92A748B19006332E4 /* CFormAccount.swift */,
 				F73B39522A5BE83900997186 /* CFrameworkDetails.swift */,
 				F73B39502A5BE47F00997186 /* CFrameworkGridTile.swift */,
+				F717CBAC2A79D21F003D3433 /* CImage.swift */,
 				F71CA8282A707F030092C2D4 /* CNavigationHeader.swift */,
 				F7D9E2482A77AC5B00C9AAD0 /* CNavigationList.swift */,
 				F7B6CE032A62463B007364AF /* CResponsiveStacks.swift */,
@@ -324,6 +330,7 @@
 				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
 				F7E99AF62A7404A70071A94E /* SPublicPortfolioCvEntry.swift in Sources */,
 				F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */,
+				F717CBAD2A79D21F003D3433 /* CImage.swift in Sources */,
 				F7C748762A58F76E0075DE40 /* SAccount.swift in Sources */,
 				F7E99AF82A74898D0071A94E /* SAccountForm.swift in Sources */,
 				F7DDD1AA2A748B19006332E4 /* CFormAccount.swift in Sources */,
@@ -345,6 +352,7 @@
 				F77E0C212A7100390043B6BE /* ScannerVC.swift in Sources */,
 				F73B39552A5BEAAB00997186 /* CButton.swift in Sources */,
 				F7DE788B2A772AE900E4DFC7 /* CStack.swift in Sources */,
+				F717CBAB2A79CEB1003D3433 /* CAppetizerRow.swift in Sources */,
 				F7D9E2472A779E4900C9AAD0 /* Appetizer.swift in Sources */,
 				F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */,
 				F7B6CE752A62728F0036DAC8 /* SFrameworks.swift in Sources */,
