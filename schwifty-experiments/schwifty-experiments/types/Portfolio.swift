@@ -14,20 +14,22 @@ struct CvEntry: Identifiable {
   }
 }
 
-class Portfolio: Hashable {
+final class Portfolio: Hashable, DocProtocol {
+  let id: String
   let username: String
   let cv: [CvEntry]
 
   init(username: String, cv: [CvEntry]) {
+    self.id = UUID().uuidString
     self.username = username
     self.cv = cv
   }
 
   static func == (lhs: Portfolio, rhs: Portfolio) -> Bool {
-    lhs.username == rhs.username
+    lhs.id == rhs.id
   }
 
   func hash(into hasher: inout Hasher) {
-    hasher.combine(username)
+    hasher.combine(id)
   }
 }

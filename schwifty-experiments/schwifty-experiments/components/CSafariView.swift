@@ -21,7 +21,7 @@ struct SafariUrl: Identifiable {
   }
 }
 
-@Observable class Safari {
+@Observable final class Safari {
   public var shown: SafariUrl?
 
   public func openUrl(_ url: String) {
@@ -31,7 +31,7 @@ struct SafariUrl: Identifiable {
 #endif
 
 #if os(macOS)
-@Observable class Safari {
+@Observable final class Safari {
   public func openUrl(_ url: String) {
     NSWorkspace.shared.open(URL(string: url)!)
   }

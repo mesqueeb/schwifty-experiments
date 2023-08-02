@@ -15,7 +15,7 @@ struct SWeather: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    CStack(scrollView: false, padding: nil) {
+    CStack(scrollView: false, padding: .none) {
       //      CNavigationHeader(title)
       CWeather()
     }

@@ -67,6 +67,8 @@ struct CResponsiveStacks<Content: View>: View {
             .font(.title2)
             .fontWeight(.semibold)
             .foregroundColor(.primary)
+            .background(.thickMaterial)
+            .cornerRadius(Space.sm)
         }
         .opacity(stackVC.sidenavShown != .all ? 1 : 0)
         .zIndex(stackVC.sidenavShown != .all ? 1 : -1)

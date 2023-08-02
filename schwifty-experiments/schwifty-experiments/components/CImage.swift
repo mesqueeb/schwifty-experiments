@@ -1,3 +1,4 @@
+import CachedAsyncImage
 import SwiftUI
 
 enum AspectRatio {
@@ -38,21 +39,22 @@ struct CImage: View {
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    AsyncImage(url: URL(string: url)) { image in
-      image
-        .resizable()
-        .aspectRatio(contentMode: contentMode) // this is the magic trick
-        .frame(
-          minWidth: 0,
-          maxWidth: .infinity,
-          minHeight: 0,
-          maxHeight: .infinity
-        )
-        .aspectRatio(aspectRatio.size, contentMode: .fit)
-        .clipped()
-    } placeholder: {
-      ProgressView()
+    Group {
+      CachedAsyncImage(url: URL(string: url)) { image in
+        image.resizable()
+      } placeholder: {
+        ProgressView()
+      }
     }
+    .aspectRatio(contentMode: contentMode) // this is the magic trick
+    .frame(
+      minWidth: 0,
+      maxWidth: .infinity,
+      minHeight: 0,
+      maxHeight: .infinity
+    )
+    .aspectRatio(aspectRatio.size, contentMode: .fit)
+    .clipped()
   }
 }
 

@@ -1,6 +1,6 @@
 import SwiftUI
 
-@Observable class ShowToast {
+@Observable final class ShowToast {
   public var isShowing = false
 
   public var message = ""

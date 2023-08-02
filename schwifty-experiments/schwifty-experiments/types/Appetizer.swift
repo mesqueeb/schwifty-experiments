@@ -1,8 +1,8 @@
 
 import Foundation
 
-struct Appetizer: Decodable, Identifiable {
-  let id: Int
+struct Appetizer: Decodable, Identifiable, DocProtocol {
+  let id: String
   let name: String
   let description: String
   let price: Double
@@ -10,44 +10,34 @@ struct Appetizer: Decodable, Identifiable {
   let calories: Int
   let protein: Int
   let carbs: Int
-}
 
-enum AppetizerMockData {
-  static let sampleAppetizer = Appetizer(id: 0001,
-                                         name: "Test Appetizer",
-                                         description: "This is the description for my appetizer. It's yummy.",
-                                         price: 9.99,
-                                         imageURL: "https://images.pexels.com/photos/434283/pexels-photo-434283.jpeg?auto=compress&cs=tinysrgb&w=800",
-                                         calories: 99,
-                                         protein: 99,
-                                         carbs: 99)
-    
-  static let orderItemOne = Appetizer(id: 0001,
-                                      name: "Test Appetizer One",
-                                      description: "This is the description for my appetizer. It's yummy.",
-                                      price: 9.99,
-                                      imageURL: "https://images.pexels.com/photos/434283/pexels-photo-434283.jpeg?auto=compress&cs=tinysrgb&w=800",
-                                      calories: 99,
-                                      protein: 99,
-                                      carbs: 99)
-    
-  static let orderItemTwo = Appetizer(id: 0002,
-                                      name: "Test Appetizer Two",
-                                      description: "This is the description for my appetizer. It's yummy.",
-                                      price: 9.99,
-                                      imageURL: "https://images.pexels.com/photos/302457/pexels-photo-302457.jpeg?auto=compress&cs=tinysrgb&w=800",
-                                      calories: 99,
-                                      protein: 99,
-                                      carbs: 99)
-    
-  static let orderItemThree = Appetizer(id: 0003,
-                                        name: "Test Appetizer Three",
-                                        description: "This is the description for my appetizer. It's yummy.",
-                                        price: 9.99,
-                                        imageURL: "https://images.pexels.com/photos/248413/pexels-photo-248413.jpeg?auto=compress&cs=tinysrgb&w=800",
-                                        calories: 99,
-                                        protein: 99,
-                                        carbs: 99)
-    
-  static let orderItems = [orderItemOne, orderItemTwo, orderItemThree]
+  // Define the coding keys corresponding to the JSON keys
+  enum CodingKeys: String, CodingKey {
+    case id
+    case name
+    case description
+    case price
+    case imageURL
+    case calories
+    case protein
+    case carbs
+  }
+
+  // Custom initializer to handle the decoding
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+
+    // Decode the id as an integer, then convert it to a string
+    let idInt = try container.decode(Int.self, forKey: .id)
+    id = String(idInt) // Convert the integer id to a string
+
+    // Decode the other properties normally
+    name = try container.decode(String.self, forKey: .name)
+    description = try container.decode(String.self, forKey: .description)
+    price = try container.decode(Double.self, forKey: .price)
+    imageURL = try container.decode(String.self, forKey: .imageURL)
+    calories = try container.decode(Int.self, forKey: .calories)
+    protein = try container.decode(Int.self, forKey: .protein)
+    carbs = try container.decode(Int.self, forKey: .carbs)
+  }
 }

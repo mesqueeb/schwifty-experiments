@@ -14,8 +14,9 @@ struct AppLayout: View {
     CResponsiveStacks(forRootIndex: index, pathToView: pathToView)
   }
 
-  @State var stackVC = StackVC(initialRootIndex: 1, [.appetizerList, .appetizerOrder, .portfolioFeed, .account])
+  @State var stackVC = StackVC(initialRootIndex: 0, [.appetizerList, .appetizerOrder, .portfolioFeed, .account])
   @State var safari = Safari()
+  @State var dbAppetizers = Collection<Appetizer>(fetchFn: NetworkManager<Appetizer>(fetchUrl: "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/appetizers").fetch)
 
   @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
@@ -26,6 +27,7 @@ struct AppLayout: View {
     CResponsiveTabView(tabs: tabs, tabIndexToView: tabIndexToView, currentIndex: $stackVC.rootIndex, sidenavShown: $stackVC.sidenavShown)
       .environment(stackVC)
       .environment(safari)
+      .environment(dbAppetizers)
       .onChange(of: horizontalSizeClass) { _, newSize in
         if newSize == .compact {
           stackVC.backupAndResetStacks()

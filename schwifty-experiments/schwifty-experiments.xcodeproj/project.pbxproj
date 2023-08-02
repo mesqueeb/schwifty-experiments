@@ -27,9 +27,13 @@
 		F75AC3342A70FC7200B108F8 /* CBarcodeCameraFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75AC3332A70FC7200B108F8 /* CBarcodeCameraFinder.swift */; };
 		F7751D782A61FE4400FAA861 /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7751D772A61FE4400FAA861 /* Framework.swift */; };
 		F77E0C212A7100390043B6BE /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77E0C202A7100390043B6BE /* ScannerVC.swift */; };
+		F77F8CC92A7A3547002AAE26 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8CC82A7A3547002AAE26 /* NetworkManager.swift */; };
+		F77F8CCC2A7A4A61002AAE26 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = F77F8CCB2A7A4A61002AAE26 /* CachedAsyncImage */; };
+		F77F8CCE2A7A80D6002AAE26 /* Magnetar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8CCD2A7A80D6002AAE26 /* Magnetar.swift */; };
+		F77F8CD02A7A83E8002AAE26 /* dbAppetizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F8CCF2A7A83E8002AAE26 /* dbAppetizers.swift */; };
 		F77FBD622A64A3F400CD3178 /* AppStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FBD612A64A3F400CD3178 /* AppStacks.swift */; };
 		F78D26D02A61642500B7B76E /* StackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D26CF2A61642500B7B76E /* StackVC.swift */; };
-		F7A76AE32A5AA2560000297C /* dbPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76AE22A5AA2560000297C /* dbPortfolio.swift */; };
+		F7A76AE32A5AA2560000297C /* dbPortfolios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A76AE22A5AA2560000297C /* dbPortfolios.swift */; };
 		F7B6CE042A62463B007364AF /* CResponsiveStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE032A62463B007364AF /* CResponsiveStacks.swift */; };
 		F7B6CE072A626F93007364AF /* textHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE062A626F93007364AF /* textHelpers.swift */; };
 		F7B6CE732A6272460036DAC8 /* CWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6CE722A6272460036DAC8 /* CWeather.swift */; };
@@ -77,9 +81,12 @@
 		F75AC3332A70FC7200B108F8 /* CBarcodeCameraFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBarcodeCameraFinder.swift; sourceTree = "<group>"; };
 		F7751D772A61FE4400FAA861 /* Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
 		F77E0C202A7100390043B6BE /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
+		F77F8CC82A7A3547002AAE26 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F77F8CCD2A7A80D6002AAE26 /* Magnetar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Magnetar.swift; sourceTree = "<group>"; };
+		F77F8CCF2A7A83E8002AAE26 /* dbAppetizers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dbAppetizers.swift; sourceTree = "<group>"; };
 		F77FBD612A64A3F400CD3178 /* AppStacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStacks.swift; sourceTree = "<group>"; };
 		F78D26CF2A61642500B7B76E /* StackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackVC.swift; sourceTree = "<group>"; };
-		F7A76AE22A5AA2560000297C /* dbPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbPortfolio.swift; sourceTree = "<group>"; };
+		F7A76AE22A5AA2560000297C /* dbPortfolios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbPortfolios.swift; sourceTree = "<group>"; };
 		F7B6CE032A62463B007364AF /* CResponsiveStacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CResponsiveStacks.swift; sourceTree = "<group>"; };
 		F7B6CE062A626F93007364AF /* textHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textHelpers.swift; sourceTree = "<group>"; };
 		F7B6CE722A6272460036DAC8 /* CWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWeather.swift; sourceTree = "<group>"; };
@@ -113,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F77F8CCC2A7A4A61002AAE26 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				F73B394E2A5BE3BC00997186 /* dbFramework.swift */,
-				F7A76AE22A5AA2560000297C /* dbPortfolio.swift */,
+				F7A76AE22A5AA2560000297C /* dbPortfolios.swift */,
+				F77F8CCF2A7A83E8002AAE26 /* dbAppetizers.swift */,
+				F77F8CCD2A7A80D6002AAE26 /* Magnetar.swift */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -140,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */,
+				F77F8CC82A7A3547002AAE26 /* NetworkManager.swift */,
 				F7B6CE062A626F93007364AF /* textHelpers.swift */,
 				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
 			);
@@ -270,6 +281,9 @@
 			dependencies = (
 			);
 			name = "schwifty-experiments";
+			packageProductDependencies = (
+				F77F8CCB2A7A4A61002AAE26 /* CachedAsyncImage */,
+			);
 			productName = "schwifty-experiments";
 			productReference = F7C7485B2A58EACD0075DE40 /* schwifty-experiments.app */;
 			productType = "com.apple.product-type.application";
@@ -298,6 +312,9 @@
 				Base,
 			);
 			mainGroup = F7C748522A58EACD0075DE40;
+			packageReferences = (
+				F77F8CCA2A7A4A61002AAE26 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+			);
 			productRefGroup = F7C7485C2A58EACD0075DE40 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -325,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F71CA82C2A708A0B0092C2D4 /* SWeather.swift in Sources */,
+				F77F8CC92A7A3547002AAE26 /* NetworkManager.swift in Sources */,
 				F75AC3322A70F77300B108F8 /* SBarcodeScanner.swift in Sources */,
 				F7C1525A2A60E8B60094FAFB /* Portfolio.swift in Sources */,
 				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
@@ -333,6 +351,7 @@
 				F717CBAD2A79D21F003D3433 /* CImage.swift in Sources */,
 				F7C748762A58F76E0075DE40 /* SAccount.swift in Sources */,
 				F7E99AF82A74898D0071A94E /* SAccountForm.swift in Sources */,
+				F77F8CD02A7A83E8002AAE26 /* dbAppetizers.swift in Sources */,
 				F7DDD1AA2A748B19006332E4 /* CFormAccount.swift in Sources */,
 				F7751D782A61FE4400FAA861 /* Framework.swift in Sources */,
 				F7D9E2492A77AC5B00C9AAD0 /* CNavigationList.swift in Sources */,
@@ -341,12 +360,13 @@
 				F71512EE2A5FEB1900D1B5A5 /* SPublicPortfolioCv.swift in Sources */,
 				F73B394F2A5BE3BC00997186 /* dbFramework.swift in Sources */,
 				F7C152582A60DCCB0094FAFB /* CResponsiveTabView.swift in Sources */,
+				F77F8CCE2A7A80D6002AAE26 /* Magnetar.swift in Sources */,
 				F75AC3342A70FC7200B108F8 /* CBarcodeCameraFinder.swift in Sources */,
 				F7B7DF032A5A3EF50068FDE5 /* StackTypes.swift in Sources */,
 				F73B39512A5BE47F00997186 /* CFrameworkGridTile.swift in Sources */,
 				F77FBD622A64A3F400CD3178 /* AppStacks.swift in Sources */,
 				F7B6CE042A62463B007364AF /* CResponsiveStacks.swift in Sources */,
-				F7A76AE32A5AA2560000297C /* dbPortfolio.swift in Sources */,
+				F7A76AE32A5AA2560000297C /* dbPortfolios.swift in Sources */,
 				F717CBA72A78C2B9003D3433 /* SAppetizerList.swift in Sources */,
 				F73B39572A5D339800997186 /* CSafariView.swift in Sources */,
 				F77E0C212A7100390043B6BE /* ScannerVC.swift in Sources */,
@@ -594,6 +614,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F77F8CCA2A7A4A61002AAE26 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F77F8CCB2A7A4A61002AAE26 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F77F8CCA2A7A4A61002AAE26 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F7C748532A58EACD0075DE40 /* Project object */;
 }

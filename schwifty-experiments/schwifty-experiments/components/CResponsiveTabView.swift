@@ -129,7 +129,7 @@ struct CResponsiveTabView<Content: View>: View {
   @ViewBuilder func tabIndexToView(_ index: Int) -> some View {
     switch index {
     case 0:
-      Text("Weather 🍕🧑🏼‍💻")
+      ScrollView { Text("Weather 🍕🧑🏼‍💻") }
     case 1:
       Text("Portfolios 🍕🧑🏼‍💻")
     case 2:

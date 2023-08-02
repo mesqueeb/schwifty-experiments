@@ -20,18 +20,21 @@ struct CAppetizerRow: View {
         CImage(url: item.imageURL, contentMode: .fill, aspectRatio: .square)
           .frame(width: 100)
           .clipShape(RoundedRectangle(cornerRadius: Space.sm))
-        VStack(alignment: .leading, spacing: Space.sm) {
+        VStack(alignment: .leading, spacing: Space.xs) {
           Text(item.name).font(.headline)
+          Text("$\(item.price, specifier: "%.2f")").font(.caption)
           Text(item.description).font(.caption).foregroundColor(.secondary)
         }
+        Spacer()
       }
-      .padding(Space.xs)
       .contentShape(Rectangle())
     }
     .buttonStyle(.plain)
   }
 }
 
-#Preview {
-  CAppetizerRow(item: AppetizerMockData.orderItemOne)
-}
+// #Preview {
+//  dbAppetizers.fetch()
+//
+//  return CAppetizerRow(item: dbAppetizers.values?.first)
+// }

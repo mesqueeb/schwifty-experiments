@@ -4,11 +4,11 @@ import SwiftUI
 ///
 /// It provides functions and properties to navigate through different stacks of views,
 /// and to query the current navigation state.
-@Observable class StackVC {
+@Observable final class StackVC {
   // ╔═══════╗
   // ║ State ║
   // ╚═══════╝
-  public var sidenavShown: NavigationSplitViewVisibility = .all
+  public var sidenavShown: NavigationSplitViewVisibility = .automatic
   public var rootIndex: Int {
     didSet {
       Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in

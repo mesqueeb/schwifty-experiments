@@ -9,21 +9,23 @@ struct SAppetizerList: View {
   // ╔═══════╗
   // ║ Setup ║
   // ╚═══════╝
-  @Environment(StackVC.self) private var stackVC
+  @Environment(Collection<Appetizer>.self) private var dbAppetizers
 
   // ╔══════════╗
   // ║ Template ║
   // ╚══════════╝
   var body: some View {
-    CStack(scrollView: true, padding: .a) {
-      VStack {
-        CNavigationHeader(path, "Appetizers")
+    CStack(scrollView: true, padding: .a, alignment: .leading) {
+      CNavigationHeader(self.path, "Appetizers")
 
-        ForEach(AppetizerMockData.orderItems) { item in
+      LazyVStack {
+        ForEach(dbAppetizers.values) { item in
           CAppetizerRow(item: item)
-            .frame(width: .infinity)
         }
       }
+    }
+    .task {
+      await dbAppetizers.fetch()
     }
   }
 }
@@ -31,7 +33,7 @@ struct SAppetizerList: View {
 #Preview {
   let stackPathPerRootIndex: [StackPath] = [.weather, .portfolioFeed, .frameworks, .account]
 
-  @State var stackVC = StackVC(initialRootIndex: 1, stackPathPerRootIndex)
+  @State var stackVC = StackVC(initialRootIndex: 0, stackPathPerRootIndex)
 
   return SAppetizerList(path: ._404)
     .environment(stackVC)

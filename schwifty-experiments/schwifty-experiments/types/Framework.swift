@@ -1,5 +1,5 @@
 
-struct Framework: Identifiable {
+struct Framework: Identifiable, DocProtocol {
   let id: String
   let name: String
   let imageName: String
