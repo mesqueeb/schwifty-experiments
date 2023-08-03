@@ -78,7 +78,7 @@ protocol DocProtocol {
       let results = try await fetchFn()
       docMap = results.reduce(into: [String: T]()) { $0[$1.id] = $1 }
     } catch {
-      print(error.localizedDescription)
+      toasts.show(error.localizedDescription)
     }
   }
 }

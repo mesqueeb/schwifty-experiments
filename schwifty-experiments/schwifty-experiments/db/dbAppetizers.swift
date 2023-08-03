@@ -1,5 +1,7 @@
 import Foundation
 
+let dbAppetizers = Collection<Appetizer>(fetchFn: NetworkManager<Appetizer>(fetchUrl: "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/appetizers").fetch)
+
 // { [
 //  Appetizer(id: UUID().uuidString,
 //            name: "Test Appetizer One",

@@ -30,6 +30,9 @@ struct SPortfolioFeed: View {
         }
       }
     }
+    .task {
+      await dbPortfolios.fetch()
+    }
   }
 }
 

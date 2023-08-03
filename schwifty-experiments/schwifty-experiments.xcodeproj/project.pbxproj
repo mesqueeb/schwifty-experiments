@@ -45,7 +45,7 @@
 		F7C7485F2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7485E2A58EACD0075DE40 /* SchwiftyExperimentsApp.swift */; };
 		F7C748632A58EACF0075DE40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748622A58EACF0075DE40 /* Assets.xcassets */; };
 		F7C748672A58EACF0075DE40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */; };
-		F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */; };
+		F7C748702A58F5FF0075DE40 /* Toasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C7486F2A58F5FF0075DE40 /* Toasts.swift */; };
 		F7C748722A58F6130075DE40 /* CWeatherDayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748712A58F6130075DE40 /* CWeatherDayTile.swift */; };
 		F7C748762A58F76E0075DE40 /* SAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748752A58F76E0075DE40 /* SAccount.swift */; };
 		F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C748772A58F7C30075DE40 /* AppLayout.swift */; };
@@ -100,7 +100,7 @@
 		F7C748622A58EACF0075DE40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7C748642A58EACF0075DE40 /* schwifty_experiments.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = schwifty_experiments.entitlements; sourceTree = "<group>"; };
 		F7C748662A58EACF0075DE40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowToast.swift; sourceTree = "<group>"; };
+		F7C7486F2A58F5FF0075DE40 /* Toasts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toasts.swift; sourceTree = "<group>"; };
 		F7C748712A58F6130075DE40 /* CWeatherDayTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWeatherDayTile.swift; sourceTree = "<group>"; };
 		F7C748752A58F76E0075DE40 /* SAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAccount.swift; sourceTree = "<group>"; };
 		F7C748772A58F7C30075DE40 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				F7DDD8992A710F6D00C0CB87 /* ShowAlert.swift */,
 				F77F8CC82A7A3547002AAE26 /* NetworkManager.swift */,
 				F7B6CE062A626F93007364AF /* textHelpers.swift */,
-				F7C7486F2A58F5FF0075DE40 /* ShowToast.swift */,
+				F7C7486F2A58F5FF0075DE40 /* Toasts.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 				F7C1525A2A60E8B60094FAFB /* Portfolio.swift in Sources */,
 				F7C748782A58F7C30075DE40 /* AppLayout.swift in Sources */,
 				F7E99AF62A7404A70071A94E /* SPublicPortfolioCvEntry.swift in Sources */,
-				F7C748702A58F5FF0075DE40 /* ShowToast.swift in Sources */,
+				F7C748702A58F5FF0075DE40 /* Toasts.swift in Sources */,
 				F717CBAD2A79D21F003D3433 /* CImage.swift in Sources */,
 				F7C748762A58F76E0075DE40 /* SAccount.swift in Sources */,
 				F7E99AF82A74898D0071A94E /* SAccountForm.swift in Sources */,
